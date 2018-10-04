@@ -1,0 +1,349 @@
+<!doctype html>
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Portfolio of MBM, full-stack developer">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Marcos Bustamante Mateo</title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="funtions.js"></script>
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-pink.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #view-source {
+            position: fixed;
+            display: block;
+            right: 0;
+            bottom: 0;
+            margin-right: 40px;
+            margin-bottom: 40px;
+            z-index: 900;
+        }
+    </style>
+</head>
+
+<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-footer">
+        <!-- Cabecera -->
+        <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+            <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+                <a href="#overview" class="mdl-layout__tab is-active">Home</a>
+                <a href="#skills" class="mdl-layout__tab">Skills</a>
+                <a href="#contact" class="mdl-layout__tab">Contact</a>
+            </div>
+        </header>
+
+        <!-- Cuerpo-->
+        <main class="mdl-layout__content" style="flex: 1 0 auto;">
+            <div class="mdl-layout__tab-panel is-active" id="overview">
+
+                <div>
+                    <section class="section--center mdl-grid mdl-grid--no-spacing">
+                        <h2 id="saludo">Hello World!</h2>
+                    </section>
+                </div>
+                <!-- Presentación -->
+                <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                    <header class="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--teal-100 mdl-color-text--white">
+                        <i class="material-icons" style="background-color: white;">
+                            <img id="traje" src="traje.png" style="width: 100%; opacity: 0.9;" />
+                        </i>
+                    </header>
+                    <div class="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+                        <div class="mdl-card__supporting-text">
+                            <p id="texto"></p>
+                            <p id="texto2"></p>
+                            <p id="texto3"></p>
+                            <p id="texto4"></p>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- Info nuevos proyectos-->
+                <div>
+                    <section class="section--center mdl-grid mdl-grid--no-spacing">
+                        <h2>Want to see my portfolio?</h2>
+                    </section>
+                </div>
+
+                <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+
+                    <div class="mdl-card mdl-cell mdl-cell--12-col">
+                        <div class="mdl-card__supporting-text">
+                            Every day I'm working on something new. Follow me on social media to find out what I'm working on!.
+                            <i id="linkedin" class="icon-linkedin-sign"></i>
+                        </div>
+                        <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                                <div class="section__circle-container__circle mdl-color--primary">
+                                    <a target="_blank" href="https://www.facebook.com/marcosbustamantemateo"><img class="foto fondoBlanco" src="https://en.facebookbrand.com/wp-content/uploads/2016/05/flogo_rgb_hex-brc-site-250.png" /></a>
+                                </div>
+                            </div>
+                            <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                                <a target="_blank" href="https://www.facebook.com/marcosbustamantemateo">
+                                    <h5>FACEBOOK PAGE</h5>
+                                </a>
+                                FULL-STACK DEVELOPER
+                            </div>
+                            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                                <div class="section__circle-container__circle mdl-color--primary">
+                                    <a target="_blank" href="https://www.instagram.com/marcosbustamantemateo"><img class="foto" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/600px-Instagram_logo_2016.svg.png" /></a>
+                                </div>
+                            </div>
+                            <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                                <a target="_blank" href="https://www.instagram.com/marcosbustamantemateo">
+                                    <h5>INSTAGRAM</h5>
+                                </a>
+                                @marcosbustamantemateo
+                            </div>
+
+                        </div>
+                        <!--<div class="mdl-card__actions">
+                                <a href="#" class="mdl-button">ONLY?... NOPE</a>
+                            </div>-->
+                    </div>
+                </section>
+
+
+                <!--<section class="section--center mdl-grid mdl-grid--no-spacing">
+                    <div class="mdl-cell mdl-cell--12-col">
+                        Follow on my social networks for news.
+                    </div>
+                </section>-->
+
+                <section class="section--center mdl-grid mdl-grid--no-spacing">
+                    <h2>Testimonials</h2>
+                </section>
+
+                <!-- Opiniones -->
+                <section class="section--footer mdl-color--white mdl-grid">
+
+
+                    <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                        <div class="section__circle-container__circle mdl-color--accent section__circle--big">
+                            <img class="foto circulo" src="https://media.licdn.com/dms/image/C5603AQEnaHszrO0j4w/profile-displayphoto-shrink_100_100/0?e=1544054400&v=beta&t=dwTofLfKRb32LgPJJe4XKavSZVAqrdTZTv3ITvsJJ9Q" style="width: 100%;" />
+                        </div>
+                    </div>
+                    <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                        <h5>Francisco Javier Ruano</h5>
+                        <blockquote id="opinion1">
+                            Marcos es una persona que siempre está investigando y buscando nuevas posibilidades para un proyecto, una garantía de estar siempre a la última tecnología. Muy trabajador cuando algo le apasiona. Gran compañero.
+                        </blockquote>
+                    </div>
+
+                    <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                        <div class="section__circle-container__circle mdl-color--accent section__circle--big">
+                            <img class="foto circulo" src="https://media.licdn.com/dms/image/C4D03AQEV3ceaKE6fdg/profile-displayphoto-shrink_800_800/0?e=1544054400&v=beta&t=phQoBoO7-uMeKqK4ForaNtu3JwHIxsbbHbp56Ry5y9c" style="width: 100%;" />
+                        </div>
+                    </div>
+                    <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                        <h5>Alvaro Sanchez Cabrera</h5>
+                        <blockquote id="opinion2">
+                            Gran profesional, buen compañero y apasionado de las tecnologías.
+                        </blockquote>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Tecnologías -->
+            <div class="mdl-layout__tab-panel" id="skills">
+                <section class="section--center mdl-grid mdl-grid--no-spacing">
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <h2>Skills</h2>
+                        Like some full-stack developer, I focused on one of both. In my case, specialized on backend<br> Here there is a list of my special skills...
+
+                    </div>
+                </section>
+
+                <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                    <div class="mdl-card mdl-cell mdl-cell--12-col">
+                        <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                                <div class="section__circle-container__circle mdl-color--primary"><img class="foto fondoBlanco" src="https://cdn.freebiesupply.com/logos/large/2x/spring-3-logo-png-transparent.png" /></div>
+                            </div>
+                            <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                                <h5>SPRING FRAMEWORK</h5>
+                                Spring Boot, Spring Security, Microservices, Thymeleaf
+                            </div>
+                            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                                <div class="section__circle-container__circle mdl-color--primary"><img class="foto" src="http://provp.sd-grp.com/wp-content/uploads/2014/03/ASP-NET-LOGO.png" /></div>
+                            </div>
+                            <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                                <h5>ASP .NET</h5>
+                                Microservices
+                            </div>
+                            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                                <div class="section__circle-container__circle mdl-color--primary"><img class="foto fondoBlanco" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/GraphQL_Logo.svg/2000px-GraphQL_Logo.svg.png" /></div>
+                            </div>
+                            <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                                <h5>GRAPHQL</h5>
+                                Scalable API´s
+                            </div>
+
+                            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                                <div class="section__circle-container__circle mdl-color--primary"><img class="foto fondoBlanco" src="https://angular.io/assets/images/logos/angular/angular.png" /></div>
+                            </div>
+                            <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                                <h5>ANGULAR</h5>
+                                Reactive Web SPA, CLI, Pipes, HTTP Service, Apollo
+                            </div>
+                        </div>
+                        <!--<div class="mdl-card__actions">
+                            <a href="#" class="mdl-button">ONLY?... NOPE</a>
+                        </div>-->
+                    </div>
+                </section>
+
+                <section class="section--center mdl-grid mdl-grid--no-spacing">
+                    <div class="mdl-cell mdl-cell--12-col">
+                    </div>
+                </section>
+
+                <section class="section--center mdl-grid mdl-grid--no-spacing">
+                    <div class="mdl-cell mdl-cell--12-col">
+
+
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Contacto -->
+            <div class="mdl-layout__tab-panel" id="contact">
+                <section class="section--center mdl-grid mdl-grid--no-spacing">
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <h2>Contact</h2>
+                        If you are interested in my services you can contact me via.
+                    </div>
+                </section>
+
+                <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                    <div class="mdl-card mdl-cell mdl-cell--12-col">
+                        <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                                <div class="section__circle-container__circle mdl-color--primary">
+                                    <a href="tel:+34645506946"><img class="foto fondoBlanco" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/WhatsApp_logo-color-vertical.svg/600px-WhatsApp_logo-color-vertical.svg.png" /></a>
+                                </div>
+                            </div>
+                            <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                                <a href="tel:+34645506946">
+                                    <h5>PHONE</h5>
+                                </a>
+                                +34 645 50 69 46
+                            </div>
+                            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                                <div class="section__circle-container__circle mdl-color--primary">
+                                    <a href="mailto:marcosbustamantemateo@gmail.com"><img class="foto fondoBlanco" src="data:image/jpeg;base64,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"
+                                        /></a>
+                                </div>
+                            </div>
+                            <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                                <a href="mailto:marcosbustamantemateo@gmail.com">
+                                    <h5>EMAIL</h5>
+                                </a>
+                                marcosbustamantemateo@gmail.com
+                            </div>
+
+                            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                                <div class="section__circle-container__circle mdl-color--primary">
+                                    <a target="_blank" href="https://www.linkedin.com/in/marcos-bustamante/"><img class="foto fondoBlanco" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" /></a>
+                                </div>
+                            </div>
+                            <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                                <a target="_blank" href="https://www.linkedin.com/in/marcos-bustamante/">
+                                    <h5>LINKEDIN</h5>
+                                </a>
+                                All about my education and job experience.
+                            </div>
+                            <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                                <div class="section__circle-container__circle mdl-color--primary">
+                                    <a target="_blank" href="https://www.workana.com/freelancer/marcos-de-bustamante?utm_source=share-profile&utm_medium=email&utm_campaign=share-2018-10-04
+
+                                    "><img class="foto fondoBlanco" src="data:image/jpeg;base64,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"
+                                        /></a>
+                                </div>
+                            </div>
+                            <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                                <a target="_blank" href="https://www.workana.com/freelancer/marcos-de-bustamante?utm_source=share-profile&utm_medium=email&utm_campaign=share-2018-10-04
+
+                                    ">
+                                    <h5>WORKANA</h5>
+                                </a>
+                                My freelancer works.
+                            </div>
+                        </div>
+                        <!--<div class="mdl-card__actions">
+                            <a href="#" class="mdl-button">ONLY?... NOPE</a>
+                        </div>-->
+                    </div>
+                </section>
+
+                <section class="section--center mdl-grid mdl-grid--no-spacing">
+                    <h2>Location</h2>
+                </section>
+
+                <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                    <div class="mdl-card mdl-cell mdl-cell--12-col">
+                        <div class="mdl-card__supporting-text">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d42651.21258986284!2d-5.966089636536398!3d37.38816871937915!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1538604515944" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        </div>
+
+                    </div>
+                </section>
+
+                <section class="section--center mdl-grid mdl-grid--no-spacing">
+                    <div class="mdl-cell mdl-cell--12-col">
+
+
+                    </div>
+                </section>
+            </div>
+
+
+            <!-- Pie -->
+            <footer class="mdl-mega-footer">
+
+                <div class="mdl-mega-footer--bottom-section">
+                    <div class="mdl-logo">
+                        © 2018 MBM
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+    <a href="tel:+34645506946" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast"><i class="material-icons">
+        settings_phone
+        </i> Call now!</a>
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</body>
+
+</html>
