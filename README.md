@@ -1,2 +1,2 @@
-# portfolio
-personal web page
+Welcome to my personal website!!
+Full stack developer
