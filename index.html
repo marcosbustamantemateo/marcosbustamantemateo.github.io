@@ -39,6 +39,7 @@
 
 <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-footer">
+      
         <!-- Cabecera -->
         <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
             <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
@@ -52,7 +53,13 @@
             </div>
           <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
                 <i class="material-icons">more_vert</i>
-              </button>
+          </button>
+          <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+            <li class="mdl-menu__item">Translate</li>
+            <li class="mdl-menu__item">Share</li>
+            <li disabled class="mdl-menu__item">Disabled Action</li>
+            <li class="mdl-menu__item">Yet Another Action</li>
+          </ul>
         </header>
 
         <!-- Cuerpo-->
