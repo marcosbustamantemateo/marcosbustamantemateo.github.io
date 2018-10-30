@@ -309,13 +309,6 @@ body {
     opacity: 0;
 }
 
-#saludo {
-    position: relative;
-    left: 500px;
-    font-family: 'Impact', 'fantasy';
-    opacity: 0;
-}
-
 #texto2 {
     font-weight: bold;
 }
