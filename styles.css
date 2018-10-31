@@ -303,6 +303,12 @@ body {
     border-radius: 50%;
 }
 
+#saludo {
+    position: relative;
+    left: 500px;
+    opacity: 0;
+}
+
 #traje {
     position: relative;
     right: 500px;
