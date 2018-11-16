@@ -1,0 +1,35 @@
+{
+    "name": "Marcos Bustamante Mateo",
+    "short_name": "MBM",
+    "icons": [{
+            "src": "logo.ico",
+            "type": "image/png",
+            "sizes": "48x48"
+        },
+        {
+            "src": "logo.ico",
+            "type": "image/png",
+            "sizes": "144x144"
+        },
+        {
+            "src": "logo.ico",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "logo.ico",
+            "type": "image/png",
+            "sizes": "256x256"
+        },
+        {
+            "src": "logo.ico",
+            "type": "image/png",
+            "sizes": "348x348"
+        }
+    ],
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#fff",
+    "theme_color": "#ee0979",
+    "description": "Website of Marcos Bustamante Mateo, Full Stack Developer"
+}
