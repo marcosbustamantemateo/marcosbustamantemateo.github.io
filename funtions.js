@@ -1,11 +1,4 @@
 $(document).ready(function() {
-
-    $(function() {
-  $(".social a").tooltip({
-    placement: "right",
-    container: 'body'
-  });
-});
     
     var modoMovil = false;
 
