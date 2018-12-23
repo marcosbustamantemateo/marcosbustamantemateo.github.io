@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     $(function() {
-  $('.social a').tooltip({
+  $(".social a").tooltip({
     placement: "right",
     container: 'body'
   });
