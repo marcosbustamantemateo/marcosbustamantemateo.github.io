@@ -1,5 +1,12 @@
 $(document).ready(function() {
 
+    $(function() {
+  $('.social a').tooltip({
+    placement: "right",
+    container: 'body'
+  });
+});
+    
     var modoMovil = false;
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
