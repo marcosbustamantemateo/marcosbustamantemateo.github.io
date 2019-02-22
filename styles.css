@@ -293,6 +293,11 @@ body {
 
 .foto {
     width: 100%;
+    heigth: 100%;
+}
+
+.cuadrado {
+    border-raiuds: 15px;
 }
 
 .fondoBlanco {
