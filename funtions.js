@@ -59,32 +59,6 @@ $(document).ready(function() {
         $("#view-source").attr("href", "mailto:marcosbustamantemateo@gmail.com");
         $("#view-source").html("<i class='material-icons'>comment</i> TEXT NOW!");
     }
-
-    var deferredPrompt;
-    window.addEventListener('beforeinstallprompt', function(e) {
-        e.preventDefault();
-        deferredPrompt = e;
-        return false;
-    });
-
-});
-
-$("#botonDescargar").on("click", function () {
-
-    if(deferredPrompt !== undefined) {
-
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.then(function(choiceResult) {
-        
-          if(choiceResult.outcome == 'dismissed') {
-            console.log('User cancelled home screen install');
-          }
-          else {
-            console.log('User added to home screen');
-          } 
-          deferredPrompt = null;
-        });
-    }
 });
 
 var showText = function(target, message, index, interval) {
