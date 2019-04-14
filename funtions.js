@@ -69,7 +69,7 @@ $(document).ready(function() {
 
 });
 
-$("#logoHome").on("click", function () {
+$("#botonDescargar").on("click", function () {
 
     if(deferredPrompt !== undefined) {
 
