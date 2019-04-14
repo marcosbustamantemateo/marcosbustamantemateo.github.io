@@ -61,19 +61,6 @@ $(document).ready(function() {
     }
 });
 
-var deferredPrompt;
-
-window.addEventListener('beforeinstallprompt', function (e) {
-  // Prevent Chrome 67 and earlier from automatically showing the prompt
-  e.preventDefault();
-  // Stash the event so it can be triggered later.
-  deferredPrompt = e;
-  var a2hsBtn = document.querySelector(".ad2hs-prompt");  // hide our user interface that shows our A2HS button
-  a2hsBtn.style.display = 'none';  // Show the prompt
-  deferredPrompt.prompt();
-
-});
-
 var showText = function(target, message, index, interval) {
 
     if (index < message.length) {
