@@ -1,6 +1,13 @@
 {
+    "author": "Marcos Bustamante Mateo",
     "name": "Marcos Bustamante Mateo",
     "short_name": "MBM",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#fff",
+    "theme_color": "#ee0979",
+    "description": "Website of Marcos Bustamante Mateo, Full Stack Developer",
+    "scope": "/",
     "icons": [{
             "src": "logo.png",
             "type": "image/png",
@@ -40,12 +47,11 @@
             "src": "logo.png",
             "type": "image/png",
             "sizes": "348x348"
+        },
+        {
+            "src": "logo.png",
+            "type": "image/png",
+            "sizes": "512x512"
         }
-    ],
-    "start_url": "index.html",
-    "display": "standalone",
-    "background_color": "#fff",
-    "theme_color": "#ee0979",
-    "description": "Website of Marcos Bustamante Mateo, Full Stack Developer",
-    "scope": "/"
+    ]
 }
