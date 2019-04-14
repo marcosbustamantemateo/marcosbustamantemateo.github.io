@@ -31,5 +31,6 @@
     "display": "standalone",
     "background_color": "#fff",
     "theme_color": "#ee0979",
-    "description": "Website of Marcos Bustamante Mateo, Full Stack Developer"
+    "description": "Website of Marcos Bustamante Mateo, Full Stack Developer",
+    "scope": "/"
 }
