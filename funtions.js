@@ -1,4 +1,10 @@
 $(document).ready(function() {
+
+    try {
+        $("#home").on("click", function (){});
+    } catch (error) {
+        
+    }
     
     var modoMovil = false;
 
