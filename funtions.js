@@ -59,7 +59,7 @@ const imprimeTexto = (target, message, index, interval) => {
         $(target).append(message[index++]);
         
         setTimeout(function() {
-            showText(target, message, index, interval);
+            imprimeTexto(target, message, index, interval);
         }, interval);
     }
 };
