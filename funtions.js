@@ -59,19 +59,11 @@ $(document).ready(function() {
         $("#view-source").attr("href", "mailto:marcosbustamantemateo@gmail.com");
         $("#view-source").html("<i class='material-icons'>comment</i> TEXT NOW!");
     }
-});
 
-try {
-    $("#home").on("click", function () { });
-} catch (error) {
-    
-}
-
-$("#home").on("click", function () {
     try {
-        
+        $("#home").on("click", function (){});
     } catch (error) {
-        alert(error);
+        
     }
 });
 
