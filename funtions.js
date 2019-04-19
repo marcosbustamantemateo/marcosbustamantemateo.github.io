@@ -61,6 +61,12 @@ $(document).ready(function() {
     }
 });
 
+try {
+    $("#home").on("click", function () { });
+} catch (error) {
+    
+}
+
 $("#home").on("click", function () {
     try {
         
