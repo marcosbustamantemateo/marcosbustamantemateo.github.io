@@ -2,11 +2,6 @@ $(document).ready(function() {
 
     let MODO_MOVIL = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) ? true : false;
     let ANCHURA_FOTO = parseInt($("#fotoCirculo").css("width"));
-    let TEXTO = "I´m Marcos Bustamante, ";
-    let TEXTO_DOS = "Full-stack developer ";
-    let TEXTO_TRES = "Based in Spain with a great focus on creating clean & user friendly code.";
-    let TEXTO_CUATRO = "Let me show you more about me.";
-    let TIEMPO_COMUN = TEXTO.length * 50;
 
     $("#traje").width(ANCHURA_FOTO + ANCHURA_FOTO / 2);
 
@@ -33,6 +28,12 @@ $(document).ready(function() {
 });
 
 const animacionTexto = () => {
+
+    let TEXTO = "I´m Marcos Bustamante, ";
+    let TEXTO_DOS = "Full-stack developer ";
+    let TEXTO_TRES = "Based in Spain with a great focus on creating clean & user friendly code.";
+    let TEXTO_CUATRO = "Let me show you more about me.";
+    let TIEMPO_COMUN = TEXTO.length * 50;
 
     setTimeout(function() {
         imprimeTexto("#texto", TEXTO, 0, 50);
