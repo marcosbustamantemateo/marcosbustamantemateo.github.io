@@ -6,14 +6,8 @@ $(document).ready(function() {
         
     }
     
-    var modoMovil = false;
-
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-
-        modoMovil = true;
-    }
-
-    var anchuraFoto = parseInt($("#fotoCirculo").css("width"));
+    let modoMovil = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) ? true : false;
+    let anchuraFoto = parseInt($("#fotoCirculo").css("width"));
     
     $("#traje").width(anchuraFoto + anchuraFoto / 2);
 
@@ -28,29 +22,25 @@ $(document).ready(function() {
     }, 1000, function() {
 
 
-        var texto = "I´m Marcos Bustamante, ";
-        var texto2 = "Full-stack developer ";
-        var texto3 = "Based in Spain with a great focus on creating clean & user friendly code.";
-        var texto4 = "Let me show you more about me.";
+        let texto = "I´m Marcos Bustamante, ";
+        let texto2 = "Full-stack developer ";
+        let texto3 = "Based in Spain with a great focus on creating clean & user friendly code.";
+        let texto4 = "Let me show you more about me.";
 
 
         window.setTimeout(function() {
-
             showText("#texto", texto, 0, 50);
         }, 0);
 
         window.setTimeout(function() {
-
             showText("#texto2", texto2, 0, 50);
         }, texto.length * 50);
 
         window.setTimeout(function() {
-
             showText("#texto3", texto3, 0, 50);
         }, texto.length * 50 + texto2.length * 50);
 
         window.setTimeout(function() {
-
             showText("#texto4", texto4, 0, 50);
         }, texto.length * 50 + texto2.length * 50 + texto3.length * 50);
     });
