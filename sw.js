@@ -7,19 +7,19 @@ var URLS_TO_CACHE = [
   '/traje.png'
 ];
 
-self.addEventListener('install', function(event) {
+self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(function(cache) {
+      .then(cache => {
         return cache.addAll(URLS_TO_CACHE);
       })
   );
 });
 
-self.addEventListener('fetch', function(event) {
+self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
-      .then(function(response) {
+      .then(response => {
           return response ? response : fetch(event.request);
       }
     )
