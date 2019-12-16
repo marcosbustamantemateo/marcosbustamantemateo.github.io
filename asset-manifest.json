@@ -1,18 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.9f83da0b.chunk.css",
-    "main.js": "/static/js/main.03caf92c.chunk.js",
-    "main.js.map": "/static/js/main.03caf92c.chunk.js.map",
-    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
-    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-    "static/css/2.400ebc83.chunk.css": "/static/css/2.400ebc83.chunk.css",
-    "static/js/2.198e18b6.chunk.js": "/static/js/2.198e18b6.chunk.js",
-    "static/js/2.198e18b6.chunk.js.map": "/static/js/2.198e18b6.chunk.js.map",
+    "main.css": "/static/css/main.e9208f12.chunk.css",
+    "main.js": "/static/js/main.780d5b40.chunk.js",
+    "main.js.map": "/static/js/main.780d5b40.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.170f8412.js",
+    "runtime-main.js.map": "/static/js/runtime-main.170f8412.js.map",
+    "static/css/2.0eaf8e31.chunk.css": "/static/css/2.0eaf8e31.chunk.css",
+    "static/js/2.a2eb0f55.chunk.js": "/static/js/2.a2eb0f55.chunk.js",
+    "static/js/2.a2eb0f55.chunk.js.map": "/static/js/2.a2eb0f55.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.daa775be7515ca91f42b5cf0361f68ec.js": "/precache-manifest.daa775be7515ca91f42b5cf0361f68ec.js",
+    "precache-manifest.c68bd37e36d855039cb5d72752b8d171.js": "/precache-manifest.c68bd37e36d855039cb5d72752b8d171.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/2.400ebc83.chunk.css.map": "/static/css/2.400ebc83.chunk.css.map",
-    "static/css/main.9f83da0b.chunk.css.map": "/static/css/main.9f83da0b.chunk.css.map",
+    "static/css/2.0eaf8e31.chunk.css.map": "/static/css/2.0eaf8e31.chunk.css.map",
+    "static/css/main.e9208f12.chunk.css.map": "/static/css/main.e9208f12.chunk.css.map",
+    "static/js/2.a2eb0f55.chunk.js.LICENSE": "/static/js/2.a2eb0f55.chunk.js.LICENSE",
     "static/media/angular.svg": "/static/media/angular.1690390a.svg",
     "static/media/asc.jpg": "/static/media/asc.67045775.jpg",
     "static/media/backgroundHome.jpg": "/static/media/backgroundHome.a2ed8e0b.jpg",
@@ -32,5 +33,12 @@
     "static/media/svn.png": "/static/media/svn.c4a66f6a.png",
     "static/media/whatsapp.png": "/static/media/whatsapp.edde926e.png",
     "static/media/xamarin.png": "/static/media/xamarin.a836fa59.png"
-  }
+  },
+  "entrypoints": [
+    "static/js/runtime-main.170f8412.js",
+    "static/css/2.0eaf8e31.chunk.css",
+    "static/js/2.a2eb0f55.chunk.js",
+    "static/css/main.e9208f12.chunk.css",
+    "static/js/main.780d5b40.chunk.js"
+  ]
 }
