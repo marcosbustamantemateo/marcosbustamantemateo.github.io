@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/static/css/main.4e489932.chunk.css",
-    "main.js": "/static/js/main.abbc1fcb.chunk.js",
-    "main.js.map": "/static/js/main.abbc1fcb.chunk.js.map",
+    "main.js": "/static/js/main.d0b2c9b9.chunk.js",
+    "main.js.map": "/static/js/main.d0b2c9b9.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.d31322ff.js",
     "runtime-main.js.map": "/static/js/runtime-main.d31322ff.js.map",
     "static/css/2.ab965100.chunk.css": "/static/css/2.ab965100.chunk.css",
-    "static/js/2.fd5ab1db.chunk.js": "/static/js/2.fd5ab1db.chunk.js",
-    "static/js/2.fd5ab1db.chunk.js.map": "/static/js/2.fd5ab1db.chunk.js.map",
+    "static/js/2.5a425cb4.chunk.js": "/static/js/2.5a425cb4.chunk.js",
+    "static/js/2.5a425cb4.chunk.js.map": "/static/js/2.5a425cb4.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.cf5f218efdb1b45c10ab44e203744565.js": "/precache-manifest.cf5f218efdb1b45c10ab44e203744565.js",
+    "precache-manifest.72b7b352c341762ea2e3bfd66af4c7cc.js": "/precache-manifest.72b7b352c341762ea2e3bfd66af4c7cc.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.ab965100.chunk.css.map": "/static/css/2.ab965100.chunk.css.map",
     "static/css/main.4e489932.chunk.css.map": "/static/css/main.4e489932.chunk.css.map",
-    "static/js/2.fd5ab1db.chunk.js.LICENSE.txt": "/static/js/2.fd5ab1db.chunk.js.LICENSE.txt",
+    "static/js/2.5a425cb4.chunk.js.LICENSE.txt": "/static/js/2.5a425cb4.chunk.js.LICENSE.txt",
     "static/media/angular.svg": "/static/media/angular.e224f5ed.svg",
     "static/media/asc.jpg": "/static/media/asc.67045775.jpg",
     "static/media/backgroundHome.jpg": "/static/media/backgroundHome.a2ed8e0b.jpg",
@@ -31,14 +31,13 @@
     "static/media/redux.png": "/static/media/redux.59c46753.png",
     "static/media/spring.png": "/static/media/spring.813a8748.png",
     "static/media/svn.png": "/static/media/svn.c4a66f6a.png",
-    "static/media/whatsapp.png": "/static/media/whatsapp.edde926e.png",
     "static/media/xamarin.png": "/static/media/xamarin.a836fa59.png"
   },
   "entrypoints": [
     "static/js/runtime-main.d31322ff.js",
     "static/css/2.ab965100.chunk.css",
-    "static/js/2.fd5ab1db.chunk.js",
+    "static/js/2.5a425cb4.chunk.js",
     "static/css/main.4e489932.chunk.css",
-    "static/js/main.abbc1fcb.chunk.js"
+    "static/js/main.d0b2c9b9.chunk.js"
   ]
 }
