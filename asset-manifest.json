@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.88467989.css",
-    "main.js": "/static/js/main.4771ff83.js",
+    "main.js": "/static/js/main.48fe6d5e.js",
+    "static/media/profile.png": "/static/media/profile.1b928ef4fa1e96197a19.png",
     "static/media/mundo.jpg": "/static/media/mundo.1847e88fec807e3ef979.jpg",
-    "static/media/CV-2023.pdf": "/static/media/CV-2023.96d433f28d50b6ab772d.pdf",
-    "static/media/CV-2023-EN.pdf": "/static/media/CV-2023-EN.89f98cf7b76fdc6a83f7.pdf",
+    "static/media/CV.pdf": "/static/media/CV.15a110b0c6cacf39e13e.pdf",
+    "static/media/CV-EN.pdf": "/static/media/CV-EN.58e52d5293507d14a85f.pdf",
     "static/media/redux.png": "/static/media/redux.010fcccb3cd77a85a1f7.png",
     "static/media/spring.png": "/static/media/spring.1a753d3a09a8df3cec6c.png",
     "static/media/mco.jpg": "/static/media/mco.cb5b4bdbe90326072b80.jpg",
-    "static/media/profile.png": "/static/media/profile.8a3e863925a6346d01ea.png",
     "static/media/nodejs.png": "/static/media/nodejs.038aff7b444c31d3b90b.png",
     "static/media/azure.png": "/static/media/azure.6e06c048b84b463cc4ab.png",
     "static/media/whatsapp.png": "/static/media/whatsapp.7a4307b3d1ddd4f30239.png",
@@ -24,10 +24,10 @@
     "static/media/angular.svg": "/static/media/angular.f0cfa2dba5dd6f63852e4f2405d8933a.svg",
     "index.html": "/index.html",
     "main.88467989.css.map": "/static/css/main.88467989.css.map",
-    "main.4771ff83.js.map": "/static/js/main.4771ff83.js.map"
+    "main.48fe6d5e.js.map": "/static/js/main.48fe6d5e.js.map"
   },
   "entrypoints": [
     "static/css/main.88467989.css",
-    "static/js/main.4771ff83.js"
+    "static/js/main.48fe6d5e.js"
   ]
 }
