@@ -38,8 +38,8 @@ jobs:
           git checkout --orphan main
           git rm -rf .
 
-          mv build/* .
-          rm -rf build
+          mv dist/* .
+          rm -rf dist
 
           git add .
           git commit -m "Deploy production build"
