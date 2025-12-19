@@ -34,7 +34,7 @@ jobs:
         run: npm run build
 
       - name: Add CNAME for custom domain
-        run: echo "www.marcosbustamantemateo.com" > CNAME
+        run: echo "www.marcosbustamantemateo.com" > dist/CNAME
 
       - name: Deploy to master
         run: |
@@ -46,6 +46,7 @@ jobs:
           git rm -rf .
 
           mv dist/* .
+          mv dist/.* . 2>/dev/null || true
           rm -rf dist
 
           git add .
