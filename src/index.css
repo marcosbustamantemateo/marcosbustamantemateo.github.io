@@ -1,0 +1,277 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Futuristic Developer Portfolio Design System */
+
+@layer base {
+  :root {
+    /* Light mode - Clean professional */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+
+    /* Primary - Electric Blue */
+    --primary: 195 100% 50%;
+    --primary-foreground: 0 0% 0%;
+    --primary-hover: 195 100% 45%;
+
+    /* Secondary - Neon Green */
+    --secondary: 150 100% 50%;
+    --secondary-foreground: 0 0% 0%;
+    --secondary-hover: 150 100% 45%;
+
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 195 100% 95%;
+    --accent-foreground: 195 100% 30%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 195 100% 50%;
+
+    --radius: 0.5rem;
+
+    /* Neon accents */
+    --neon-green: 150 100% 50%;
+    --neon-blue: 195 100% 50%;
+    --neon-purple: 270 100% 65%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(195, 100%, 50%),
+      hsl(150, 100%, 50%)
+    );
+    --gradient-subtle: linear-gradient(
+      180deg,
+      hsl(0, 0%, 98%),
+      hsl(0, 0%, 94%)
+    );
+    --gradient-tech: linear-gradient(
+      135deg,
+      hsl(195, 100%, 50%),
+      hsl(270, 100%, 65%)
+    );
+    --gradient-neon: linear-gradient(
+      90deg,
+      hsl(150, 100%, 50%),
+      hsl(195, 100%, 50%)
+    );
+
+    /* Shadows */
+    --shadow-neon: 0 0 20px hsl(150, 100%, 50% / 0.3);
+    --shadow-card: 0 4px 20px hsl(0, 0%, 0% / 0.1);
+    --shadow-hover: 0 8px 30px hsl(195, 100%, 50% / 0.2);
+
+    /* Animation */
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s var(--ease-smooth);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 9%;
+    --sidebar-primary: 195 100% 50%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 94%;
+    --sidebar-accent-foreground: 0 0% 9%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 195 100% 50%;
+  }
+
+  .dark {
+    /* Deep dark background */
+    --background: 0 0% 5%;
+    --foreground: 0 0% 92%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 92%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 92%;
+
+    /* Primary - Electric Blue */
+    --primary: 195 100% 50%;
+    --primary-foreground: 0 0% 0%;
+    --primary-hover: 195 100% 55%;
+
+    /* Secondary - Neon Green */
+    --secondary: 150 100% 50%;
+    --secondary-foreground: 0 0% 0%;
+    --secondary-hover: 150 100% 55%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 0 0% 12%;
+    --accent-foreground: 0 0% 92%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 195 100% 50%;
+
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(195, 100%, 50%),
+      hsl(150, 100%, 50%)
+    );
+    --gradient-subtle: linear-gradient(180deg, hsl(0, 0%, 8%), hsl(0, 0%, 5%));
+    --gradient-tech: linear-gradient(
+      135deg,
+      hsl(195, 100%, 50%),
+      hsl(270, 100%, 65%)
+    );
+
+    /* Neon shadows for dark mode */
+    --shadow-neon: 0 0 30px hsl(150, 100%, 50% / 0.4);
+    --shadow-card: 0 4px 20px hsl(0, 0%, 0% / 0.5);
+    --shadow-hover: 0 0 40px hsl(195, 100%, 50% / 0.3);
+
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 0 0% 92%;
+    --sidebar-primary: 195 100% 50%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 92%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 195 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Inter", sans-serif;
+  }
+
+  /* Custom scrollbar for dark theme */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+@layer utilities {
+  /* Neon text effects */
+  .text-neon-green {
+    color: hsl(var(--neon-green));
+    text-shadow: 0 0 10px hsl(var(--neon-green) / 0.5),
+      0 0 20px hsl(var(--neon-green) / 0.3);
+  }
+
+  .text-neon-blue {
+    color: hsl(var(--neon-blue));
+    text-shadow: 0 0 10px hsl(var(--neon-blue) / 0.5),
+      0 0 20px hsl(var(--neon-blue) / 0.3);
+  }
+
+  /* Glow effects */
+  .glow-green {
+    box-shadow: 0 0 20px hsl(var(--neon-green) / 0.4),
+      0 0 40px hsl(var(--neon-green) / 0.2);
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 20px hsl(var(--neon-blue) / 0.4),
+      0 0 40px hsl(var(--neon-blue) / 0.2);
+  }
+
+  /* Terminal font */
+  .font-mono-terminal {
+    font-family: "JetBrains Mono", monospace;
+  }
+
+  /* Glass morphism */
+  .glass {
+    @apply bg-card/80 backdrop-blur-xl;
+  }
+
+  /* Animated border gradient */
+  .border-gradient {
+    position: relative;
+  }
+
+  .border-gradient::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: var(--gradient-primary);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Hide scrollbar */
+  html {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  html::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+
+  /* Scroll snap with smooth transition */
+  html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    scroll-padding-top: 0;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Smoother scroll for webkit browsers */
+  @supports (-webkit-overflow-scrolling: touch) {
+    html {
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+}
