@@ -29,13 +29,13 @@ jobs:
       - name: Add CNAME for custom domain
         run: echo "www.marcosbustamantemateo.com" > CNAME
 
-      - name: Deploy to main
+      - name: Deploy to master
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
 
           git fetch origin
-          git checkout --orphan main
+          git checkout --orphan master
           git rm -rf .
 
           mv dist/* .
@@ -43,4 +43,4 @@ jobs:
 
           git add .
           git commit -m "Deploy production build"
-          git push -f origin main
+          git push -f origin master
