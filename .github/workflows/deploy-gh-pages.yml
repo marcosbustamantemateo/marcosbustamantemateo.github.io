@@ -13,7 +13,7 @@ jobs:
       - name: Checkout development
         uses: actions/checkout@v4
         with:
-          ref: develop
+          ref: development
 
       - name: Setup Node
         uses: actions/setup-node@v4
