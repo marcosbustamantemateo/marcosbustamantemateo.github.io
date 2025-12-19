@@ -255,17 +255,28 @@
     display: none; /* Chrome, Safari, Opera */
   }
 
-  /* Scroll snap with smooth transition */
-  html {
+  /* Scroll snap with smooth transition - ONLY for main page, not admin */
+  html:not(.no-scroll-snap) {
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
     scroll-padding-top: 0;
   }
 
-  section {
+  html:not(.no-scroll-snap) section {
     scroll-snap-align: start;
     scroll-snap-stop: always;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Disable scroll snap for admin pages */
+  html.no-scroll-snap {
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+  }
+
+  html.no-scroll-snap section {
+    scroll-snap-align: none;
+    scroll-snap-stop: normal;
   }
 
   /* Smoother scroll for webkit browsers */
