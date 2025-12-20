@@ -215,45 +215,18 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
                             rel="noopener noreferrer"
                             onClick={(e) => {
                               e.preventDefault();
-                              const url = project.link;
-
-                              // 🔥 Send analytics event with gtag callback
-                              if (
-                                typeof window !== "undefined" &&
-                                (window as any).gtag
-                              ) {
-                                (window as any).gtag("event", "project_click", {
-                                  project_id: project.id,
-                                  project_name: project.title,
-                                  project_type: project.type,
-                                  event_callback: () => {
-                                    window.open(
-                                      url,
-                                      "_blank",
-                                      "noopener,noreferrer"
-                                    );
-                                  },
-                                  event_timeout: 500,
-                                });
-                              } else {
-                                // Fallback if gtag not available
-                                setTimeout(() => {
-                                  window.open(
-                                    url,
-                                    "_blank",
-                                    "noopener,noreferrer"
-                                  );
-                                }, 300);
-                              }
-
-                              // Also log to console in dev
-                              if (import.meta.env.DEV) {
-                                console.log("📊 Analytics: project_click", {
-                                  project_id: project.id,
-                                  project_name: project.title,
-                                  project_type: project.type,
-                                });
-                              }
+                              trackProjectClick(
+                                project.id,
+                                project.title,
+                                project.type
+                              );
+                              setTimeout(() => {
+                                window.open(
+                                  project.link,
+                                  "_blank",
+                                  "noopener,noreferrer"
+                                );
+                              }, 100);
                             }}
                             className="inline-flex items-center gap-2 text-sm text-primary hover:text-neon-blue font-mono transition-colors group/link"
                           >

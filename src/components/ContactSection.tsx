@@ -117,20 +117,11 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
                   title={t.email}
                   onClick={(e) => {
                     e.preventDefault();
-                    // 🔥 Track contact click event with gtag callback
-                    if (typeof window !== "undefined" && (window as any).gtag) {
-                      (window as any).gtag("event", "contact_click", {
-                        contact_type: "email",
-                        event_callback: () => {
-                          window.location.href =
-                            "mailto:marcosbustamantemateo@gmail.com";
-                        },
-                        event_timeout: 500,
-                      });
-                    } else {
+                    trackContactClick("email");
+                    setTimeout(() => {
                       window.location.href =
                         "mailto:marcosbustamantemateo@gmail.com";
-                    }
+                    }, 100);
                   }}
                   className="flex flex-col items-center text-center p-2 rounded-lg"
                 >
@@ -147,28 +138,14 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
                   title={t.linkedin}
                   onClick={(e) => {
                     e.preventDefault();
-                    // 🔥 Track contact click event with gtag callback
-                    if (typeof window !== "undefined" && (window as any).gtag) {
-                      (window as any).gtag("event", "contact_click", {
-                        contact_type: "linkedin",
-                        event_callback: () => {
-                          window.open(
-                            "https://www.linkedin.com/in/marcos-bustamante/",
-                            "_blank",
-                            "noopener,noreferrer"
-                          );
-                        },
-                        event_timeout: 500,
-                      });
-                    } else {
-                      setTimeout(() => {
-                        window.open(
-                          "https://www.linkedin.com/in/marcos-bustamante/",
-                          "_blank",
-                          "noopener,noreferrer"
-                        );
-                      }, 300);
-                    }
+                    trackContactClick("linkedin");
+                    setTimeout(() => {
+                      window.open(
+                        "https://www.linkedin.com/in/marcos-bustamante/",
+                        "_blank",
+                        "noopener,noreferrer"
+                      );
+                    }, 100);
                   }}
                   className="flex flex-col items-center text-center p-2 rounded-lg"
                 >
@@ -185,33 +162,19 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
                   title={t.github}
                   onClick={(e) => {
                     e.preventDefault();
-                    // 🔥 Track contact click event with gtag callback
-                    if (typeof window !== "undefined" && (window as any).gtag) {
-                      (window as any).gtag("event", "contact_click", {
-                        contact_type: "github",
-                        event_callback: () => {
-                          window.open(
-                            "https://github.com/marcosbustamantemateo",
-                            "_blank",
-                            "noopener,noreferrer"
-                          );
-                        },
-                        event_timeout: 500,
-                      });
-                    } else {
-                      setTimeout(() => {
-                        window.open(
-                          "https://github.com/marcosbustamantemateo",
-                          "_blank",
-                          "noopener,noreferrer"
-                        );
-                      }, 300);
-                    }
+                    trackContactClick("github");
+                    setTimeout(() => {
+                      window.open(
+                        "https://github.com/marcosbustamantemateo",
+                        "_blank",
+                        "noopener,noreferrer"
+                      );
+                    }, 100);
                   }}
                   className="flex flex-col items-center text-center p-2 rounded-lg"
                 >
-                  <div className="w-16 h-16 rounded-lg bg-neon-purple/10 flex items-center justify-center">
-                    <Github className="w-8 h-8 text-neon-purple" />
+                  <div className="w-16 h-16 rounded-lg bg-purple-500/10 flex items-center justify-center">
+                    <Github className="w-8 h-8 text-purple-500" />
                   </div>
                 </a>
               </div>
@@ -227,20 +190,11 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
                   className="bg-gradient-primary hover:shadow-neon hover:scale-105 transition-all duration-300 font-mono"
                   onClick={(e) => {
                     e.preventDefault();
-                    // 🔥 Track contact click event for CTA button with gtag callback
-                    if (typeof window !== "undefined" && (window as any).gtag) {
-                      (window as any).gtag("event", "contact_click", {
-                        contact_type: "email",
-                        event_callback: () => {
-                          window.location.href =
-                            "mailto:marcosbustamantemateo@gmail.com";
-                        },
-                        event_timeout: 500,
-                      });
-                    } else {
+                    trackContactClick("email");
+                    setTimeout(() => {
                       window.location.href =
                         "mailto:marcosbustamantemateo@gmail.com";
-                    }
+                    }, 100);
                   }}
                 >
                   <Mail className="w-5 h-5 mr-2" />

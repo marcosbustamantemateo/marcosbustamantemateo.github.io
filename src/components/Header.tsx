@@ -71,25 +71,18 @@ export const Header = ({ language, onLanguageChange }: HeaderProps) => {
       )}&url=${encodeURIComponent(url)}`,
     };
 
-    // 🔥 Track share click event with gtag callback
     const shareChannel =
       platform === "twitter"
         ? "x"
         : (platform as "whatsapp" | "telegram" | "linkedin");
-    const targetUrl = shareUrls[platform as keyof typeof shareUrls];
 
-    if (targetUrl && typeof window !== "undefined" && (window as any).gtag) {
-      (window as any).gtag("event", "share_click", {
-        share_channel: shareChannel,
-        event_callback: () => {
-          window.open(targetUrl, "_blank");
-        },
-        event_timeout: 500,
-      });
-    } else if (targetUrl) {
+    trackShareClick(shareChannel);
+
+    const targetUrl = shareUrls[platform as keyof typeof shareUrls];
+    if (targetUrl) {
       setTimeout(() => {
         window.open(targetUrl, "_blank");
-      }, 300);
+      }, 100);
     }
   };
 
@@ -186,9 +179,8 @@ export const Header = ({ language, onLanguageChange }: HeaderProps) => {
               >
                 <DropdownMenuItem
                   onClick={() => {
-                    onLanguageChange("es");
-                    // 🔥 Track language change event
                     trackLanguageClick("es");
+                    onLanguageChange("es");
                   }}
                   className="font-mono text-sm cursor-pointer"
                 >
@@ -196,9 +188,8 @@ export const Header = ({ language, onLanguageChange }: HeaderProps) => {
                 </DropdownMenuItem>
                 <DropdownMenuItem
                   onClick={() => {
-                    onLanguageChange("en");
-                    // 🔥 Track language change event
                     trackLanguageClick("en");
+                    onLanguageChange("en");
                   }}
                   className="font-mono text-sm cursor-pointer"
                 >
