@@ -71,16 +71,25 @@ export const Header = ({ language, onLanguageChange }: HeaderProps) => {
       )}&url=${encodeURIComponent(url)}`,
     };
 
-    // 🔥 Track share click event
-    trackShareClick(
+    // 🔥 Track share click event with gtag callback
+    const shareChannel =
       platform === "twitter"
         ? "x"
-        : (platform as "whatsapp" | "telegram" | "linkedin"),
-      language
-    );
+        : (platform as "whatsapp" | "telegram" | "linkedin");
+    const targetUrl = shareUrls[platform as keyof typeof shareUrls];
 
-    if (shareUrls[platform as keyof typeof shareUrls]) {
-      window.open(shareUrls[platform as keyof typeof shareUrls], "_blank");
+    if (targetUrl && typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("event", "share_click", {
+        share_channel: shareChannel,
+        event_callback: () => {
+          window.open(targetUrl, "_blank");
+        },
+        event_timeout: 500,
+      });
+    } else if (targetUrl) {
+      setTimeout(() => {
+        window.open(targetUrl, "_blank");
+      }, 300);
     }
   };
 

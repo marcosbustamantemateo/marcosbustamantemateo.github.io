@@ -68,6 +68,20 @@ export type ShareChannel = "whatsapp" | "telegram" | "linkedin" | "x";
 // 🎯 Analytics Event Functions
 // ====================================
 
+// Helper: send to global gtag to ensure event parameters appear in
+// Network requests and DebugView. Works in all environments.
+const sendGtagEvent = (eventName: string, params?: Record<string, any>) => {
+  if (typeof window === "undefined") return;
+  try {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const g = (window as any).gtag;
+    if (typeof g === "function") g("event", eventName, params || {});
+  } catch (e) {
+    // noop - best effort
+  }
+};
+
 /**
  * 1️⃣ Track Project Click
  *
@@ -79,14 +93,16 @@ export type ShareChannel = "whatsapp" | "telegram" | "linkedin" | "x";
  * - Scroll into view
  *
  * @param projectId - Unique project identifier
+ * @param projectName - Project title/name
  * @param projectType - Type of project (web, mobile, desktop)
  * @param language - Current portfolio language
  *
  * @example
- * trackProjectClick("royal-chicken-bbq", "web", "es");
+ * trackProjectClick("royal-chicken-bbq", "Royal Chicken BBQ", "web", "es");
  */
 export const trackProjectClick = (
   projectId: string,
+  projectName: string,
   projectType: ProjectType,
   language: Language
 ) => {
@@ -98,16 +114,23 @@ export const trackProjectClick = (
   try {
     logEvent(analytics, "project_click", {
       project_id: projectId,
+      project_name: projectName,
       project_type: projectType,
-      language: language,
+    });
+
+    // Send via gtag to ensure parameters appear in network/DebugView
+    sendGtagEvent("project_click", {
+      project_id: projectId,
+      project_name: projectName,
+      project_type: projectType,
     });
 
     // Optional: Console log for debugging (remove in production)
     if (import.meta.env.DEV) {
       console.log("📊 Analytics: project_click", {
         project_id: projectId,
+        project_name: projectName,
         project_type: projectType,
-        language: language,
       });
     }
   } catch (error) {
@@ -136,6 +159,9 @@ export const trackLanguageClick = (language: Language) => {
       language: language,
     });
 
+    // Send via gtag to ensure parameters appear in network/DebugView
+    sendGtagEvent("language_click", { language });
+
     if (import.meta.env.DEV) {
       console.log("📊 Analytics: language_click", { language });
     }
@@ -143,6 +169,8 @@ export const trackLanguageClick = (language: Language) => {
     console.error("Error tracking language_click:", error);
   }
 };
+
+// (previous dev-only export removed - using sendGtagEvent helper above)
 
 /**
  * 3️⃣ Track Contact Click
@@ -168,13 +196,16 @@ export const trackContactClick = (
   try {
     logEvent(analytics, "contact_click", {
       contact_type: contactType,
-      language: language,
+    });
+
+    // Send via gtag to ensure parameters appear in network/DebugView
+    sendGtagEvent("contact_click", {
+      contact_type: contactType,
     });
 
     if (import.meta.env.DEV) {
       console.log("📊 Analytics: contact_click", {
         contact_type: contactType,
-        language,
       });
     }
   } catch (error) {
@@ -206,13 +237,16 @@ export const trackShareClick = (
   try {
     logEvent(analytics, "share_click", {
       share_channel: shareChannel,
-      language: language,
+    });
+
+    // Send via gtag to ensure parameters appear in network/DebugView
+    sendGtagEvent("share_click", {
+      share_channel: shareChannel,
     });
 
     if (import.meta.env.DEV) {
       console.log("📊 Analytics: share_click", {
         share_channel: shareChannel,
-        language,
       });
     }
   } catch (error) {
@@ -232,8 +266,10 @@ export const trackPageView = (pageName: string, language: Language) => {
   try {
     logEvent(analytics, "page_view", {
       page_name: pageName,
-      language: language,
     });
+
+    // Send via gtag to ensure parameters appear in network/DebugView
+    sendGtagEvent("page_view", { page_name: pageName });
   } catch (error) {
     console.error("Error tracking page_view:", error);
   }

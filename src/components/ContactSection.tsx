@@ -115,9 +115,22 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
                 <a
                   href="mailto:marcosbustamantemateo@gmail.com"
                   title={t.email}
-                  onClick={() => {
-                    // 🔥 Track contact click event
-                    trackContactClick("email", language);
+                  onClick={(e) => {
+                    e.preventDefault();
+                    // 🔥 Track contact click event with gtag callback
+                    if (typeof window !== "undefined" && (window as any).gtag) {
+                      (window as any).gtag("event", "contact_click", {
+                        contact_type: "email",
+                        event_callback: () => {
+                          window.location.href =
+                            "mailto:marcosbustamantemateo@gmail.com";
+                        },
+                        event_timeout: 500,
+                      });
+                    } else {
+                      window.location.href =
+                        "mailto:marcosbustamantemateo@gmail.com";
+                    }
                   }}
                   className="flex flex-col items-center text-center p-2 rounded-lg"
                 >
@@ -132,9 +145,30 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   title={t.linkedin}
-                  onClick={() => {
-                    // 🔥 Track contact click event
-                    trackContactClick("linkedin", language);
+                  onClick={(e) => {
+                    e.preventDefault();
+                    // 🔥 Track contact click event with gtag callback
+                    if (typeof window !== "undefined" && (window as any).gtag) {
+                      (window as any).gtag("event", "contact_click", {
+                        contact_type: "linkedin",
+                        event_callback: () => {
+                          window.open(
+                            "https://www.linkedin.com/in/marcos-bustamante/",
+                            "_blank",
+                            "noopener,noreferrer"
+                          );
+                        },
+                        event_timeout: 500,
+                      });
+                    } else {
+                      setTimeout(() => {
+                        window.open(
+                          "https://www.linkedin.com/in/marcos-bustamante/",
+                          "_blank",
+                          "noopener,noreferrer"
+                        );
+                      }, 300);
+                    }
                   }}
                   className="flex flex-col items-center text-center p-2 rounded-lg"
                 >
@@ -145,13 +179,34 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
 
                 {/* GitHub */}
                 <a
-                  href="https://github.com/marcosbustamante"
+                  href="https://github.com/marcosbustamantemateo"
                   target="_blank"
                   rel="noopener noreferrer"
                   title={t.github}
-                  onClick={() => {
-                    // 🔥 Track contact click event
-                    trackContactClick("github", language);
+                  onClick={(e) => {
+                    e.preventDefault();
+                    // 🔥 Track contact click event with gtag callback
+                    if (typeof window !== "undefined" && (window as any).gtag) {
+                      (window as any).gtag("event", "contact_click", {
+                        contact_type: "github",
+                        event_callback: () => {
+                          window.open(
+                            "https://github.com/marcosbustamantemateo",
+                            "_blank",
+                            "noopener,noreferrer"
+                          );
+                        },
+                        event_timeout: 500,
+                      });
+                    } else {
+                      setTimeout(() => {
+                        window.open(
+                          "https://github.com/marcosbustamantemateo",
+                          "_blank",
+                          "noopener,noreferrer"
+                        );
+                      }, 300);
+                    }
                   }}
                   className="flex flex-col items-center text-center p-2 rounded-lg"
                 >
@@ -170,11 +225,22 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
                 <Button
                   size="lg"
                   className="bg-gradient-primary hover:shadow-neon hover:scale-105 transition-all duration-300 font-mono"
-                  onClick={() => {
-                    // 🔥 Track contact click event for CTA button
-                    trackContactClick("email", language);
-                    window.location.href =
-                      "mailto:marcosbustamantemateo@gmail.com";
+                  onClick={(e) => {
+                    e.preventDefault();
+                    // 🔥 Track contact click event for CTA button with gtag callback
+                    if (typeof window !== "undefined" && (window as any).gtag) {
+                      (window as any).gtag("event", "contact_click", {
+                        contact_type: "email",
+                        event_callback: () => {
+                          window.location.href =
+                            "mailto:marcosbustamantemateo@gmail.com";
+                        },
+                        event_timeout: 500,
+                      });
+                    } else {
+                      window.location.href =
+                        "mailto:marcosbustamantemateo@gmail.com";
+                    }
                   }}
                 >
                   <Mail className="w-5 h-5 mr-2" />
