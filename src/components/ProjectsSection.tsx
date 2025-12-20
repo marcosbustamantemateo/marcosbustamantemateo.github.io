@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { AnimatedSection } from "@/hooks/useScrollAnimation";
 import { useProjects } from "@/hooks/useProjects";
+import { trackProjectClick } from "@/analytics/events";
 
 interface ProjectsSectionProps {
   language: "es" | "en";
@@ -212,6 +213,14 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
                             href={project.link}
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={() => {
+                              // 🔥 Track project click event
+                              trackProjectClick(
+                                project.id,
+                                project.type,
+                                language
+                              );
+                            }}
                             className="inline-flex items-center gap-2 text-sm text-primary hover:text-neon-blue font-mono transition-colors group/link"
                           >
                             {t.viewProject}

@@ -18,6 +18,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { trackLanguageClick, trackShareClick } from "@/analytics/events";
 
 interface HeaderProps {
   language: "es" | "en";
@@ -69,6 +70,14 @@ export const Header = ({ language, onLanguageChange }: HeaderProps) => {
         shareMessage
       )}&url=${encodeURIComponent(url)}`,
     };
+
+    // 🔥 Track share click event
+    trackShareClick(
+      platform === "twitter"
+        ? "x"
+        : (platform as "whatsapp" | "telegram" | "linkedin"),
+      language
+    );
 
     if (shareUrls[platform as keyof typeof shareUrls]) {
       window.open(shareUrls[platform as keyof typeof shareUrls], "_blank");
@@ -167,13 +176,21 @@ export const Header = ({ language, onLanguageChange }: HeaderProps) => {
                 className="glass border-border/50"
               >
                 <DropdownMenuItem
-                  onClick={() => onLanguageChange("es")}
+                  onClick={() => {
+                    onLanguageChange("es");
+                    // 🔥 Track language change event
+                    trackLanguageClick("es");
+                  }}
                   className="font-mono text-sm cursor-pointer"
                 >
                   🇪🇸 Español
                 </DropdownMenuItem>
                 <DropdownMenuItem
-                  onClick={() => onLanguageChange("en")}
+                  onClick={() => {
+                    onLanguageChange("en");
+                    // 🔥 Track language change event
+                    trackLanguageClick("en");
+                  }}
                   className="font-mono text-sm cursor-pointer"
                 >
                   🇬🇧 English

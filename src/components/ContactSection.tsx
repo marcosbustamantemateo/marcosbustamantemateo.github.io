@@ -10,6 +10,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { AnimatedSection } from "@/hooks/useScrollAnimation";
+import { trackContactClick } from "@/analytics/events";
 
 interface ContactSectionProps {
   language: "es" | "en";
@@ -114,6 +115,10 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
                 <a
                   href="mailto:marcosbustamantemateo@gmail.com"
                   title={t.email}
+                  onClick={() => {
+                    // 🔥 Track contact click event
+                    trackContactClick("email", language);
+                  }}
                   className="flex flex-col items-center text-center p-2 rounded-lg"
                 >
                   <div className="w-16 h-16 rounded-lg bg-secondary/10 flex items-center justify-center">
@@ -127,6 +132,10 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   title={t.linkedin}
+                  onClick={() => {
+                    // 🔥 Track contact click event
+                    trackContactClick("linkedin", language);
+                  }}
                   className="flex flex-col items-center text-center p-2 rounded-lg"
                 >
                   <div className="w-16 h-16 rounded-lg bg-[#0A66C2]/10 flex items-center justify-center">
@@ -140,6 +149,10 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   title={t.github}
+                  onClick={() => {
+                    // 🔥 Track contact click event
+                    trackContactClick("github", language);
+                  }}
                   className="flex flex-col items-center text-center p-2 rounded-lg"
                 >
                   <div className="w-16 h-16 rounded-lg bg-neon-purple/10 flex items-center justify-center">
@@ -157,10 +170,12 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
                 <Button
                   size="lg"
                   className="bg-gradient-primary hover:shadow-neon hover:scale-105 transition-all duration-300 font-mono"
-                  onClick={() =>
-                    (window.location.href =
-                      "mailto:marcosbustamantemateo@gmail.com")
-                  }
+                  onClick={() => {
+                    // 🔥 Track contact click event for CTA button
+                    trackContactClick("email", language);
+                    window.location.href =
+                      "mailto:marcosbustamantemateo@gmail.com";
+                  }}
                 >
                   <Mail className="w-5 h-5 mr-2" />
                   {t.cta}
