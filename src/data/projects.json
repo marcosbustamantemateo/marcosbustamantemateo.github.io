@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "title": "Royal Chicken BBQ",
+    "titleEn": "Royal Chicken BBQ",
+    "description": {
+      "es": "Sitio web para restaurante de comida rápida especializado en pollo BBQ. Incluye menú interactivo, sistema de pedidos y diseño responsive.",
+      "en": "Website for fast food restaurant specializing in BBQ chicken. Includes interactive menu, ordering system and responsive design."
+    },
+    "imageUrl": "https://www.marcosbustamantemateo.com/images/projects/royal-chicke-bbq.png",
+    "type": "web",
+    "technologies": ["React", "Typescript", "Tailwind CSS"],
+    "link": "https://royal-chicken-bbq.netlify.app/",
+    "comingSoon": false,
+    "order": 1
+  },
+  {
+    "id": "2",
+    "title": "Oscar HellBoy - Boxeador Profesional",
+    "titleEn": "Oscar HellBoy - Professional Boxer",
+    "description": {
+      "es": "Página web personal para boxeador profesional con portfolio de peleas, estadísticas y galería de fotos.",
+      "en": "Personal website for professional boxer with fight portfolio, statistics and photo gallery."
+    },
+    "imageUrl": "https://www.marcosbustamantemateo.com/images/projects/oscar-hellboy.png",
+    "type": "web",
+    "technologies": ["React", "Vite", "CSS"],
+    "link": "https://oscar-hellboy.netlify.app/",
+    "comingSoon": false,
+    "order": 2
+  },
+  {
+    "id": "3",
+    "title": "Meme Generator",
+    "titleEn": "Meme Generator",
+    "description": {
+      "es": "Aplicación web para crear memes personalizados con texto y imágenes. Usa Canvas API para edición en tiempo real.",
+      "en": "Web application to create custom memes with text and images. Uses Canvas API for real-time editing."
+    },
+    "imageUrl": "https://www.marcosbustamantemateo.com/images/projects/meme-generator.png",
+    "type": "web",
+    "technologies": ["React", "Canvas API", "Javscript"],
+    "link": "https://mbm-meme-generator.netlify.app/",
+    "comingSoon": false,
+    "order": 3
+  },
+  {
+    "id": "4",
+    "title": "Reportes COVID-19",
+    "titleEn": "COVID-19 Reports",
+    "description": {
+      "es": "Dashboard interactivo con estadísticas y gráficos en tiempo real sobre casos de COVID-19 a nivel mundial.",
+      "en": "Interactive dashboard with real-time statistics and charts on COVID-19 cases worldwide."
+    },
+    "imageUrl": "https://www.marcosbustamantemateo.com/images/projects/covid-19-reports.png",
+    "type": "web",
+    "technologies": ["React", "Gatsby"],
+    "link": "https://covid-19-dd7e1.web.app/",
+    "comingSoon": false,
+    "order": 4
+  }
+]

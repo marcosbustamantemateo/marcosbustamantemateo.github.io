@@ -45,6 +45,7 @@ const collections = [
   "programmingLanguages",
   "testimonials",
   "technologyCategories",
+  "projects",
   "config",
 ];
 

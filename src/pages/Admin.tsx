@@ -3,9 +3,14 @@ import { signOut } from "firebase/auth";
 import { auth } from "@/config/firebase";
 import Login from "@/components/Login";
 import ProjectList from "@/components/ProjectList";
+import WorkExperienceList from "@/components/WorkExperienceList";
+import EducationList from "@/components/EducationList";
+import TechnologyCategoryList from "@/components/TechnologyCategoryList";
+import TestimonialList from "@/components/TestimonialList";
+import ProgrammingLanguageList from "@/components/ProgrammingLanguageList";
 import { Button } from "@/components/ui/button";
 import { LogOut, Loader2, User, ArrowLeft } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,6 +19,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Admin() {
   const { user, loading } = useAuth();
@@ -116,7 +122,40 @@ export default function Admin() {
 
       {/* Content */}
       <main className="container mx-auto px-4 py-8">
-        <ProjectList />
+        <Tabs defaultValue="projects" className="w-full">
+          <TabsList className="grid w-full grid-cols-3 lg:grid-cols-6 mb-8">
+            <TabsTrigger value="projects">Proyectos</TabsTrigger>
+            <TabsTrigger value="experience">Experiencia</TabsTrigger>
+            <TabsTrigger value="education">Educación</TabsTrigger>
+            <TabsTrigger value="technologies">Lenguajes</TabsTrigger>
+            <TabsTrigger value="categories">Categorías</TabsTrigger>
+            <TabsTrigger value="testimonials">Testimonios</TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="projects">
+            <ProjectList />
+          </TabsContent>
+
+          <TabsContent value="experience">
+            <WorkExperienceList />
+          </TabsContent>
+
+          <TabsContent value="education">
+            <EducationList />
+          </TabsContent>
+
+          <TabsContent value="technologies">
+            <ProgrammingLanguageList />
+          </TabsContent>
+
+          <TabsContent value="categories">
+            <TechnologyCategoryList />
+          </TabsContent>
+
+          <TabsContent value="testimonials">
+            <TestimonialList />
+          </TabsContent>
+        </Tabs>
       </main>
     </div>
   );

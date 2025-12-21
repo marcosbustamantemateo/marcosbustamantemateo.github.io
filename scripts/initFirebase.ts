@@ -42,6 +42,9 @@ const languagesJSON = JSON.parse(
 const languages = Array.isArray(languagesJSON)
   ? languagesJSON
   : languagesJSON.value || [];
+const projectsJSON = JSON.parse(
+  readFileSync(resolve(__dirname, "../src/data/projects.json"), "utf-8")
+);
 
 const firebaseConfig = {
   apiKey: process.env.VITE_FIREBASE_API_KEY,
@@ -117,6 +120,14 @@ async function initializeFirebase() {
     }
     console.log("✅ technologyCategories completo\n");
 
+    console.log("📦 Subiendo projects...");
+    for (const project of projectsJSON) {
+      const docId = `project${project.id}`;
+      await setDoc(doc(db, "projects", docId), project);
+      console.log(`  ✅ ${docId} - ${project.title}`);
+    }
+    console.log("✅ projects completo\n");
+
     console.log("🎉 ¡Todos los datos se han subido exitosamente a Firebase!\n");
     console.log("📊 Resumen:");
     console.log(`  - config/projectSettings: 1 documento`);
@@ -128,6 +139,7 @@ async function initializeFirebase() {
     console.log(
       `  - technologyCategories: ${technologyCategoriesJSON.length} documentos`
     );
+    console.log(`  - projects: ${projectsJSON.length} documentos`);
 
     process.exit(0);
   } catch (error) {

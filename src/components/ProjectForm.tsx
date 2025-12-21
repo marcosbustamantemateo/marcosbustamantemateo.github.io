@@ -2,9 +2,9 @@ import { useState, FormEvent, useEffect } from "react";
 import {
   collection,
   addDoc,
-  updateDoc,
   doc,
   serverTimestamp,
+  setDoc,
 } from "firebase/firestore";
 import { db } from "@/config/firebase";
 import { Project } from "@/hooks/useProjects";
@@ -114,7 +114,9 @@ export default function ProjectForm({
 
       if (project) {
         // Actualizar proyecto existente
-        await updateDoc(doc(db, "projects", project.id), projectData);
+        await setDoc(doc(db, "projects", project.id), projectData, {
+          merge: true,
+        });
       } else {
         // Crear nuevo proyecto
         await addDoc(collection(db, "projects"), {
@@ -359,7 +361,7 @@ export default function ProjectForm({
                   setFormData({ ...formData, imageUrl: e.target.value })
                 }
                 required
-                placeholder="https://i.imgur.com/ejemplo.jpg"
+                placeholder="https://www.marcosbustamantemateo.com/images/projects/my-project.png"
                 className="text-base"
               />
               <div className="flex items-start gap-2 p-3 rounded-lg bg-muted/50 text-xs">

@@ -4,6 +4,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { AboutSection } from "@/components/AboutSection";
 import { ProfileSection } from "@/components/ProfileSection";
 import { CVSection } from "@/components/CVSection";
+import { ProgrammingLanguagesSection } from "@/components/ProgrammingLanguagesSection";
 import { TechnologiesSection } from "@/components/TechnologiesSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { ContactSection } from "@/components/ContactSection";
@@ -24,6 +25,7 @@ const Index = () => {
         <HeroSection language={language} />
         <AboutSection language={language} />
         <ProfileSection language={language} />
+        <ProgrammingLanguagesSection language={language} />
         <TechnologiesSection language={language} />
         {/* CVSection temporarily commented out per request */}
         {/* <CVSection language={language} /> */}

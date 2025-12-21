@@ -31,8 +31,21 @@ Portfolio profesional desarrollado con React, TypeScript, Vite y Firebase. Siste
 3. **workExperience** - Experiencias laborales
 4. **education** - Educación y formación
 5. **programmingLanguages** - Lenguajes de programación
-6. **testimonials** - Testimonios de colegas
+6. **testimonials** - Testimonios de colegas (con imágenes)
 7. **technologyCategories** - Categorías de tecnologías
+8. **projects** - Proyectos del portfolio
+
+### Panel de Administración CRUD
+
+Sistema completo de gestión con interfaz de administración que permite:
+
+- **6 Tabs de Gestión**: Proyectos, Experiencia, Educación, Lenguajes, Categorías, Testimonios
+- **Operaciones CRUD**: Create, Read, Update, Delete para cada colección
+- **Formularios Bilingües**: Español/Inglés con validación
+- **Preview de Imágenes**: Visualización en tiempo real en proyectos y testimonios
+- **Gestión de Tecnologías**: Añadir/eliminar tecnologías dinámicamente
+- **Confirmaciones**: AlertDialog para operaciones destructivas
+- **Tiempo Real**: Actualización automática con onSnapshot de Firebase
 
 ### Analytics
 
@@ -237,26 +250,39 @@ firestore/
 ├── programmingLanguages/           # Colección
 │   ├── java                        # Documento
 │   │   ├── name
-│   │   ├── category
+│   │   ├── level (0-100)
 │   │   └── order
 │   └── csharp...
 ├── testimonials/                   # Colección
 │   ├── test1                       # Documento
 │   │   ├── name
 │   │   ├── initials
+│   │   ├── imageUrl (opcional)     # URL de foto del testimonio
 │   │   ├── content{es,en}
 │   │   ├── linkedin (opcional)
 │   │   ├── rating
 │   │   └── order
 │   └── test2...
-└── technologyCategories/           # Colección
-    ├── languages                   # Documento
-    │   ├── label{es,en}
+├── technologyCategories/           # Colección
+│   ├── languages                   # Documento
+│   │   ├── label{es,en}
+│   │   ├── description{es,en}
+│   │   ├── icon
+│   │   ├── technologies[]
+│   │   └── order
+│   └── frontend...
+└── projects/                       # Colección
+    ├── project1                    # Documento
+    │   ├── title
+    │   ├── titleEn
     │   ├── description{es,en}
-    │   ├── icon
-    │   ├── technologies[]
+    │   ├── imageUrl                # URL de imagen del proyecto
+    │   ├── type                    # web/mobile/desktop
+    │   ├── technologies[]          # Array de tecnologías
+    │   ├── link (opcional)         # URL del proyecto
+    │   ├── comingSoon
     │   └── order
-    └── frontend...
+    └── project2...
 ```
 
 ### Reglas de Seguridad
@@ -298,6 +324,13 @@ service cloud.firestore {
 
     match /technologyCategories/{document=**} {
       allow write: if request.auth != null;
+    }
+
+    match /projects/{document=**} {
+      allow write: if request.auth != null;
+    }
+  }
+}
     }
 
     match /projects/{document=**} {
@@ -366,6 +399,7 @@ Si Firebase no está disponible o falla, la aplicación automáticamente carga l
 - `heroStats.json`
 - `languages.json` (idiomas UI)
 - `projectTypes.json`
+- `projects.json`
 - `shareChannels.json`
 - `testimonials.json`
 - `technologyCategories.json`
@@ -461,7 +495,56 @@ npm run build
 
 ### Actualizar Contenido
 
-#### Opción 1: Desde Firebase Console (Recomendado)
+#### Opción 1: Panel de Administración (Recomendado)
+
+El proyecto incluye un panel de administración completo con operaciones CRUD para todas las colecciones:
+
+**Acceso:**
+
+1. Navega a la ruta `/admin` en tu aplicación
+2. Inicia sesión con Firebase Authentication
+3. Gestiona todas las colecciones desde la interfaz web
+
+**Características del Panel Admin:**
+
+- **6 Tabs**: Proyectos, Experiencia, Educación, Lenguajes, Categorías, Testimonios
+- **Crear**: Formularios bilingües con validación
+- **Editar**: Modificar cualquier registro existente
+- **Eliminar**: Con confirmación de seguridad
+- **Preview**: Visualización de imágenes en proyectos y testimonios
+- **Tiempo Real**: Actualización automática al guardar
+
+#### Opción 2: Scripts de Firebase (Para carga masiva)
+
+Ideal para inicializar o resetear completamente Firebase con datos desde JSON:
+
+**Workflow completo:**
+
+```bash
+# 1. Editar archivos JSON en src/data/
+nano src/data/workExperience.json
+nano src/data/projects.json
+# ... etc
+
+# 2. Eliminar todos los datos de Firebase
+npm run delete-firebase
+
+# 3. Cargar datos desde JSON a Firebase
+npm run init-firebase
+```
+
+**El script carga automáticamente:**
+
+- config/projectSettings
+- aboutMe/profile
+- workExperience (8 documentos)
+- education (3 documentos)
+- programmingLanguages (5 documentos)
+- testimonials (5 documentos)
+- technologyCategories (9 documentos)
+- projects (4 documentos)
+
+#### Opción 3: Firebase Console (Cambios puntuales)
 
 1. Ve a [Firebase Console](https://console.firebase.google.com/)
 2. Selecciona tu proyecto
@@ -469,146 +552,82 @@ npm run build
 4. Edita los documentos directamente
 5. Los cambios se reflejan inmediatamente en la web
 
-#### Opción 2: Desde Archivos JSON
+### Ejemplos de Datos
 
-1. Edita los archivos JSON en `src/data/` (por ejemplo, `workExperience.json`, `education.json`, etc.)
-2. Ejecuta el script de inicialización: `npm run init-firebase`
-3. Los datos se actualizan en Firebase automáticamente
+#### Agregar Nuevo Proyecto (via Admin Panel o JSON)
 
-#### Opción 3: Desde Firebase Console (Para cambios individuales rápidos)
+#### Agregar Nuevo Proyecto (via Admin Panel o JSON)
 
-1. Ve a Firebase Console → Firestore
-2. Navega a la colección que quieres modificar
-3. Edita el documento directamente
-4. Los cambios se reflejan inmediatamente en la web
+**Estructura JSON (`src/data/projects.json`):**
 
-### Agregar Nueva Experiencia Laboral
-
-**En Firebase Console:**
-
-```
-Firestore → workExperience → Add document
-Document ID: exp9
-Fields:
-  company: "Nueva Empresa"
-  position: {es: "Puesto ES", en: "Position EN"}
-  period: {es: "01/2024 - Presente", en: "01/2024 - Present"}
-  description: {es: "Descripción ES", en: "Description EN"}
-  achievements: {es: ["Logro 1", "Logro 2"], en: ["Achievement 1", "Achievement 2"]}
-  order: 1
-```
-
-**En el script:**
-
-```typescript
-const workExperience = [
-  {
-    id: "exp9",
-    company: "Nueva Empresa",
-    position: {
-      es: "Puesto ES",
-      en: "Position EN",
-    },
-    period: {
-      es: "01/2024 - Presente",
-      en: "01/2024 - Present",
-    },
-    description: {
-      es: "Descripción ES",
-      en: "Description EN",
-    },
-    achievements: {
-      es: ["Logro 1", "Logro 2"],
-      en: ["Achievement 1", "Achievement 2"],
-    },
-    order: 1,
+```json
+{
+  "id": "5",
+  "title": "Mi Nuevo Proyecto",
+  "titleEn": "My New Project",
+  "description": {
+    "es": "Descripción completa del proyecto en español",
+    "en": "Full project description in English"
   },
-  // ... otras experiencias
-];
-```
-
-### Agregar Nuevo Testimonio
-
-```typescript
-const testimonials = [
-  {
-    id: "test6",
-    name: "Nombre Apellido",
-    initials: "NA",
-    content: {
-      es: "Testimonio en español",
-      en: "Testimony in English",
-    },
-    linkedin: "https://www.linkedin.com/in/usuario",
-    rating: 5,
-    order: 6,
-  },
-  // ... otros testimonios
-];
-```
-
-### Agregar Categoría de Tecnología
-
-```typescript
-const technologyCategories = [
-  {
-    id: "nueva-categoria",
-    label: {
-      es: "Nombre ES",
-      en: "Name EN",
-    },
-    description: {
-      es: "Descripción ES",
-      en: "Description EN",
-    },
-    icon: "Cog", // Nombre del icono de Lucide
-    technologies: ["Tech 1", "Tech 2", "Tech 3"],
-    order: 7,
-  },
-  // ... otras categorías
-];
-```
-
-### Actualizar Estadísticas del Hero
-
-**En Firebase Console:**
-
-```
-Firestore → config → projectSettings → heroStats
-```
-
-**En el script:**
-
-```typescript
-heroStats: {
-  yearsOfExperience: 8,
-  projectsCompleted: 20,
-  technologiesMastered: 50,
-  displayFormat: {
-    experience: "8+",
-    projects: "20+",
-    technologies: "auto" // o un número como "50+"
-  }
+  "imageUrl": "https://www.marcosbustamantemateo.com/images/projects/mi-proyecto.png",
+  "type": "web",
+  "technologies": ["React", "TypeScript", "Firebase"],
+  "link": "https://mi-proyecto.com",
+  "comingSoon": false,
+  "order": 5
 }
 ```
 
-### Cambiar Información Personal
+#### Agregar Nueva Experiencia Laboral
 
-**En Firebase Console:**
+**Estructura JSON (`src/data/workExperience.json`):**
 
+```json
+{
+  "id": "exp9",
+  "company": "Nueva Empresa",
+  "position": {
+    "es": "Desarrollador Full Stack",
+    "en": "Full Stack Developer"
+  },
+  "period": {
+    "es": "Enero 2024 - Presente",
+    "en": "January 2024 - Present"
+  },
+  "description": {
+    "es": "Desarrollo de aplicaciones web modernas",
+    "en": "Development of modern web applications"
+  },
+  "technologies": ["React", "Node.js", "MongoDB"],
+  "order": 1
+}
 ```
-Firestore → aboutMe → profile
+
+#### Agregar Nuevo Testimonio con Imagen
+
+**Estructura JSON (`src/data/testimonials.json`):**
+
+```json
+{
+  "id": "test6",
+  "name": "Nombre Apellido",
+  "initials": "NA",
+  "imageUrl": "https://www.marcosbustamantemateo.com/images/testimonials/NA.jpg",
+  "content": {
+    "es": "Excelente profesional con gran capacidad técnica",
+    "en": "Excellent professional with great technical skills"
+  },
+  "linkedin": "https://www.linkedin.com/in/usuario",
+  "rating": 5,
+  "order": 6
+}
 ```
 
-**Campos editables:**
+**Nota sobre imágenes:**
 
-- `name`: Tu nombre
-- `title.es` / `title.en`: Título profesional
-- `subtitle.es` / `subtitle.en`: Subtítulo
-- `description.es` / `description.en`: Descripción
-- `commitment.es` / `commitment.en`: Compromiso
-- `location.es` / `location.en`: Ubicación
-- `avatarUrl`: URL de tu avatar
+- Los testimonios pueden incluir una foto (campo `imageUrl`)
+- Si no hay foto, se muestra un avatar con las iniciales
+- En el panel admin, la imagen se previsualiza automáticamente
 
 ---
 
