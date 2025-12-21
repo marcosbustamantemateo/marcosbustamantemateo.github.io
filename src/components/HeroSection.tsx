@@ -28,7 +28,9 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
   const t = translations[language];
   const { data: aboutMe, loading: aboutMeLoading } = useAboutMe();
   const { data: heroStats, loading } = useConfigSection("heroStats");
-  const { data: technologyCategories } = useConfigSection("technologyCategories");
+  const { data: technologyCategories } = useConfigSection(
+    "technologyCategories"
+  );
 
   const isLoading = aboutMeLoading || loading || !aboutMe;
 
@@ -37,11 +39,11 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
     if (!heroStats || !technologyCategories) {
       return "50+";
     }
-    
+
     if (heroStats.displayFormat.technologies !== "auto") {
       return heroStats.displayFormat.technologies;
     }
-    
+
     const unique = new Set<string>();
     technologyCategories.forEach((category) => {
       category.technologies.forEach((tech) => unique.add(tech));
@@ -58,7 +60,11 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
       <div className="container mx-auto px-4 pt-12 pb-24 md:pt-12 md:pb-12 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Profile Avatar */}
-          <div className={`w-40 h-40 md:w-48 md:h-48 mx-auto mb-8 relative mt-10 md:mt-0 transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100 animate-scale-in'}`}>
+          <div
+            className={`w-40 h-40 md:w-48 md:h-48 mx-auto mb-8 relative mt-10 md:mt-0 transition-opacity duration-500 ${
+              isLoading ? "opacity-0" : "opacity-100 animate-scale-in"
+            }`}
+          >
             <div className="absolute -inset-8 md:-inset-10 bg-gradient-primary rounded-full blur-2xl opacity-60 animate-glow-pulse" />
             <div className="relative w-full h-full bg-gradient-primary rounded-full flex items-center justify-center border-8 border-primary/50 overflow-hidden">
               <img
@@ -87,8 +93,8 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
                 </p>
               </div>
 
-            {/* Action Buttons - Commented out for future use */}
-            {/* 
+              {/* Action Buttons - Commented out for future use */}
+              {/* 
             <div
               className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 pt-4 animate-fade-in-up"
               style={{ animationDelay: "300ms" }}
@@ -116,23 +122,30 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
                 className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 animate-fade-in-up"
                 style={{ animationDelay: "400ms" }}
               >
-                {heroStats && [
-                  { value: heroStats.displayFormat.experience, label: t.experience },
-                  { value: heroStats.displayFormat.projects, label: t.projects },
-                  { value: getTechCount(), label: t.technologies },
-                ].map((stat, index) => (
-                  <div
-                    key={index}
-                    className="text-center p-4 rounded-lg glass border-2 border-primary/50 md:border-primary/20 md:hover:border-primary/50 transition-all duration-300 group"
-                  >
-                    <div className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent md:group-hover:text-primary md:transition-all md:duration-300 mb-2 font-mono">
-                      {stat.value}
+                {heroStats &&
+                  [
+                    {
+                      value: heroStats.displayFormat.experience,
+                      label: t.experience,
+                    },
+                    {
+                      value: heroStats.displayFormat.projects,
+                      label: t.projects,
+                    },
+                    { value: getTechCount(), label: t.technologies },
+                  ].map((stat, index) => (
+                    <div
+                      key={index}
+                      className="text-center p-4 rounded-lg glass border-2 border-primary/50 md:border-primary/20 md:hover:border-primary/50 transition-all duration-300 group"
+                    >
+                      <div className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent md:group-hover:text-primary md:transition-all md:duration-300 mb-2 font-mono">
+                        {stat.value}
+                      </div>
+                      <div className="text-sm bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-medium">
+                        {stat.label}
+                      </div>
                     </div>
-                    <div className="text-sm bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-medium">
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
+                  ))}
               </div>
             </div>
           )}

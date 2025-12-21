@@ -1,14 +1,20 @@
 /**
  * 🗑️ Script para eliminar todas las colecciones de Firebase
- * 
+ *
  * Este script elimina todas las colecciones y documentos de Firestore
  * para permitir una recarga limpia de datos.
- * 
+ *
  * Uso: npx tsx scripts/deleteFirestore.ts
  */
 
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, deleteDoc, doc } from "firebase/firestore";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  deleteDoc,
+  doc,
+} from "firebase/firestore";
 import * as dotenv from "dotenv";
 import { fileURLToPath } from "url";
 import { dirname, resolve } from "path";
@@ -39,15 +45,15 @@ const collections = [
   "programmingLanguages",
   "testimonials",
   "technologyCategories",
-  "config"
+  "config",
 ];
 
 async function deleteCollection(collectionName: string) {
   console.log(`\n🗑️  Eliminando colección: ${collectionName}`);
-  
+
   try {
     const querySnapshot = await getDocs(collection(db, collectionName));
-    
+
     if (querySnapshot.empty) {
       console.log(`   ℹ️  Colección vacía o no existe`);
       return;
@@ -59,7 +65,7 @@ async function deleteCollection(collectionName: string) {
       deletedCount++;
       console.log(`   ✅ Eliminado: ${document.id}`);
     }
-    
+
     console.log(`   ✨ Total eliminados: ${deletedCount} documentos`);
   } catch (error) {
     console.error(`   ❌ Error eliminando ${collectionName}:`, error);
@@ -68,13 +74,15 @@ async function deleteCollection(collectionName: string) {
 
 async function main() {
   console.log("🚀 Iniciando eliminación de datos de Firestore...\n");
-  console.log("⚠️  ADVERTENCIA: Esto eliminará TODOS los datos de las colecciones");
+  console.log(
+    "⚠️  ADVERTENCIA: Esto eliminará TODOS los datos de las colecciones"
+  );
   console.log("📋 Colecciones a eliminar:", collections.join(", "));
-  
+
   for (const collectionName of collections) {
     await deleteCollection(collectionName);
   }
-  
+
   console.log("\n✅ Proceso de eliminación completado");
   console.log("💡 Ahora puedes ejecutar: npm run init-firebase");
   process.exit(0);

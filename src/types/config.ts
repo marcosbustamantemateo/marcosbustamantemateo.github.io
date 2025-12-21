@@ -1,6 +1,6 @@
 /**
  * 🔧 Tipos para Configuración Dinámica desde Firebase
- * 
+ *
  * Define todos los tipos que se cargarán desde Firebase Firestore
  * en lugar de estar hardcodeados en el código.
  */

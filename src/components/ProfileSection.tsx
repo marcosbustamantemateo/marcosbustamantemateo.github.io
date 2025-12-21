@@ -29,7 +29,7 @@ export const ProfileSection = ({ language }: ProfileSectionProps) => {
   const { data: testimonialsData, loading } = useTestimonials();
 
   // Filtrar y ordenar testimonios
-  const sortedTestimonials = testimonialsData 
+  const sortedTestimonials = testimonialsData
     ? [...testimonialsData].sort((a, b) => a.order - b.order)
     : [];
 
@@ -77,8 +77,10 @@ export const ProfileSection = ({ language }: ProfileSectionProps) => {
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {sortedTestimonials.map((testimonial, index) => {
-                  const imageUrl = testimonial.imageUrl || `/images/testimonials/${testimonial.initials}.jpg`;
-                  
+                  const imageUrl =
+                    testimonial.imageUrl ||
+                    `/images/testimonials/${testimonial.initials}.jpg`;
+
                   const card = (
                     <Card
                       className="shadow-card hover:shadow-hover transition-all duration-300 animate-scale-in border-2 border-primary/20 hover:border-primary/50"

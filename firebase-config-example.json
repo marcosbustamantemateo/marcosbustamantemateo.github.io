@@ -196,13 +196,7 @@
         "en": "Primary programming languages"
       },
       "icon": "Code2",
-      "technologies": [
-        "Java",
-        "C#",
-        "JavaScript",
-        "TypeScript",
-        "Python"
-      ],
+      "technologies": ["Java", "C#", "JavaScript", "TypeScript", "Python"],
       "order": 0
     },
     {
@@ -307,12 +301,7 @@
         "en": "Native and hybrid mobile applications"
       },
       "icon": "Smartphone",
-      "technologies": [
-        "Xamarin",
-        "Android",
-        "Windows Form",
-        "MAUI"
-      ],
+      "technologies": ["Xamarin", "Android", "Windows Form", "MAUI"],
       "order": 5
     },
     {
@@ -326,13 +315,7 @@
         "en": "APIs and communication protocols"
       },
       "icon": "MessageSquare",
-      "technologies": [
-        "APIs REST",
-        "WebSockets",
-        "gRPC",
-        "SignalR",
-        "GraphQL"
-      ],
+      "technologies": ["APIs REST", "WebSockets", "gRPC", "SignalR", "GraphQL"],
       "order": 6
     },
     {
@@ -366,12 +349,7 @@
         "en": "Testing and agile practices"
       },
       "icon": "TestTube2",
-      "technologies": [
-        "JUnit",
-        "Mockito",
-        "TDD",
-        "Scrum"
-      ],
+      "technologies": ["JUnit", "Mockito", "TDD", "Scrum"],
       "order": 8
     },
     {
@@ -385,10 +363,7 @@
         "en": "Development and CI/CD tools"
       },
       "icon": "Wrench",
-      "technologies": [
-        "Postman",
-        "Maven"
-      ],
+      "technologies": ["Postman", "Maven"],
       "order": 9
     }
   ],

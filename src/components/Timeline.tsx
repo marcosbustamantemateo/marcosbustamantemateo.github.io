@@ -26,9 +26,7 @@ export const Timeline = ({ language, type }: TimelineProps) => {
   if (!items || items.length === 0) {
     return (
       <div className="text-center text-muted-foreground py-8">
-        {language === "es" 
-          ? "No hay datos disponibles" 
-          : "No data available"}
+        {language === "es" ? "No hay datos disponibles" : "No data available"}
       </div>
     );
   }
@@ -63,7 +61,7 @@ export const Timeline = ({ language, type }: TimelineProps) => {
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                   <div>
                     <h3 className="text-lg font-bold text-primary mb-1">
-                      {type === "work" 
+                      {type === "work"
                         ? item.position[language]
                         : item.degree[language]}
                     </h3>
@@ -71,7 +69,7 @@ export const Timeline = ({ language, type }: TimelineProps) => {
                       {type === "work" ? item.company : item.institution}
                     </p>
                   </div>
-                  
+
                   {/* Date with icon */}
                   <div className="flex items-center text-muted-foreground gap-3">
                     <Calendar className="w-8 h-8 flex-shrink-0" />
@@ -80,7 +78,9 @@ export const Timeline = ({ language, type }: TimelineProps) => {
                         {(() => {
                           const fullPeriod = item.period[language];
                           // Extraer la parte de la fecha (antes de cualquier número de duración)
-                          const dateMatch = fullPeriod.match(/^(.+?)(\d+\s+(año|años|mes|meses|semana|semanas|month|months|year|years|week|weeks).*)?$/);
+                          const dateMatch = fullPeriod.match(
+                            /^(.+?)(\d+\s+(año|años|mes|meses|semana|semanas|month|months|year|years|week|weeks).*)?$/
+                          );
                           return dateMatch ? dateMatch[1].trim() : fullPeriod;
                         })()}
                       </span>
@@ -88,8 +88,10 @@ export const Timeline = ({ language, type }: TimelineProps) => {
                         {(() => {
                           const fullPeriod = item.period[language];
                           // Extraer solo la duración (números + texto de tiempo)
-                          const durationMatch = fullPeriod.match(/(\d+\s+(año|años|mes|meses|semana|semanas|month|months|year|years|week|weeks).*)/);
-                          return durationMatch ? durationMatch[0] : '';
+                          const durationMatch = fullPeriod.match(
+                            /(\d+\s+(año|años|mes|meses|semana|semanas|month|months|year|years|week|weeks).*)/
+                          );
+                          return durationMatch ? durationMatch[0] : "";
                         })()}
                       </span>
                     </div>
@@ -117,13 +119,15 @@ export const Timeline = ({ language, type }: TimelineProps) => {
                 )}
 
                 {/* Achievements (only for work experience) */}
-                {type === "work" && item.achievements && item.achievements[language] && (
-                  <ul className="list-disc list-inside space-y-1 text-sm text-foreground mt-4">
-                    {item.achievements[language].map((achievement, idx) => (
-                      <li key={idx}>{achievement}</li>
-                    ))}
-                  </ul>
-                )}
+                {type === "work" &&
+                  item.achievements &&
+                  item.achievements[language] && (
+                    <ul className="list-disc list-inside space-y-1 text-sm text-foreground mt-4">
+                      {item.achievements[language].map((achievement, idx) => (
+                        <li key={idx}>{achievement}</li>
+                      ))}
+                    </ul>
+                  )}
               </CardContent>
             </Card>
           </div>

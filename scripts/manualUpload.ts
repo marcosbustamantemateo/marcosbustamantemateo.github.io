@@ -1,6 +1,6 @@
 /**
  * 🚀 Script MANUAL de inicialización de Firebase
- * 
+ *
  * INSTRUCCIONES:
  * 1. Edita las líneas 15-20 con tus credenciales de Firebase
  * 2. Ejecuta: npx tsx scripts/manualUpload.ts
@@ -32,7 +32,9 @@ const firebaseConfig = {
 
 if (!firebaseConfig.projectId) {
   console.error("❌ Error: No se encontraron las credenciales de Firebase.");
-  console.error("Verifica que .env.local contenga las variables VITE_FIREBASE_*");
+  console.error(
+    "Verifica que .env.local contenga las variables VITE_FIREBASE_*"
+  );
   process.exit(1);
 }
 
@@ -48,7 +50,7 @@ async function uploadConfig() {
   try {
     console.log("🚀 Iniciando carga de configuración a Firebase...");
     console.log(`📍 Proyecto: ${firebaseConfig.projectId}`);
-    
+
     // Convertir el lastUpdated a Timestamp
     const configWithTimestamp = {
       ...configData,
@@ -64,39 +66,55 @@ async function uploadConfig() {
     console.log(`   - ${configData.projectTypes.length} tipos de proyecto`);
     console.log(`   - ${configData.languages.length} idiomas`);
     console.log(`   - ${configData.contactTypes.length} tipos de contacto`);
-    console.log(`   - ${configData.shareChannels.length} canales para compartir`);
+    console.log(
+      `   - ${configData.shareChannels.length} canales para compartir`
+    );
     console.log(`   - ${configData.testimonials.length} testimonios`);
-    console.log(`   - ${configData.technologyCategories.length} categorías de tecnologías`);
-    
+    console.log(
+      `   - ${configData.technologyCategories.length} categorías de tecnologías`
+    );
+
     interface TechCategory {
       technologies: string[];
     }
-    
+
     const totalTechs = configData.technologyCategories.reduce(
       (sum: number, cat: TechCategory) => sum + cat.technologies.length,
       0
     );
     console.log(`   - ${totalTechs} tecnologías en total`);
-    
-    console.log("\n🎉 ¡Migración completada! Ahora puedes usar la configuración dinámica.");
+
+    console.log(
+      "\n🎉 ¡Migración completada! Ahora puedes usar la configuración dinámica."
+    );
     console.log("\n📝 Próximos pasos:");
     console.log("1. Ve a Firebase Console y verifica el documento");
     console.log("2. Inicia tu aplicación con: npm run dev");
-    console.log("3. Los componentes cargarán los datos desde Firebase automáticamente");
-    
+    console.log(
+      "3. Los componentes cargarán los datos desde Firebase automáticamente"
+    );
+
     process.exit(0);
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : String(error);
-    const errorCode = error && typeof error === 'object' && 'code' in error ? (error as { code: string }).code : '';
-    
+    const errorCode =
+      error && typeof error === "object" && "code" in error
+        ? (error as { code: string }).code
+        : "";
+
     console.error("\n❌ Error al cargar configuración:", errorMessage);
     console.error("\n🔍 Verifica:");
     console.error("1. Que Firestore esté habilitado en Firebase Console");
     console.error("2. Que las reglas de Firestore permitan escritura");
     console.error("3. Que las credenciales sean correctas");
-    
-    if (errorCode === "permission-denied" || errorMessage.includes("permission")) {
-      console.error("\n🔒 Error de permisos. Configura las reglas de Firestore:");
+
+    if (
+      errorCode === "permission-denied" ||
+      errorMessage.includes("permission")
+    ) {
+      console.error(
+        "\n🔒 Error de permisos. Configura las reglas de Firestore:"
+      );
       console.error("Ir a: Firebase Console → Firestore Database → Reglas");
       console.error("Agregar temporalmente:");
       console.error(`
@@ -105,7 +123,7 @@ match /config/{document} {
 }
       `);
     }
-    
+
     process.exit(1);
   }
 }

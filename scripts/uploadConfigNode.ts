@@ -1,8 +1,8 @@
 /**
  * 🚀 Script de inicialización de Firebase para Node.js
- * 
+ *
  * Este script puebla Firestore con la configuración desde firebase-config-example.json
- * 
+ *
  * Uso:
  * npx tsx scripts/uploadConfigNode.ts
  */
@@ -51,7 +51,7 @@ async function uploadConfig() {
   try {
     console.log("🚀 Iniciando carga de configuración a Firebase...");
     console.log(`📍 Proyecto: ${firebaseConfig.projectId}`);
-    
+
     // Convertir el lastUpdated a Timestamp
     const configWithTimestamp = {
       ...configData,
@@ -67,22 +67,30 @@ async function uploadConfig() {
     console.log(`   - ${configData.projectTypes.length} tipos de proyecto`);
     console.log(`   - ${configData.languages.length} idiomas`);
     console.log(`   - ${configData.contactTypes.length} tipos de contacto`);
-    console.log(`   - ${configData.shareChannels.length} canales para compartir`);
+    console.log(
+      `   - ${configData.shareChannels.length} canales para compartir`
+    );
     console.log(`   - ${configData.testimonials.length} testimonios`);
-    console.log(`   - ${configData.technologyCategories.length} categorías de tecnologías`);
-    
+    console.log(
+      `   - ${configData.technologyCategories.length} categorías de tecnologías`
+    );
+
     const totalTechs = configData.technologyCategories.reduce(
       (sum: number, cat: any) => sum + cat.technologies.length,
       0
     );
     console.log(`   - ${totalTechs} tecnologías en total`);
-    
-    console.log("\n🎉 ¡Migración completada! Ahora puedes usar la configuración dinámica.");
+
+    console.log(
+      "\n🎉 ¡Migración completada! Ahora puedes usar la configuración dinámica."
+    );
     console.log("\n📝 Próximos pasos:");
     console.log("1. Ve a Firebase Console y verifica el documento");
     console.log("2. Inicia tu aplicación con: npm run dev");
-    console.log("3. Los componentes cargarán los datos desde Firebase automáticamente");
-    
+    console.log(
+      "3. Los componentes cargarán los datos desde Firebase automáticamente"
+    );
+
     process.exit(0);
   } catch (error: any) {
     console.error("\n❌ Error al cargar configuración:", error.message);
@@ -90,9 +98,11 @@ async function uploadConfig() {
     console.error("1. Que Firestore esté habilitado en Firebase Console");
     console.error("2. Que las reglas de Firestore permitan escritura");
     console.error("3. Que las credenciales sean correctas");
-    
+
     if (error.code === "permission-denied") {
-      console.error("\n🔒 Error de permisos. Configura las reglas de Firestore:");
+      console.error(
+        "\n🔒 Error de permisos. Configura las reglas de Firestore:"
+      );
       console.error(`
 match /config/{document} {
   allow read: if true;
@@ -100,12 +110,12 @@ match /config/{document} {
 }
       `);
     }
-    
+
     process.exit(1);
   }
 }
 
 // Ejecutar
 console.log("🔥 Script de inicialización de Firebase");
-console.log("=" .repeat(50));
+console.log("=".repeat(50));
 uploadConfig();

@@ -1,65 +1,65 @@
 {
-    "value":  [
-                  {
-                      "id":  "test1",
-                      "name":  "Manuel Rubio Bravo",
-                      "initials":  "MRB",
-                      "content":  {
-                                      "es":  "Nuestra etapa en Ansotec nos ha hecho pasar momentos profesionales en los que un compaÃ±ero como Marcos es imprescindible para poder superarlos. En lo laboral, es una persona resolutiva y con capacidad de superaciÃ³n, y en lo personal es un compaÃ±ero ejemplar.",
-                                      "en":  "Our stage at Ansotec has taken us through professional moments where a colleague like Marcos is essential to overcome them. At work, he is a resourceful person with the ability to overcome challenges, and personally he is an exemplary colleague."
-                                  },
-                      "linkedin":  "https://www.linkedin.com/in/manuelrubiodeveloper/",
-                      "rating":  5,
-                      "order":  1
-                  },
-                  {
-                      "id":  "test2",
-                      "name":  "Francisco Javier Ruano",
-                      "initials":  "FJR",
-                      "content":  {
-                                      "es":  "Marcos es una persona que siempre estÃ¡ investigando y buscando nuevas posibilidades para un proyecto, una garantÃ­a de estar siempre a la Ãºltima tecnologÃ­a. Muy trabajador cuando algo le apasiona. Gran compaÃ±ero.",
-                                      "en":  "Marcos is someone who is always researching and looking for new possibilities for a project, a guarantee of always being up to the latest technology. Very hardworking when something he is passionate about. A great colleague."
-                                  },
-                      "linkedin":  "https://www.linkedin.com/in/fcojavierruano/",
-                      "rating":  5,
-                      "order":  2
-                  },
-                  {
-                      "id":  "test3",
-                      "name":  "Manuel Camero Orellana",
-                      "initials":  "MCO",
-                      "content":  {
-                                      "es":  "Apasionado del aprendizaje y el trabajo bien hecho, un gran compaÃ±ero.",
-                                      "en":  "Passionate about learning and work well done, a great colleague."
-                                  },
-                      "linkedin":  "https://www.linkedin.com/in/manuel-m%C2%AA-camero-orellana-47a502121/",
-                      "rating":  5,
-                      "order":  3
-                  },
-                  {
-                      "id":  "test4",
-                      "name":  "Alvaro Sanchez Cabrera",
-                      "initials":  "ASC",
-                      "content":  {
-                                      "es":  "Gran profesional, buen compaÃ±ero y apasionado de las tecnologÃ­as.",
-                                      "en":  "Great professional, good colleague and passionate about technologies."
-                                  },
-                      "linkedin":  "https://www.linkedin.com/in/alvarosanchezcabrera/",
-                      "rating":  5,
-                      "order":  4
-                  },
-                  {
-                      "id":  "test5",
-                      "name":  "Ignacio Gallardo SÃ¡nchez",
-                      "initials":  "IGS",
-                      "content":  {
-                                      "es":  "Marcos es de esas personas que disfrutan programar de verdad. Le apasiona aprender cosas nuevas, mejorar su cÃ³digo y encontrar la mejor forma de hacer las cosas. Siempre tiene una buena actitud y un enfoque muy prÃ¡ctico para resolver cualquier reto tÃ©cnico.",
-                                      "en":  "Marcos is one of those people who truly enjoy programming. He is passionate about learning new things, improving his code and finding the best way to do things. He always has a great attitude and a very practical approach to solving any technical challenge."
-                                  },
-                      "linkedin":  "https://www.linkedin.com/in/ignaciogallardosanchez/",
-                      "rating":  5,
-                      "order":  5
-                  }
-              ],
-    "Count":  5
+  "value": [
+    {
+      "id": "test1",
+      "name": "Manuel Rubio Bravo",
+      "initials": "MRB",
+      "content": {
+        "es": "Nuestra etapa en Ansotec nos ha hecho pasar momentos profesionales en los que un compaÃ±ero como Marcos es imprescindible para poder superarlos. En lo laboral, es una persona resolutiva y con capacidad de superaciÃ³n, y en lo personal es un compaÃ±ero ejemplar.",
+        "en": "Our stage at Ansotec has taken us through professional moments where a colleague like Marcos is essential to overcome them. At work, he is a resourceful person with the ability to overcome challenges, and personally he is an exemplary colleague."
+      },
+      "linkedin": "https://www.linkedin.com/in/manuelrubiodeveloper/",
+      "rating": 5,
+      "order": 1
+    },
+    {
+      "id": "test2",
+      "name": "Francisco Javier Ruano",
+      "initials": "FJR",
+      "content": {
+        "es": "Marcos es una persona que siempre estÃ¡ investigando y buscando nuevas posibilidades para un proyecto, una garantÃ­a de estar siempre a la Ãºltima tecnologÃ­a. Muy trabajador cuando algo le apasiona. Gran compaÃ±ero.",
+        "en": "Marcos is someone who is always researching and looking for new possibilities for a project, a guarantee of always being up to the latest technology. Very hardworking when something he is passionate about. A great colleague."
+      },
+      "linkedin": "https://www.linkedin.com/in/fcojavierruano/",
+      "rating": 5,
+      "order": 2
+    },
+    {
+      "id": "test3",
+      "name": "Manuel Camero Orellana",
+      "initials": "MCO",
+      "content": {
+        "es": "Apasionado del aprendizaje y el trabajo bien hecho, un gran compaÃ±ero.",
+        "en": "Passionate about learning and work well done, a great colleague."
+      },
+      "linkedin": "https://www.linkedin.com/in/manuel-m%C2%AA-camero-orellana-47a502121/",
+      "rating": 5,
+      "order": 3
+    },
+    {
+      "id": "test4",
+      "name": "Alvaro Sanchez Cabrera",
+      "initials": "ASC",
+      "content": {
+        "es": "Gran profesional, buen compaÃ±ero y apasionado de las tecnologÃ­as.",
+        "en": "Great professional, good colleague and passionate about technologies."
+      },
+      "linkedin": "https://www.linkedin.com/in/alvarosanchezcabrera/",
+      "rating": 5,
+      "order": 4
+    },
+    {
+      "id": "test5",
+      "name": "Ignacio Gallardo SÃ¡nchez",
+      "initials": "IGS",
+      "content": {
+        "es": "Marcos es de esas personas que disfrutan programar de verdad. Le apasiona aprender cosas nuevas, mejorar su cÃ³digo y encontrar la mejor forma de hacer las cosas. Siempre tiene una buena actitud y un enfoque muy prÃ¡ctico para resolver cualquier reto tÃ©cnico.",
+        "en": "Marcos is one of those people who truly enjoy programming. He is passionate about learning new things, improving his code and finding the best way to do things. He always has a great attitude and a very practical approach to solving any technical challenge."
+      },
+      "linkedin": "https://www.linkedin.com/in/ignaciogallardosanchez/",
+      "rating": 5,
+      "order": 5
+    }
+  ],
+  "Count": 5
 }

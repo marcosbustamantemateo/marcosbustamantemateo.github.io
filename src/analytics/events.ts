@@ -6,7 +6,12 @@
  */
 
 // Importar tipos dinámicos
-export type { ProjectType, Language, ContactType, ShareChannel } from "@/types/config";
+export type {
+  ProjectType,
+  Language,
+  ContactType,
+  ShareChannel,
+} from "@/types/config";
 
 // Wait for gtag to be ready
 const waitForGtag = (): Promise<void> => {

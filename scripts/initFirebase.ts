@@ -24,9 +24,14 @@ const educationJSON = JSON.parse(
 const testimonialsJSON = JSON.parse(
   readFileSync(resolve(__dirname, "../src/data/testimonials.json"), "utf-8")
 );
-const testimonials = Array.isArray(testimonialsJSON) ? testimonialsJSON : (testimonialsJSON.value || []);
+const testimonials = Array.isArray(testimonialsJSON)
+  ? testimonialsJSON
+  : testimonialsJSON.value || [];
 const technologyCategoriesJSON = JSON.parse(
-  readFileSync(resolve(__dirname, "../src/data/technologyCategories.json"), "utf-8")
+  readFileSync(
+    resolve(__dirname, "../src/data/technologyCategories.json"),
+    "utf-8"
+  )
 );
 const aboutMeJSON = JSON.parse(
   readFileSync(resolve(__dirname, "../src/data/aboutMe.json"), "utf-8")
@@ -34,7 +39,9 @@ const aboutMeJSON = JSON.parse(
 const languagesJSON = JSON.parse(
   readFileSync(resolve(__dirname, "../src/data/languages.json"), "utf-8")
 );
-const languages = Array.isArray(languagesJSON) ? languagesJSON : (languagesJSON.value || []);
+const languages = Array.isArray(languagesJSON)
+  ? languagesJSON
+  : languagesJSON.value || [];
 
 const firebaseConfig = {
   apiKey: process.env.VITE_FIREBASE_API_KEY,
@@ -118,7 +125,9 @@ async function initializeFirebase() {
     console.log(`  - education: ${educationJSON.length} documentos`);
     console.log(`  - programmingLanguages: ${languages.length} documentos`);
     console.log(`  - testimonials: ${testimonials.length} documentos`);
-    console.log(`  - technologyCategories: ${technologyCategoriesJSON.length} documentos`);
+    console.log(
+      `  - technologyCategories: ${technologyCategoriesJSON.length} documentos`
+    );
 
     process.exit(0);
   } catch (error) {

@@ -1,11 +1,18 @@
 /**
  * 🔥 Hooks para cargar datos de colecciones específicas de Firebase
- * 
+ *
  * Cada hook maneja una colección diferente con su respectivo fallback JSON.
  */
 
 import { useState, useEffect } from "react";
-import { doc, getDoc, collection, getDocs, query, orderBy } from "firebase/firestore";
+import {
+  doc,
+  getDoc,
+  collection,
+  getDocs,
+  query,
+  orderBy,
+} from "firebase/firestore";
 import { db } from "@/config/firebase";
 import type {
   AboutMe,
@@ -31,7 +38,10 @@ interface CacheData {
   education?: { data: Education[]; timestamp: number };
   programmingLanguages?: { data: ProgrammingLanguage[]; timestamp: number };
   testimonials?: { data: TestimonialConfig[]; timestamp: number };
-  technologyCategories?: { data: TechnologyCategoryConfig[]; timestamp: number };
+  technologyCategories?: {
+    data: TechnologyCategoryConfig[];
+    timestamp: number;
+  };
 }
 
 const cache: CacheData = {};
@@ -56,7 +66,10 @@ export const useAboutMe = (): UseDataReturn<AboutMe> => {
     const fetchData = async () => {
       try {
         // Verificar cache
-        if (cache.aboutMe && Date.now() - cache.aboutMe.timestamp < CACHE_DURATION) {
+        if (
+          cache.aboutMe &&
+          Date.now() - cache.aboutMe.timestamp < CACHE_DURATION
+        ) {
           setData(cache.aboutMe.data);
           setLoading(false);
           return;
@@ -101,7 +114,10 @@ export const useWorkExperience = (): UseDataReturn<WorkExperience[]> => {
     const fetchData = async () => {
       try {
         // Verificar cache
-        if (cache.workExperience && Date.now() - cache.workExperience.timestamp < CACHE_DURATION) {
+        if (
+          cache.workExperience &&
+          Date.now() - cache.workExperience.timestamp < CACHE_DURATION
+        ) {
           setData(cache.workExperience.data);
           setLoading(false);
           return;
@@ -119,7 +135,9 @@ export const useWorkExperience = (): UseDataReturn<WorkExperience[]> => {
           cache.workExperience = { data: experiences, timestamp: Date.now() };
           setData(experiences);
         } else {
-          console.warn("⚠️ workExperience not found in Firebase, using fallback");
+          console.warn(
+            "⚠️ workExperience not found in Firebase, using fallback"
+          );
           setData(workExperienceJson as WorkExperience[]);
         }
       } catch (err) {
@@ -150,7 +168,10 @@ export const useEducation = (): UseDataReturn<Education[]> => {
     const fetchData = async () => {
       try {
         // Verificar cache
-        if (cache.education && Date.now() - cache.education.timestamp < CACHE_DURATION) {
+        if (
+          cache.education &&
+          Date.now() - cache.education.timestamp < CACHE_DURATION
+        ) {
           setData(cache.education.data);
           setLoading(false);
           return;
@@ -190,7 +211,9 @@ export const useEducation = (): UseDataReturn<Education[]> => {
 // PROGRAMMING LANGUAGES
 // ============================================
 
-export const useProgrammingLanguages = (): UseDataReturn<ProgrammingLanguage[]> => {
+export const useProgrammingLanguages = (): UseDataReturn<
+  ProgrammingLanguage[]
+> => {
   const [data, setData] = useState<ProgrammingLanguage[] | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
@@ -199,7 +222,10 @@ export const useProgrammingLanguages = (): UseDataReturn<ProgrammingLanguage[]> 
     const fetchData = async () => {
       try {
         // Verificar cache
-        if (cache.programmingLanguages && Date.now() - cache.programmingLanguages.timestamp < CACHE_DURATION) {
+        if (
+          cache.programmingLanguages &&
+          Date.now() - cache.programmingLanguages.timestamp < CACHE_DURATION
+        ) {
           setData(cache.programmingLanguages.data);
           setLoading(false);
           return;
@@ -214,10 +240,15 @@ export const useProgrammingLanguages = (): UseDataReturn<ProgrammingLanguage[]> 
             id: doc.id,
             ...doc.data(),
           })) as ProgrammingLanguage[];
-          cache.programmingLanguages = { data: languages, timestamp: Date.now() };
+          cache.programmingLanguages = {
+            data: languages,
+            timestamp: Date.now(),
+          };
           setData(languages);
         } else {
-          console.warn("⚠️ programmingLanguages not found in Firebase, using fallback");
+          console.warn(
+            "⚠️ programmingLanguages not found in Firebase, using fallback"
+          );
           setData(programmingLanguagesJson as ProgrammingLanguage[]);
         }
       } catch (err) {
@@ -248,7 +279,10 @@ export const useTestimonials = (): UseDataReturn<TestimonialConfig[]> => {
     const fetchData = async () => {
       try {
         // Verificar cache
-        if (cache.testimonials && Date.now() - cache.testimonials.timestamp < CACHE_DURATION) {
+        if (
+          cache.testimonials &&
+          Date.now() - cache.testimonials.timestamp < CACHE_DURATION
+        ) {
           setData(cache.testimonials.data);
           setLoading(false);
           return;
@@ -288,7 +322,9 @@ export const useTestimonials = (): UseDataReturn<TestimonialConfig[]> => {
 // TECHNOLOGY CATEGORIES
 // ============================================
 
-export const useTechnologyCategories = (): UseDataReturn<TechnologyCategoryConfig[]> => {
+export const useTechnologyCategories = (): UseDataReturn<
+  TechnologyCategoryConfig[]
+> => {
   const [data, setData] = useState<TechnologyCategoryConfig[] | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
@@ -297,7 +333,10 @@ export const useTechnologyCategories = (): UseDataReturn<TechnologyCategoryConfi
     const fetchData = async () => {
       try {
         // Verificar cache
-        if (cache.technologyCategories && Date.now() - cache.technologyCategories.timestamp < CACHE_DURATION) {
+        if (
+          cache.technologyCategories &&
+          Date.now() - cache.technologyCategories.timestamp < CACHE_DURATION
+        ) {
           setData(cache.technologyCategories.data);
           setLoading(false);
           return;
@@ -312,10 +351,15 @@ export const useTechnologyCategories = (): UseDataReturn<TechnologyCategoryConfi
             id: doc.id,
             ...doc.data(),
           })) as TechnologyCategoryConfig[];
-          cache.technologyCategories = { data: categories, timestamp: Date.now() };
+          cache.technologyCategories = {
+            data: categories,
+            timestamp: Date.now(),
+          };
           setData(categories);
         } else {
-          console.warn("⚠️ technologyCategories not found in Firebase, using fallback");
+          console.warn(
+            "⚠️ technologyCategories not found in Firebase, using fallback"
+          );
           setData(technologyCategoriesJson as TechnologyCategoryConfig[]);
         }
       } catch (err) {

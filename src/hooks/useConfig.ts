@@ -1,9 +1,9 @@
 /**
  * 🔥 Hook personalizado para cargar configuración desde Firebase
- * 
+ *
  * Este hook gestiona la carga, caché y actualización de toda la configuración
  * dinámica de la aplicación desde Firestore.
- * 
+ *
  * Características:
  * - Carga única al inicio
  * - Caché en memoria para evitar lecturas innecesarias
@@ -124,8 +124,12 @@ let configPromise: Promise<AppConfig> | null = null;
 /**
  * Hook para acceder a la configuración global de la aplicación
  */
-export const useConfig = (options?: { realtime?: boolean }): UseConfigReturn => {
-  const [config, setConfig] = useState<AppConfig>(cachedConfig || DEFAULT_CONFIG);
+export const useConfig = (options?: {
+  realtime?: boolean;
+}): UseConfigReturn => {
+  const [config, setConfig] = useState<AppConfig>(
+    cachedConfig || DEFAULT_CONFIG
+  );
   const [loading, setLoading] = useState<boolean>(!cachedConfig);
   const [error, setError] = useState<Error | null>(null);
 
@@ -148,7 +152,7 @@ export const useConfig = (options?: { realtime?: boolean }): UseConfigReturn => 
 
         if (configSnap.exists()) {
           const data = configSnap.data() as AppConfig;
-          
+
           // Convertir fecha si viene como Timestamp de Firestore
           if (data.lastUpdated && typeof data.lastUpdated === "object") {
             data.lastUpdated = (data.lastUpdated as any).toDate();
@@ -169,14 +173,16 @@ export const useConfig = (options?: { realtime?: boolean }): UseConfigReturn => 
     } catch (err) {
       console.error("❌ Error loading config:", err);
       configPromise = null;
-      throw err instanceof Error ? err : new Error("Unknown error loading config");
+      throw err instanceof Error
+        ? err
+        : new Error("Unknown error loading config");
     }
   }, []);
 
   const refetch = useCallback(async () => {
     setLoading(true);
     setError(null);
-    
+
     // Limpiar caché para forzar recarga
     cachedConfig = null;
     configPromise = null;
@@ -211,7 +217,7 @@ export const useConfig = (options?: { realtime?: boolean }): UseConfigReturn => 
             (snapshot) => {
               if (snapshot.exists()) {
                 const data = snapshot.data() as AppConfig;
-                
+
                 // Convertir fecha si viene como Timestamp de Firestore
                 if (data.lastUpdated && typeof data.lastUpdated === "object") {
                   data.lastUpdated = (data.lastUpdated as any).toDate();
@@ -224,7 +230,9 @@ export const useConfig = (options?: { realtime?: boolean }): UseConfigReturn => 
             },
             (err) => {
               console.error("❌ Error in realtime config:", err);
-              setError(err instanceof Error ? err : new Error("Realtime error"));
+              setError(
+                err instanceof Error ? err : new Error("Realtime error")
+              );
             }
           );
         }
@@ -261,7 +269,7 @@ export const useConfigSection = <K extends keyof AppConfig>(
   error: Error | null;
 } => {
   const { config, loading, error } = useConfig();
-  
+
   return {
     data: config[section],
     loading,

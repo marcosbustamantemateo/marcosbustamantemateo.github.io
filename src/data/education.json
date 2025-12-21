@@ -14,12 +14,7 @@
       "es": "Aprendizaje y prácticas sobre Angular durante una semana.",
       "en": "Learning and practice on Angular for one week."
     },
-    "technologies": [
-      "ASP.NET",
-      "angular",
-      "JavaScript",
-      "TypeScript"
-    ],
+    "technologies": ["ASP.NET", "angular", "JavaScript", "TypeScript"],
     "order": 1
   },
   {

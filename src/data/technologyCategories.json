@@ -36,13 +36,7 @@
       "en": "APIs and communication protocols"
     },
     "icon": "Radio",
-    "technologies": [
-      "APIs REST",
-      "WebSockets",
-      "gRPC",
-      "SignalR",
-      "GraphQL"
-    ],
+    "technologies": ["APIs REST", "WebSockets", "gRPC", "SignalR", "GraphQL"],
     "order": 2
   },
   {
@@ -119,10 +113,7 @@
       "en": "Development tools and CI/CD"
     },
     "icon": "Wrench",
-    "technologies": [
-      "Postman",
-      "Maven"
-    ],
+    "technologies": ["Postman", "Maven"],
     "order": 6
   },
   {
@@ -136,12 +127,7 @@
       "en": "Testing and agile methodology"
     },
     "icon": "TestTube",
-    "technologies": [
-      "JUnit",
-      "Mockito",
-      "TDD",
-      "Scrum"
-    ],
+    "technologies": ["JUnit", "Mockito", "TDD", "Scrum"],
     "order": 7
   },
   {
@@ -155,12 +141,7 @@
       "en": "Native and hybrid mobile applications"
     },
     "icon": "Smartphone",
-    "technologies": [
-      "Xamarin",
-      "Android",
-      "windows form",
-      "MAUI"
-    ],
+    "technologies": ["Xamarin", "Android", "windows form", "MAUI"],
     "order": 8
   },
   {

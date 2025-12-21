@@ -1,35 +1,35 @@
 {
-    "value":  [
-                  {
-                      "id":  "java",
-                      "name":  "Java",
-                      "category":  "backend",
-                      "order":  1
-                  },
-                  {
-                      "id":  "csharp",
-                      "name":  "C#",
-                      "category":  "backend",
-                      "order":  2
-                  },
-                  {
-                      "id":  "javascript",
-                      "name":  "JavaScript",
-                      "category":  "frontend",
-                      "order":  3
-                  },
-                  {
-                      "id":  "typescript",
-                      "name":  "TypeScript",
-                      "category":  "frontend",
-                      "order":  4
-                  },
-                  {
-                      "id":  "python",
-                      "name":  "Python",
-                      "category":  "backend",
-                      "order":  5
-                  }
-              ],
-    "Count":  5
+  "value": [
+    {
+      "id": "java",
+      "name": "Java",
+      "category": "backend",
+      "order": 1
+    },
+    {
+      "id": "csharp",
+      "name": "C#",
+      "category": "backend",
+      "order": 2
+    },
+    {
+      "id": "javascript",
+      "name": "JavaScript",
+      "category": "frontend",
+      "order": 3
+    },
+    {
+      "id": "typescript",
+      "name": "TypeScript",
+      "category": "frontend",
+      "order": 4
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "category": "backend",
+      "order": 5
+    }
+  ],
+  "Count": 5
 }

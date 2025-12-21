@@ -178,7 +178,9 @@ export const TechnologiesSection = ({ language }: TechnologiesSectionProps) => {
   const { data: technologyCategoriesData, loading } = useTechnologyCategories();
 
   // Separar la categoría de lenguajes
-  const languagesCategory = technologyCategoriesData?.find((cat) => cat.id === "languages");
+  const languagesCategory = technologyCategoriesData?.find(
+    (cat) => cat.id === "languages"
+  );
   const otherCategories = (technologyCategoriesData || [])
     .filter((cat) => cat.id !== "languages")
     .sort((a, b) => a.order - b.order);
@@ -188,7 +190,9 @@ export const TechnologiesSection = ({ language }: TechnologiesSectionProps) => {
       <section id="technologies" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <p className="text-lg text-muted-foreground">Cargando tecnologías...</p>
+            <p className="text-lg text-muted-foreground">
+              Cargando tecnologías...
+            </p>
           </div>
         </div>
       </section>
@@ -230,8 +234,8 @@ export const TechnologiesSection = ({ language }: TechnologiesSectionProps) => {
             {language === "es" ? "Tecnologías" : "Technologies"}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {language === "es" 
-              ? "Herramientas y frameworks que domino" 
+            {language === "es"
+              ? "Herramientas y frameworks que domino"
               : "Tools and frameworks I master"}
           </p>
         </div>
