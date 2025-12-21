@@ -1,0 +1,29 @@
+[
+  {
+    "id": "email",
+    "label": {
+      "es": "Email",
+      "en": "Email"
+    },
+    "icon": "Mail",
+    "url": "mailto:marcosbustamante.mateo@gmail.com"
+  },
+  {
+    "id": "linkedin",
+    "label": {
+      "es": "LinkedIn",
+      "en": "LinkedIn"
+    },
+    "icon": "Linkedin",
+    "url": "https://www.linkedin.com/in/marcosbustamantemateo/"
+  },
+  {
+    "id": "github",
+    "label": {
+      "es": "GitHub",
+      "en": "GitHub"
+    },
+    "icon": "Github",
+    "url": "https://github.com/marcosbustamantemateo"
+  }
+]

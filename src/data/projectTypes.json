@@ -1,0 +1,26 @@
+[
+  {
+    "id": "web",
+    "label": {
+      "es": "Web",
+      "en": "Web"
+    },
+    "icon": "Globe"
+  },
+  {
+    "id": "mobile",
+    "label": {
+      "es": "Móvil",
+      "en": "Mobile"
+    },
+    "icon": "Smartphone"
+  },
+  {
+    "id": "desktop",
+    "label": {
+      "es": "Escritorio",
+      "en": "Desktop"
+    },
+    "icon": "Monitor"
+  }
+]

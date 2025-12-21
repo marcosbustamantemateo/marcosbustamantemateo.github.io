@@ -8,10 +8,17 @@ import {
   Smartphone,
   Cloud,
 } from "lucide-react";
+import { useTechnologyCategories } from "@/hooks/useFirebaseData";
+import * as Icons from "lucide-react";
 
 interface TechnologiesSectionProps {
   language: "es" | "en";
 }
+
+// Helper para obtener el componente de icono dinámicamente
+const getIconComponent = (iconName: string) => {
+  return (Icons as any)[iconName] || Monitor;
+};
 
 const translations = {
   es: {
@@ -168,90 +175,109 @@ const icons = {
 };
 
 export const TechnologiesSection = ({ language }: TechnologiesSectionProps) => {
-  const t = translations[language];
+  const { data: technologyCategoriesData, loading } = useTechnologyCategories();
+
+  // Separar la categoría de lenguajes
+  const languagesCategory = technologyCategoriesData?.find((cat) => cat.id === "languages");
+  const otherCategories = (technologyCategoriesData || [])
+    .filter((cat) => cat.id !== "languages")
+    .sort((a, b) => a.order - b.order);
+
+  if (loading) {
+    return (
+      <section id="technologies" className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <p className="text-lg text-muted-foreground">Cargando tecnologías...</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="technologies" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
-        {/* section title moved below Languages per UI request */}
-
         {/* Languages section (distinct, centered, above the technologies grid) */}
-        <div className="max-w-6xl mx-auto mb-24">
-          <div className="text-center mb-6">
-            <h2 className="text-4xl font-bold text-primary mb-8 text-center">
-              {t.categories.languages.title}
-            </h2>
-            <p className="text-sm text-muted-foreground mx-auto max-w-2xl">
-              {t.categories.languages.description}
-            </p>
-          </div>
+        {languagesCategory && (
+          <div className="max-w-6xl mx-auto mb-24">
+            <div className="text-center mb-6">
+              <h2 className="text-4xl font-bold text-primary mb-8 text-center">
+                {languagesCategory.label[language]}
+              </h2>
+              <p className="text-sm text-muted-foreground mx-auto max-w-2xl">
+                {languagesCategory.description[language]}
+              </p>
+            </div>
 
-          <div className="flex flex-wrap justify-center items-center gap-3">
-            {technologies.languages.map((tech) => (
-              <Badge
-                key={tech}
-                variant="outline"
-                className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground transition-colors duration-200 px-3 py-1.5"
-              >
-                {tech}
-              </Badge>
-            ))}
+            <div className="flex flex-wrap justify-center items-center gap-3">
+              {languagesCategory.technologies.map((tech) => (
+                <Badge
+                  key={tech}
+                  variant="outline"
+                  className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground transition-colors duration-200 px-3 py-1.5"
+                >
+                  {tech}
+                </Badge>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
+        {/* Technologies title */}
         <div className="text-center mb-8 animate-fade-in">
           <h2 className="text-4xl font-bold text-primary mb-8 text-center">
-            {t.title}
+            {language === "es" ? "Tecnologías" : "Technologies"}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t.subtitle}
+            {language === "es" 
+              ? "Herramientas y frameworks que domino" 
+              : "Tools and frameworks I master"}
           </p>
         </div>
 
+        {/* Technologies grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {Object.entries(t.categories)
-            .filter(([key]) => key !== "languages")
-            .map(([key, category], index) => {
-              const IconComponent = icons[key as keyof typeof icons];
-              const techList = technologies[key as keyof typeof technologies];
+          {otherCategories.map((category, index) => {
+            const IconComponent = getIconComponent(category.icon);
 
-              return (
-                <Card
-                  key={key}
-                  className="group hover:shadow-hover transition-all duration-300 animate-scale-in border-2 border-secondary/20 hover:border-secondary/50"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <CardHeader>
-                    <div className="flex items-center space-x-3 mb-3">
-                      <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <IconComponent className="w-6 h-6 text-primary-foreground" />
-                      </div>
-                      <div>
-                        <CardTitle className="text-base font-bold text-primary">
-                          {category.title}
-                        </CardTitle>
-                      </div>
+            return (
+              <Card
+                key={category.id}
+                className="group hover:shadow-hover transition-all duration-300 animate-scale-in border-2 border-secondary/20 hover:border-secondary/50"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <CardHeader>
+                  <div className="flex items-center space-x-3 mb-3">
+                    <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <IconComponent className="w-6 h-6 text-primary-foreground" />
                     </div>
-                    <p className="text-sm text-foreground">
-                      {category.description}
-                    </p>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex flex-wrap gap-2">
-                      {techList.map((tech) => (
-                        <Badge
-                          key={tech}
-                          variant="outline"
-                          className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground transition-colors duration-200"
-                        >
-                          {tech}
-                        </Badge>
-                      ))}
+                    <div>
+                      <CardTitle className="text-base font-bold text-primary">
+                        {category.label[language]}
+                      </CardTitle>
                     </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
+                  </div>
+                  <p className="text-sm text-foreground">
+                    {category.description[language]}
+                  </p>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2">
+                    {category.technologies.map((tech) => (
+                      <Badge
+                        key={tech}
+                        variant="outline"
+                        className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground transition-colors duration-200"
+                      >
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -1,0 +1,10 @@
+{
+  "yearsOfExperience": 8,
+  "projectsCompleted": 20,
+  "technologiesMastered": 50,
+  "displayFormat": {
+    "experience": "8+",
+    "projects": "20+",
+    "technologies": "auto"
+  }
+}

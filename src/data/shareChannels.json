@@ -1,0 +1,38 @@
+[
+  {
+    "id": "whatsapp",
+    "label": {
+      "es": "WhatsApp",
+      "en": "WhatsApp"
+    },
+    "icon": "MessageCircle",
+    "baseUrl": "https://wa.me/?text="
+  },
+  {
+    "id": "telegram",
+    "label": {
+      "es": "Telegram",
+      "en": "Telegram"
+    },
+    "icon": "Send",
+    "baseUrl": "https://t.me/share/url?url="
+  },
+  {
+    "id": "linkedin",
+    "label": {
+      "es": "LinkedIn",
+      "en": "LinkedIn"
+    },
+    "icon": "Linkedin",
+    "baseUrl": "https://www.linkedin.com/sharing/share-offsite/?url="
+  },
+  {
+    "id": "x",
+    "label": {
+      "es": "X (Twitter)",
+      "en": "X (Twitter)"
+    },
+    "icon": "Twitter",
+    "baseUrl": "https://twitter.com/intent/tweet?url="
+  }
+]

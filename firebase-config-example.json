@@ -1,0 +1,397 @@
+{
+  "projectTypes": [
+    {
+      "id": "web",
+      "label": {
+        "es": "Web",
+        "en": "Web"
+      },
+      "icon": "Globe"
+    },
+    {
+      "id": "mobile",
+      "label": {
+        "es": "Móvil",
+        "en": "Mobile"
+      },
+      "icon": "Smartphone"
+    },
+    {
+      "id": "desktop",
+      "label": {
+        "es": "Escritorio",
+        "en": "Desktop"
+      },
+      "icon": "Monitor"
+    }
+  ],
+  "languages": [
+    {
+      "id": "es",
+      "code": "es",
+      "label": {
+        "es": "Español",
+        "en": "Spanish"
+      },
+      "flag": "🇪🇸"
+    },
+    {
+      "id": "en",
+      "code": "en",
+      "label": {
+        "es": "Inglés",
+        "en": "English"
+      },
+      "flag": "🇬🇧"
+    }
+  ],
+  "contactTypes": [
+    {
+      "id": "email",
+      "label": {
+        "es": "Email",
+        "en": "Email"
+      },
+      "icon": "Mail",
+      "url": "mailto:marcosbustamante.mateo@gmail.com"
+    },
+    {
+      "id": "linkedin",
+      "label": {
+        "es": "LinkedIn",
+        "en": "LinkedIn"
+      },
+      "icon": "Linkedin",
+      "url": "https://www.linkedin.com/in/marcosbustamantemateo/"
+    },
+    {
+      "id": "github",
+      "label": {
+        "es": "GitHub",
+        "en": "GitHub"
+      },
+      "icon": "Github",
+      "url": "https://github.com/marcosbustamantemateo"
+    }
+  ],
+  "shareChannels": [
+    {
+      "id": "whatsapp",
+      "label": {
+        "es": "WhatsApp",
+        "en": "WhatsApp"
+      },
+      "icon": "MessageCircle",
+      "baseUrl": "https://wa.me/?text="
+    },
+    {
+      "id": "telegram",
+      "label": {
+        "es": "Telegram",
+        "en": "Telegram"
+      },
+      "icon": "Send",
+      "baseUrl": "https://t.me/share/url?url="
+    },
+    {
+      "id": "linkedin",
+      "label": {
+        "es": "LinkedIn",
+        "en": "LinkedIn"
+      },
+      "icon": "Linkedin",
+      "baseUrl": "https://www.linkedin.com/sharing/share-offsite/?url="
+    },
+    {
+      "id": "x",
+      "label": {
+        "es": "X (Twitter)",
+        "en": "X (Twitter)"
+      },
+      "icon": "Twitter",
+      "baseUrl": "https://twitter.com/intent/tweet?url="
+    }
+  ],
+  "heroStats": {
+    "yearsOfExperience": 8,
+    "projectsCompleted": 20,
+    "technologiesMastered": 50,
+    "displayFormat": {
+      "experience": "8+",
+      "projects": "20+",
+      "technologies": "auto"
+    }
+  },
+  "testimonials": [
+    {
+      "id": "1",
+      "name": "Manuel Rubio Bravo",
+      "initials": "MRB",
+      "content": {
+        "es": "Nuestra etapa en Ansotec nos ha hecho pasar momentos profesionales en los que un compañero como Marcos es imprescindible para poder superarlos. En lo laboral, es una persona resolutiva y con capacidad de superación, y en lo personal es un compañero ejemplar.",
+        "en": "Our stage at Ansotec has taken us through professional moments where a colleague like Marcos is essential to overcome them. At work, he is a resourceful person with the ability to overcome challenges, and personally he is an exemplary colleague."
+      },
+      "linkedin": "https://www.linkedin.com/in/manuelrubiodeveloper/",
+      "rating": 5,
+      "order": 1
+    },
+    {
+      "id": "2",
+      "name": "Francisco Javier Ruano",
+      "initials": "FJR",
+      "content": {
+        "es": "Marcos es una persona que siempre está investigando y buscando nuevas posibilidades para un proyecto, una garantía de estar siempre a la última tecnología. Muy trabajador cuando algo le apasiona. Gran compañero.",
+        "en": "Marcos is someone who is always researching and looking for new possibilities for a project, a guarantee of always being up to the latest technology. Very hardworking when something he is passionate about. A great colleague."
+      },
+      "linkedin": "https://www.linkedin.com/in/fcojavierruano/",
+      "rating": 5,
+      "order": 2
+    },
+    {
+      "id": "3",
+      "name": "Manuel Camero Orellana",
+      "initials": "MCO",
+      "content": {
+        "es": "Apasionado del aprendizaje y el trabajo bien hecho, un gran compañero.",
+        "en": "Passionate about learning and work well done, a great colleague."
+      },
+      "linkedin": "https://www.linkedin.com/in/manuel-m%C2%AA-camero-orellana-47a502121/",
+      "rating": 5,
+      "order": 3
+    },
+    {
+      "id": "4",
+      "name": "Alvaro Sanchez Cabrera",
+      "initials": "ASC",
+      "content": {
+        "es": "Gran profesional, buen compañero y apasionado de las tecnologías.",
+        "en": "Great professional, good colleague and passionate about technologies."
+      },
+      "linkedin": "https://www.linkedin.com/in/alvarosanchezcabrera/",
+      "rating": 5,
+      "order": 4
+    },
+    {
+      "id": "5",
+      "name": "Ignacio Gallardo Sánchez",
+      "initials": "IGS",
+      "content": {
+        "es": "Marcos es de esas personas que disfrutan programar de verdad. Le apasiona aprender cosas nuevas, mejorar su código y encontrar la mejor forma de hacer las cosas. Siempre tiene una buena actitud y un enfoque muy práctico para resolver cualquier reto técnico.",
+        "en": "Marcos is one of those people who truly enjoy programming. He is passionate about learning new things, improving his code and finding the best way to do things. He always has a great attitude and a very practical approach to solving any technical challenge."
+      },
+      "linkedin": "https://www.linkedin.com/in/ignaciogallardosanchez/",
+      "rating": 5,
+      "order": 5
+    }
+  ],
+  "technologyCategories": [
+    {
+      "id": "languages",
+      "label": {
+        "es": "Lenguajes",
+        "en": "Languages"
+      },
+      "description": {
+        "es": "Lenguajes de programación principales",
+        "en": "Primary programming languages"
+      },
+      "icon": "Code2",
+      "technologies": [
+        "Java",
+        "C#",
+        "JavaScript",
+        "TypeScript",
+        "Python"
+      ],
+      "order": 0
+    },
+    {
+      "id": "backend",
+      "label": {
+        "es": "Servidor / Backend",
+        "en": "Server / Backend"
+      },
+      "description": {
+        "es": "Desarrollo robusto del lado del servidor",
+        "en": "Robust server-side development"
+      },
+      "icon": "Server",
+      "technologies": [
+        "ASP.NET",
+        "ASP.NET Core",
+        "Node.js",
+        "Django",
+        "Spring Boot",
+        "Java EE",
+        "Hibernate",
+        "Spring Framework",
+        "Spring MVC",
+        "Entity Framework",
+        "Microservices"
+      ],
+      "order": 1
+    },
+    {
+      "id": "frontend",
+      "label": {
+        "es": "Cliente / Frontend",
+        "en": "Client / Frontend"
+      },
+      "description": {
+        "es": "Interfaces de usuario modernas",
+        "en": "Modern user interfaces"
+      },
+      "icon": "Monitor",
+      "technologies": [
+        "HTML",
+        "CSS",
+        "React.js",
+        "Redux",
+        "Angular",
+        "Svelte",
+        "jQuery"
+      ],
+      "order": 2
+    },
+    {
+      "id": "databases",
+      "label": {
+        "es": "Bases de datos",
+        "en": "Databases"
+      },
+      "description": {
+        "es": "Sistemas relacionales y NoSQL",
+        "en": "Relational and NoSQL systems"
+      },
+      "icon": "Database",
+      "technologies": [
+        "Microsoft SQL Server",
+        "MySQL",
+        "MongoDB",
+        "DB2",
+        "Oracle",
+        "NoSQL"
+      ],
+      "order": 3
+    },
+    {
+      "id": "cloud",
+      "label": {
+        "es": "Nube / Cloud",
+        "en": "Cloud"
+      },
+      "description": {
+        "es": "Infraestructura y despliegue en la nube",
+        "en": "Cloud infrastructure and deployment"
+      },
+      "icon": "Cloud",
+      "technologies": [
+        "Microsoft Azure",
+        "App Service",
+        "Azure Functions",
+        "Key Vault",
+        "Docker",
+        "Kubernetes",
+        "CI/CD pipelines"
+      ],
+      "order": 4
+    },
+    {
+      "id": "mobile",
+      "label": {
+        "es": "Móvil multiplataforma",
+        "en": "Cross-platform Mobile"
+      },
+      "description": {
+        "es": "Aplicaciones móviles nativas y híbridas",
+        "en": "Native and hybrid mobile applications"
+      },
+      "icon": "Smartphone",
+      "technologies": [
+        "Xamarin",
+        "Android",
+        "Windows Form",
+        "MAUI"
+      ],
+      "order": 5
+    },
+    {
+      "id": "communication",
+      "label": {
+        "es": "Comunicación",
+        "en": "Communication"
+      },
+      "description": {
+        "es": "APIs y protocolos de comunicación",
+        "en": "APIs and communication protocols"
+      },
+      "icon": "MessageSquare",
+      "technologies": [
+        "APIs REST",
+        "WebSockets",
+        "gRPC",
+        "SignalR",
+        "GraphQL"
+      ],
+      "order": 6
+    },
+    {
+      "id": "versionControl",
+      "label": {
+        "es": "Control de versiones",
+        "en": "Version Control"
+      },
+      "description": {
+        "es": "Gestión de código y colaboración",
+        "en": "Code management and collaboration"
+      },
+      "icon": "GitBranch",
+      "technologies": [
+        "Git",
+        "GitHub",
+        "GitLab",
+        "Azure DevOps",
+        "Team Foundation Server (TFS)"
+      ],
+      "order": 7
+    },
+    {
+      "id": "testing",
+      "label": {
+        "es": "Testing y procesos",
+        "en": "Testing & Processes"
+      },
+      "description": {
+        "es": "Pruebas y metodología ágil",
+        "en": "Testing and agile practices"
+      },
+      "icon": "TestTube2",
+      "technologies": [
+        "JUnit",
+        "Mockito",
+        "TDD",
+        "Scrum"
+      ],
+      "order": 8
+    },
+    {
+      "id": "tooling",
+      "label": {
+        "es": "Herramientas",
+        "en": "Tooling"
+      },
+      "description": {
+        "es": "Herramientas de desarrollo y CI/CD",
+        "en": "Development and CI/CD tools"
+      },
+      "icon": "Wrench",
+      "technologies": [
+        "Postman",
+        "Maven"
+      ],
+      "order": 9
+    }
+  ],
+  "lastUpdated": "2024-12-20T10:00:00.000Z",
+  "version": "1.0.0"
+}

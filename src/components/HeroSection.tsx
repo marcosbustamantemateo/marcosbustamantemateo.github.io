@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Download, Mail, MapPin, Terminal } from "lucide-react";
-import { technologies as allTechnologies } from "@/components/TechnologiesSection";
+import { useConfigSection } from "@/hooks/useConfig";
+import { useAboutMe } from "@/hooks/useFirebaseData";
 
 interface HeroSectionProps {
   language: "es" | "en";
@@ -8,29 +9,15 @@ interface HeroSectionProps {
 
 const translations = {
   es: {
-    title: "Desarrollador de Software",
-    subtitle: "Especializado en .NET, C# y Soluciones Empresariales",
-    description:
-      "Soy un experimentado desarrollador de software especializado en desarrollo web, así como aplicaciones de escritorio o móviles. Me distingo por la creación de código eficiente y fácil de mantener. Mi enfoque principal ha sido el ecosistema .NET con C#, trabajando en proyectos BFF, microservicios, GraphQL y liderando iniciativas MES/MOM para la transformación digital en la industria 4.0.",
-    commitment:
-      "Mi compromiso con la excelencia técnica me permite superar retos empresariales y generar impacto positivo en cada proyecto.",
     downloadCV: "Descargar CV",
     contact: "Contactar",
-    location: "España",
     experience: "Años de experiencia",
     projects: "Proyectos completados",
     technologies: "Tecnologías dominadas",
   },
   en: {
-    title: "Software Developer",
-    subtitle: "Specialized in .NET, C# and Enterprise Solutions",
-    description:
-      "I am an experienced software developer specialized in web development, as well as desktop and mobile applications. I excel at creating efficient and maintainable code. My main focus has been the .NET ecosystem with C#, working on BFF projects, microservices, GraphQL and leading MES/MOM initiatives for digital transformation in Industry 4.0.",
-    commitment:
-      "My commitment to technical excellence allows me to overcome business challenges and generate positive impact in every project.",
     downloadCV: "Download CV",
     contact: "Contact",
-    location: "Spain",
     experience: "Years of experience",
     projects: "Completed projects",
     technologies: "Mastered technologies",
@@ -39,6 +26,29 @@ const translations = {
 
 export const HeroSection = ({ language }: HeroSectionProps) => {
   const t = translations[language];
+  const { data: aboutMe, loading: aboutMeLoading } = useAboutMe();
+  const { data: heroStats, loading } = useConfigSection("heroStats");
+  const { data: technologyCategories } = useConfigSection("technologyCategories");
+
+  const isLoading = aboutMeLoading || loading || !aboutMe;
+
+  // Calcular el total de tecnologías si está en modo "auto"
+  const getTechCount = () => {
+    if (!heroStats || !technologyCategories) {
+      return "50+";
+    }
+    
+    if (heroStats.displayFormat.technologies !== "auto") {
+      return heroStats.displayFormat.technologies;
+    }
+    
+    const unique = new Set<string>();
+    technologyCategories.forEach((category) => {
+      category.technologies.forEach((tech) => unique.add(tech));
+    });
+    const techCount = unique.size;
+    return techCount > 50 ? "50+" : `${techCount}+`;
+  };
 
   return (
     <section
@@ -48,7 +58,7 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
       <div className="container mx-auto px-4 pt-12 pb-24 md:pt-12 md:pb-12 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Profile Avatar */}
-          <div className="w-40 h-40 md:w-48 md:h-48 mx-auto mb-8 relative animate-scale-in mt-10 md:mt-0">
+          <div className={`w-40 h-40 md:w-48 md:h-48 mx-auto mb-8 relative mt-10 md:mt-0 transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100 animate-scale-in'}`}>
             <div className="absolute -inset-8 md:-inset-10 bg-gradient-primary rounded-full blur-2xl opacity-60 animate-glow-pulse" />
             <div className="relative w-full h-full bg-gradient-primary rounded-full flex items-center justify-center border-8 border-primary/50 overflow-hidden">
               <img
@@ -60,21 +70,22 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
           </div>
 
           {/* Main Content */}
-          <div className="space-y-4">
-            <div
-              className="animate-fade-in-up"
-              style={{ animationDelay: "100ms" }}
-            >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-2">
-                Marcos Bustamante
-              </h1>
-              <h2 className="text-2xl md:text-3xl font-semibold text-primary mb-2">
-                {t.title}
-              </h2>
-              <p className="text-lg md:text-xl text-secondary font-mono">
-                {"<"} {t.subtitle} {"/>"}
-              </p>
-            </div>
+          {!isLoading && (
+            <div className="space-y-4">
+              <div
+                className="animate-fade-in-up"
+                style={{ animationDelay: "100ms" }}
+              >
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-2">
+                  {aboutMe.name}
+                </h1>
+                <h2 className="text-2xl md:text-3xl font-semibold text-primary mb-2">
+                  {aboutMe.title[language]}
+                </h2>
+                <p className="text-lg md:text-xl text-secondary font-mono">
+                  {"<"} {aboutMe.subtitle[language]} {"/>"}
+                </p>
+              </div>
 
             {/* Action Buttons - Commented out for future use */}
             {/* 
@@ -100,23 +111,15 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
             </div>
             */}
 
-            {/* Stats */}
-            <div
-              className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 animate-fade-in-up"
-              style={{ animationDelay: "400ms" }}
-            >
-              {(() => {
-                const unique = new Set<string>();
-                Object.values(allTechnologies).forEach((arr: any) =>
-                  arr.forEach((s: string) => unique.add(s))
-                );
-                const techCount = unique.size;
-                const techDisplay = techCount > 50 ? "50+" : `${techCount}+`;
-
-                return [
-                  { value: "8+", label: t.experience },
-                  { value: "20+", label: t.projects },
-                  { value: techDisplay, label: t.technologies },
+              {/* Stats */}
+              <div
+                className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 animate-fade-in-up"
+                style={{ animationDelay: "400ms" }}
+              >
+                {heroStats && [
+                  { value: heroStats.displayFormat.experience, label: t.experience },
+                  { value: heroStats.displayFormat.projects, label: t.projects },
+                  { value: getTechCount(), label: t.technologies },
                 ].map((stat, index) => (
                   <div
                     key={index}
@@ -129,10 +132,10 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
                       {stat.label}
                     </div>
                   </div>
-                ));
-              })()}
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </section>

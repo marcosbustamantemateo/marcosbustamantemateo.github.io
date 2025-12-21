@@ -1,0 +1,24 @@
+{
+    "name":  "Marcos Bustamante Mateo",
+    "title":  {
+                  "es":  "Desarrollador de Software",
+                  "en":  "Software Developer"
+              },
+    "subtitle":  {
+                     "es":  "Especializado en .NET, C# y Soluciones Empresariales",
+                     "en":  "Specialized in .NET, C# and Enterprise Solutions"
+                 },
+    "description":  {
+                        "es":  "Soy un experimentado desarrollador de software especializado en desarrollo web, asÃ­ como aplicaciones de escritorio o mÃ³viles. Me distingo por la creaciÃ³n de cÃ³digo eficiente y fÃ¡cil de mantener. Mi enfoque principal ha sido el ecosistema .NET con C#, trabajando en proyectos BFF, microservicios, GraphQL y liderando iniciativas MES/MOM para la transformaciÃ³n digital en la industria 4.0.",
+                        "en":  "I am an experienced software developer specialized in web development, as well as desktop and mobile applications. I excel at creating efficient and maintainable code. My main focus has been the .NET ecosystem with C#, working on BFF projects, microservices, GraphQL and leading MES/MOM initiatives for digital transformation in Industry 4.0."
+                    },
+    "commitment":  {
+                       "es":  "Mi compromiso con la excelencia tÃ©cnica me permite superar retos empresariales y generar impacto positivo en cada proyecto.",
+                       "en":  "My commitment to technical excellence allows me to overcome business challenges and generate positive impact in every project."
+                   },
+    "location":  {
+                     "es":  "EspaÃ±a",
+                     "en":  "Spain"
+                 },
+    "avatarUrl":  "/images/logo.png"
+}

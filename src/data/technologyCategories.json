@@ -1,0 +1,188 @@
+[
+  {
+    "id": "backend",
+    "label": {
+      "es": "Servidor / Backend",
+      "en": "Server / Backend"
+    },
+    "description": {
+      "es": "Desarrollo robusto del lado del servidor",
+      "en": "Robust server-side development"
+    },
+    "icon": "Server",
+    "technologies": [
+      "ASP.NET",
+      "ASP.NET Core",
+      "Node.js",
+      "Django",
+      "Spring Boot",
+      "Java EE",
+      "Hibernate",
+      "Spring Framework",
+      "Spring MVC",
+      "Entity Framework",
+      "Microservices"
+    ],
+    "order": 1
+  },
+  {
+    "id": "communication",
+    "label": {
+      "es": "Comunicación",
+      "en": "Communication"
+    },
+    "description": {
+      "es": "APIs y protocolos de comunicación",
+      "en": "APIs and communication protocols"
+    },
+    "icon": "Radio",
+    "technologies": [
+      "APIs REST",
+      "WebSockets",
+      "gRPC",
+      "SignalR",
+      "GraphQL"
+    ],
+    "order": 2
+  },
+  {
+    "id": "frontend",
+    "label": {
+      "es": "Cliente / Frontend",
+      "en": "Client / Frontend"
+    },
+    "description": {
+      "es": "Interfaces de usuario modernas",
+      "en": "Modern user interfaces"
+    },
+    "icon": "Layout",
+    "technologies": [
+      "HTML",
+      "CSS",
+      "React.js",
+      "Redux",
+      "Angular",
+      "Svelte",
+      "jQuery"
+    ],
+    "order": 3
+  },
+  {
+    "id": "versionControl",
+    "label": {
+      "es": "Control de versiones",
+      "en": "Version Control"
+    },
+    "description": {
+      "es": "Gestión de código y colaboración",
+      "en": "Code management and collaboration"
+    },
+    "icon": "GitBranch",
+    "technologies": [
+      "Git",
+      "GitHub",
+      "GitLab",
+      "Azure DevOps",
+      "Team Foundation Server (TFS)"
+    ],
+    "order": 4
+  },
+  {
+    "id": "database",
+    "label": {
+      "es": "Bases de datos",
+      "en": "Databases"
+    },
+    "description": {
+      "es": "Sistemas relacionales y NoSQL",
+      "en": "Relational and NoSQL systems"
+    },
+    "icon": "Database",
+    "technologies": [
+      "Microsoft SQL Server",
+      "MySQL",
+      "MongoDB",
+      "DB2",
+      "Oracle",
+      "NoSQL"
+    ],
+    "order": 5
+  },
+  {
+    "id": "tools",
+    "label": {
+      "es": "Herramientas",
+      "en": "Tools"
+    },
+    "description": {
+      "es": "Herramientas de desarrollo y CI/CD",
+      "en": "Development tools and CI/CD"
+    },
+    "icon": "Wrench",
+    "technologies": [
+      "Postman",
+      "Maven"
+    ],
+    "order": 6
+  },
+  {
+    "id": "testing",
+    "label": {
+      "es": "Testing y procesos",
+      "en": "Testing and processes"
+    },
+    "description": {
+      "es": "Pruebas y metodología ágil",
+      "en": "Testing and agile methodology"
+    },
+    "icon": "TestTube",
+    "technologies": [
+      "JUnit",
+      "Mockito",
+      "TDD",
+      "Scrum"
+    ],
+    "order": 7
+  },
+  {
+    "id": "mobile",
+    "label": {
+      "es": "Móvil multiplataforma",
+      "en": "Cross-platform Mobile"
+    },
+    "description": {
+      "es": "Aplicaciones móviles nativas y híbridas",
+      "en": "Native and hybrid mobile applications"
+    },
+    "icon": "Smartphone",
+    "technologies": [
+      "Xamarin",
+      "Android",
+      "windows form",
+      "MAUI"
+    ],
+    "order": 8
+  },
+  {
+    "id": "cloud",
+    "label": {
+      "es": "Nube / Cloud",
+      "en": "Cloud"
+    },
+    "description": {
+      "es": "Infraestructura y despliegue en la nube",
+      "en": "Cloud infrastructure and deployment"
+    },
+    "icon": "Cloud",
+    "technologies": [
+      "Microsoft Azure",
+      "App Service",
+      "Azure Functions",
+      "Key Vault",
+      "Docker",
+      "Kubernetes",
+      "CI/CD pipelines"
+    ],
+    "order": 9
+  }
+]

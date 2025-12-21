@@ -1,0 +1,292 @@
+[
+  {
+    "id": "1",
+    "company": "Innovation Strateggies SLU - A Siemens Company",
+    "position": {
+      "es": "Desarrollador Senior de Software",
+      "en": "Senior Software Developer"
+    },
+    "period": {
+      "es": "10/2023 – Presente2 años y 2 meses",
+      "en": "10/2023 – Present2 years and 2 months"
+    },
+    "description": {
+      "es": "Desarrollo, mantenimiento y soporte en .NET, Python y Javascript. Despliegues con Docker en ecosistema Azure (Key vault, App service, BBDD, Logic Apps, y Azure Functions entre otros) con exposición puntual a Kubernetes. Participación en toma de requisitos con clientes, estimaciones de horas y planificaciones de desarrollo.",
+      "en": "Development, maintenance and support in .NET, Python and JavaScript. Deployments with Docker in the Azure ecosystem (Key Vault, App Service, Databases, Logic Apps, Azure Functions, among others) with occasional exposure to Kubernetes. Participation in requirements gathering with clients, time estimations and development planning."
+    },
+    "technologies": [
+      "ASP.NET",
+      "React.js",
+      "Azure Databricks",
+      "C#",
+      "Microsoft Azure",
+      "Azure Data Factory",
+      "Python",
+      "Microsoft SQL Server",
+      "Entity Framework",
+      "Git",
+      "HTML",
+      "JSON",
+      "Microsoft Power BI",
+      "Postman",
+      "Redux",
+      "TypeScript",
+      "Docker",
+      "Kubernetes",
+      "Django"
+    ],
+    "order": 1
+  },
+  {
+    "id": "2",
+    "company": "Ansotec",
+    "position": {
+      "es": "Responsable técnico Departamento MES",
+      "en": "Technical Manager MES Department"
+    },
+    "period": {
+      "es": "01/2023 – 10/20239 meses",
+      "en": "01/2023 – 10/20239 months"
+    },
+    "description": {
+      "es": "Supervisión de nuevos desarrollos, diseño de arquitecturas enfocadas a microservicios y organización de equipo a nivel técnico.",
+      "en": "Supervision of new developments, design of microservices-focused architectures and technical team organization."
+    },
+    "technologies": [
+      "JSON",
+      "ASP.NET",
+      "SQL",
+      "Svelte",
+      "Microsoft SQL Server",
+      "C#",
+      "Microsoft Power BI",
+      "Servicios web de RESTful",
+      "Team Foundation Server (TFS)",
+      "Entity Framework",
+      "jQuery",
+      "JavaScript",
+      "HTML"
+    ],
+    "order": 2
+  },
+  {
+    "id": "3",
+    "company": "Ansotec",
+    "position": {
+      "es": "Desarrollador Senior de Software Departamento MES",
+      "en": "Senior Software Developer MES Department"
+    },
+    "period": {
+      "es": "01/2022 – 02/20231 año y 1 mes",
+      "en": "01/2022 – 02/20231 year and 1 month"
+    },
+    "description": {
+      "es": "Planificación y desarrollo de proyectos ad-hoc: desde recolección de requisitos, diseño y ejecución hasta despliegue y puesta en producción, así como integración continua y despliegue continuo.",
+      "en": "Planning and development of ad-hoc projects: from requirements gathering, design and execution to deployment and commissioning as well as continuous integration and deployment."
+    },
+    "technologies": [
+      "JSON",
+      "ASP.NET",
+      "SQL",
+      "Svelte",
+      "Microsoft SQL Server",
+      "C#",
+      "Microsoft Power BI",
+      "Servicios web de RESTful",
+      "Team Foundation Server (TFS)",
+      "Entity Framework",
+      "jQuery",
+      "JavaScript",
+      "HTML"
+    ],
+    "order": 3
+  },
+  {
+    "id": "4",
+    "company": "Ansotec",
+    "position": {
+      "es": "Desarrollador de Software Departamento MES",
+      "en": "Software Developer MES Department"
+    },
+    "period": {
+      "es": "09/2020 – 01/20221 año y 4 meses",
+      "en": "09/2020 – 01/20221 year and 4 months"
+    },
+    "description": {
+      "es": "Desarrollo de software enfocado a la transformación digital en el ámbito de la industria 4.0. Gestión de órdenes de Fabricación, integración con sistemas ERP, Gestión de Materiales, Trazabilidad y Genealogía, Autocontrol de Lotes, Gestión de consumos de Energía, Gestión de OEE/DTM, Indicadores de Métricas de productividad (KPI's), Gestión de Personal, Gestión de Calidad, Gestión Mantenimiento, Gestión de Recetas y Fórmulas Maestras BATCH.",
+      "en": "Software development focused on digital transformation in the field of Industry 4.0. Manufacturing order management, ERP system integration, Material Management, Traceability and Genealogy, Batch Self-control, Energy consumption management, OEE/DTM management, Productivity metrics indicators (KPI's), Personnel management, Quality management, Maintenance management, Batch Recipes and Master Formulas management."
+    },
+    "technologies": [
+      "JSON",
+      "ASP.NET",
+      "SQL",
+      "Svelte",
+      "Microsoft SQL Server",
+      "C#",
+      "Microsoft Power BI",
+      "Servicios web de RESTful",
+      "Team Foundation Server (TFS)",
+      "Entity Framework",
+      "jQuery",
+      "JavaScript",
+      "HTML"
+    ],
+    "order": 4
+  },
+  {
+    "id": "5",
+    "company": "Upwork",
+    "position": {
+      "es": "Desarrollador Software Freelance",
+      "en": "Freelance Software Developer"
+    },
+    "period": {
+      "es": "11/2019 – 09/202010 meses",
+      "en": "11/2019 – 09/202010 months"
+    },
+    "description": {
+      "es": "Desarrollo y mantenimiento de cualquier solicitud de software (web, escritorio o móvil) por parte del cliente.",
+      "en": "Development and maintenance of any software request (web, desktop or mobile) from the client."
+    },
+    "technologies": [
+      "MySQL",
+      "angular",
+      "JSON",
+      "ASP.NET",
+      "SQL",
+      "MongoDB",
+      "Node.js",
+      "Java EE",
+      "React.js",
+      "C#",
+      "Hibernate",
+      "Xamarin",
+      "Spring Boot",
+      "Servicios web de RESTful",
+      "Git",
+      "Maven",
+      "Spring Framework",
+      "Spring MVC",
+      "jQuery",
+      "Java",
+      "Java Servlet",
+      "TypeScript",
+      "JavaScript",
+      "HTML"
+    ],
+    "order": 5
+  },
+  {
+    "id": "6",
+    "company": "Fujitsu",
+    "position": {
+      "es": "Desarrollador de Software",
+      "en": "Software Developer"
+    },
+    "period": {
+      "es": "01/2019 – 06/20195 meses",
+      "en": "01/2019 – 06/20195 months"
+    },
+    "description": {
+      "es": "Programación web con tecnologías como Spring Boot, Spring Data, Spring Rest, JPA, Hibernate, QueryDSL y JUnit para backend y React, Redux, CSS3 y HTML5 para frontend.",
+      "en": "Web programming with technologies such as Spring Boot, Spring Data, Spring Rest, JPA, Hibernate, QueryDSL and JUnit for backend and React, Redux, CSS3 and HTML5 for frontend."
+    },
+    "technologies": [
+      "JSON",
+      "SQL",
+      "Node.js",
+      "Java EE",
+      "React.js",
+      "Hibernate",
+      "Spring Boot",
+      "Servicios web de RESTful",
+      "Redux",
+      "Git",
+      "Maven",
+      "Spring Framework",
+      "Java",
+      "Java Servlet",
+      "TypeScript",
+      "JavaScript",
+      "HTML",
+      "JUnit",
+      "Scrum"
+    ],
+    "order": 6
+  },
+  {
+    "id": "7",
+    "company": "Workana",
+    "position": {
+      "es": "Desarrollador Software Freelance",
+      "en": "Freelance Software Developer"
+    },
+    "period": {
+      "es": "09/2018 – 12/20183 meses",
+      "en": "09/2018 – 12/20183 months"
+    },
+    "description": {
+      "es": "Desarrollo y mantenimiento de cualquier solicitud de software (web, escritorio o móvil) por parte del cliente.",
+      "en": "Development and maintenance of any software request (web, desktop or mobile) from the client."
+    },
+    "technologies": [
+      "MySQL",
+      "angular",
+      "JSON",
+      "ASP.NET",
+      "SQL",
+      "MongoDB",
+      "Node.js",
+      "Java EE",
+      "React.js",
+      "C#",
+      "Hibernate",
+      "Xamarin",
+      "Spring Boot",
+      "Servicios web de RESTful",
+      "Git",
+      "Maven",
+      "Spring Framework",
+      "Spring MVC",
+      "jQuery",
+      "Java",
+      "Java Servlet",
+      "TypeScript",
+      "JavaScript",
+      "HTML"
+    ],
+    "order": 7
+  },
+  {
+    "id": "8",
+    "company": "Grupo Oesia",
+    "position": {
+      "es": "Desarrollador Java de Software",
+      "en": "Java Software Developer"
+    },
+    "period": {
+      "es": "04/2018 – 06/20182 meses",
+      "en": "04/2018 – 06/20182 months"
+    },
+    "description": {
+      "es": "Trabajando en framework basado en Java con tecnologías como Java EE, Java SWT, Spring Boot, JUnit, Mockito, Docker e ImDB (db2).",
+      "en": "Working in Java-based framework with technologies such as Java EE, Java SWT, Spring Boot, JUnit, Mockito, Docker and ImDB (db2)."
+    },
+    "technologies": [
+      "SQL",
+      "Mockito",
+      "Docker",
+      "Java EE",
+      "DB2",
+      "Spring Boot",
+      "TDD",
+      "Maven",
+      "Spring Framework",
+      "Spring MVC",
+      "Java",
+      "HTML",
+      "Scrum"
+    ],
+    "order": 8
+  }
+]

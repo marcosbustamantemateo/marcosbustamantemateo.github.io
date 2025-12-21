@@ -2,12 +2,11 @@
  * 🔥 Firebase Analytics (GA4) - Event Tracking
  *
  * Simple, clean implementation that sends events via gtag with correct parameters.
+ * Los tipos ahora son dinámicos y se cargan desde Firebase.
  */
 
-export type ProjectType = "web" | "mobile" | "desktop";
-export type Language = "es" | "en";
-export type ContactType = "email" | "linkedin" | "github";
-export type ShareChannel = "whatsapp" | "telegram" | "linkedin" | "x";
+// Importar tipos dinámicos
+export type { ProjectType, Language, ContactType, ShareChannel } from "@/types/config";
 
 // Wait for gtag to be ready
 const waitForGtag = (): Promise<void> => {
