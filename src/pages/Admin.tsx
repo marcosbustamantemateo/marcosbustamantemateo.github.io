@@ -2,6 +2,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { signOut } from "firebase/auth";
 import { auth } from "@/config/firebase";
 import Login from "@/components/Login";
+import ConfigForm from "@/components/ConfigForm";
 import ProjectList from "@/components/ProjectList";
 import WorkExperienceList from "@/components/WorkExperienceList";
 import EducationList from "@/components/EducationList";
@@ -123,13 +124,14 @@ export default function Admin() {
       {/* Content */}
       <main className="container mx-auto px-4 py-8">
         <Tabs defaultValue="projects" className="w-full">
-          <TabsList className="grid w-full grid-cols-3 lg:grid-cols-6 mb-8">
+          <TabsList className="grid w-full grid-cols-3 lg:grid-cols-7 mb-8">
             <TabsTrigger value="projects">Proyectos</TabsTrigger>
             <TabsTrigger value="experience">Experiencia</TabsTrigger>
             <TabsTrigger value="education">Educación</TabsTrigger>
             <TabsTrigger value="technologies">Lenguajes</TabsTrigger>
             <TabsTrigger value="categories">Categorías</TabsTrigger>
             <TabsTrigger value="testimonials">Testimonios</TabsTrigger>
+            <TabsTrigger value="config">Configuración</TabsTrigger>
           </TabsList>
 
           <TabsContent value="projects">
@@ -154,6 +156,10 @@ export default function Admin() {
 
           <TabsContent value="testimonials">
             <TestimonialList />
+          </TabsContent>
+
+          <TabsContent value="config">
+            <ConfigForm />
           </TabsContent>
         </Tabs>
       </main>
