@@ -69,9 +69,6 @@ export default function WorkExperienceForm({
     setSaving(true);
 
     try {
-      console.log("DEBUG: experience?.id =", experience?.id);
-      console.log("DEBUG: experience object =", experience);
-
       const experienceData = {
         company: formData.company,
         position: {
@@ -94,7 +91,6 @@ export default function WorkExperienceForm({
       if (experience?.id) {
         // Update existing - usar el mismo patrón que en initFirebase.ts
         const docId = `exp${experience.id}`;
-        console.log("DEBUG: Updating document with docId:", docId);
         await setDoc(doc(db, "workExperience", docId), experienceData, {
           merge: true,
         });
