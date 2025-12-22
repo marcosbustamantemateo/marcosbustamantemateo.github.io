@@ -173,6 +173,8 @@ export default function TestimonialForm({
                       <img
                         src={formData.imageUrl}
                         alt="Preview"
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover"
                         onError={(e) => {
                           (e.target as HTMLImageElement).style.display = "none";

@@ -131,6 +131,8 @@ export default function TestimonialList() {
                         <img
                           src={test.imageUrl}
                           alt={test.name}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover"
                         />
                       )}

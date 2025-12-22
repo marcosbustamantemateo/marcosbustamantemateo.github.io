@@ -91,6 +91,8 @@ export const ProfileSection = ({ language }: ProfileSectionProps) => {
                           <img
                             src={imageUrl}
                             alt={testimonial.name}
+                            loading="lazy"
+                            decoding="async"
                             className="w-32 h-32 rounded-full object-cover mb-4 border-2 border-primary"
                           />
                           <CardTitle className="text-lg font-bold text-secondary">

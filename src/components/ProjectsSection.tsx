@@ -9,6 +9,7 @@ import {
 import { AnimatedSection } from "@/hooks/useScrollAnimation";
 import { useProjects } from "@/hooks/useProjects";
 import { trackProjectClick } from "@/analytics/events";
+import { OptimizedImage } from "@/components/OptimizedImage";
 
 interface ProjectsSectionProps {
   language: "es" | "en";
@@ -60,7 +61,7 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
         es: "Web de información de negocio de comida rápida",
         en: "Fast food business information website",
       },
-      imageUrl: "/images/projects/royal-chicke-bbq.png",
+      imageUrl: "/images/projects/royal-chicke-bbq.webp",
       type: "web" as const,
       technologies: ["React", "TypeScript", "Tailwind CSS"],
       link: "https://royal-chicken-bbq.netlify.app/",
@@ -73,7 +74,7 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
         es: "Web sobre la carrera profesional del boxeador",
         en: "Website about the professional boxer's career",
       },
-      imageUrl: "/images/projects/oscar-hellboy.png",
+      imageUrl: "/images/projects/oscar-hellboy.webp",
       type: "web" as const,
       technologies: ["React", "Vite", "CSS"],
       link: "https://oscar-hellboy.netlify.app/",
@@ -86,7 +87,7 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
         es: "Crea y comparte memes creados desde plantilla de los más famosos",
         en: "Create and share memes created from the most famous templates",
       },
-      imageUrl: "/images/projects/meme-generator.png",
+      imageUrl: "/images/projects/meme-generator.webp",
       type: "web" as const,
       technologies: ["React", "Canvas API", "JavaScript"],
       link: "https://mbm-meme-generator.netlify.app/",
@@ -99,7 +100,7 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
         es: "Muestra mapa con datos de COVID actualizados en tiempo real",
         en: "Shows map with COVID data updated in real time",
       },
-      imageUrl: "/images/projects/covid-19-reports.png",
+      imageUrl: "/images/projects/covid-19-reports.webp",
       type: "web" as const,
       technologies: ["React", "Leaflet", "REST API"],
       link: "https://covid-19-dd7e1.web.app/",
@@ -158,9 +159,11 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
                   <div className="group relative overflow-hidden rounded-xl glass border-2 border-primary/20 hover:border-primary/50 transition-all duration-500 hover:shadow-hover cursor-pointer h-full">
                     {/* Image */}
                     <div className="relative h-48 overflow-hidden">
-                      <img
+                      <OptimizedImage
                         src={project.imageUrl}
                         alt={project.title}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-card via-card/70 to-transparent" />
