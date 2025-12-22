@@ -21,9 +21,27 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export default function Admin() {
   const { user, loading } = useAuth();
+  const [activeTab, setActiveTab] = useState("projects");
+
+  const tabs = [
+    { value: "projects", label: "Proyectos" },
+    { value: "experience", label: "Experiencia" },
+    { value: "education", label: "Educación" },
+    { value: "technologies", label: "Lenguajes" },
+    { value: "categories", label: "Categorías" },
+    { value: "testimonials", label: "Testimonios" },
+    { value: "config", label: "Configuración" },
+  ];
 
   // Disable scroll snap effect for admin pages
   useEffect(() => {
@@ -123,8 +141,25 @@ export default function Admin() {
 
       {/* Content */}
       <main className="container mx-auto px-4 py-8">
-        <Tabs defaultValue="projects" className="w-full">
-          <TabsList className="grid w-full grid-cols-3 lg:grid-cols-7 mb-8">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+          {/* Mobile: Dropdown selector */}
+          <div className="lg:hidden mb-8">
+            <Select value={activeTab} onValueChange={setActiveTab}>
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Selecciona una sección" />
+              </SelectTrigger>
+              <SelectContent>
+                {tabs.map((tab) => (
+                  <SelectItem key={tab.value} value={tab.value}>
+                    {tab.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+
+          {/* Desktop: Tab navigation */}
+          <TabsList className="hidden lg:grid w-full grid-cols-7 mb-8">
             <TabsTrigger value="projects">Proyectos</TabsTrigger>
             <TabsTrigger value="experience">Experiencia</TabsTrigger>
             <TabsTrigger value="education">Educación</TabsTrigger>
