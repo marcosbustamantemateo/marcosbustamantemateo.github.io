@@ -393,6 +393,8 @@ export default function ProjectForm({
                   <img
                     src={formData.imageUrl}
                     alt="Preview"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full max-h-80 object-cover rounded-lg border-2 border-border"
                     onError={(e) => {
                       (e.target as HTMLImageElement).src =

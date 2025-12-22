@@ -291,6 +291,8 @@ export default function UploadProject() {
                   <img
                     src={formData.imageUrl}
                     alt="Preview"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full max-h-64 object-cover rounded-lg border"
                     onError={(e) => {
                       (e.target as HTMLImageElement).src =

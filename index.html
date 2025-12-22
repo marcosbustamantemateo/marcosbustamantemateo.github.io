@@ -39,9 +39,16 @@
     <link rel="icon" type="image/x-icon" href="/logo.ico" />
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#00d9ff" />
-    <!-- Google tag (gtag.js) -->
+    
+    <!-- Resource hints for performance -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://firestore.googleapis.com" crossorigin />
+    <link rel="dns-prefetch" href="https://firestore.googleapis.com" />
+    
+    <!-- Google tag (gtag.js) - Deferred for performance -->
     <script
-      async
+      defer
       src="https://www.googletagmanager.com/gtag/js?id=G-L8QWCNC52H"
     ></script>
     <script>
