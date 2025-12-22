@@ -67,11 +67,14 @@ export const HeroSection = ({ language }: HeroSectionProps) => {
           >
             <div className="absolute -inset-8 md:-inset-10 bg-gradient-primary rounded-full blur-2xl opacity-60 animate-glow-pulse" />
             <div className="relative w-full h-full bg-gradient-primary rounded-full flex items-center justify-center border-8 border-primary/50 overflow-hidden">
-              <img
-                src="/images/logo.png"
-                alt="MB"
-                className="w-full h-full object-cover"
-              />
+              <picture>
+                <source srcSet="/images/logo.webp" type="image/webp" />
+                <img
+                  src="/images/logo.png"
+                  alt="MB"
+                  className="w-full h-full object-cover"
+                />
+              </picture>
             </div>
           </div>
 
