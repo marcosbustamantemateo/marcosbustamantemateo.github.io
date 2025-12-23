@@ -92,10 +92,6 @@ export default function Footer() {
               © {new Date().getFullYear()} Marcos Bustamante. Todos los derechos
               reservados.
             </p>
-            <p className="text-xs text-muted-foreground">
-              Diseño inspirado en marca — elementos corporativos y paleta
-              coherente.
-            </p>
           </div>
         </div>
       </div>
