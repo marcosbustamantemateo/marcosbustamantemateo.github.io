@@ -192,6 +192,15 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
                         </h3>
                       </div>
 
+                      {/* Description */}
+                      {project.description && (
+                        <p className="text-sm text-muted-foreground line-clamp-3">
+                          {language === "en" && project.description.en
+                            ? project.description.en
+                            : project.description.es}
+                        </p>
+                      )}
+
                       {/* Technologies */}
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.map((tech, i) => (
