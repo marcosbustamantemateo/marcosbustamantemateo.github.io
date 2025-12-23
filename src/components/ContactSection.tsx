@@ -15,6 +15,7 @@ import { AnimatedSection } from "@/hooks/useScrollAnimation";
 import { trackContactClick } from "@/analytics/events";
 import { useState, useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
+import { ValidationModal } from "@/components/ValidationModal";
 
 interface ContactSectionProps {
   language: "es" | "en";
@@ -47,6 +48,17 @@ const translations = {
     message: "Mensaje",
     messagePlaceholder: "Cuéntame sobre tu proyecto...",
     send: "Enviar mensaje",
+    // Validations
+    validationTitle: "Completa estas validaciones",
+    errorNameRequired: "El nombre es obligatorio",
+    errorNameMinLength: "El nombre debe tener al menos 2 caracteres",
+    errorEmailRequired: "El email es obligatorio",
+    errorEmailInvalid: "El email no es válido",
+    errorSubjectRequired: "El asunto es obligatorio",
+    errorSubjectMinLength: "El asunto debe tener al menos 3 caracteres",
+    errorMessageRequired: "El mensaje es obligatorio",
+    errorMessageMinLength: "El mensaje debe tener al menos 10 caracteres",
+    errorCaptchaRequired: "El reCAPTCHA es obligatorio",
   },
   en: {
     title: "Ready for Your Next Project?",
@@ -74,6 +86,17 @@ const translations = {
     message: "Message",
     messagePlaceholder: "Tell me about your project...",
     send: "Send message",
+    // Validations
+    validationTitle: "Complete these validations",
+    errorNameRequired: "Name is required",
+    errorNameMinLength: "Name must be at least 2 characters",
+    errorEmailRequired: "Email is required",
+    errorEmailInvalid: "Email is not valid",
+    errorSubjectRequired: "Subject is required",
+    errorSubjectMinLength: "Subject must be at least 3 characters",
+    errorMessageRequired: "Message is required",
+    errorMessageMinLength: "Message must be at least 10 characters",
+    errorCaptchaRequired: "Please complete the reCAPTCHA",
   },
 };
 
@@ -87,8 +110,59 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [validationErrors, setValidationErrors] = useState<string[]>([]);
+  const [showValidationModal, setShowValidationModal] = useState(false);
 
   const benefits = [t.benefit1, t.benefit2, t.benefit3, t.benefit4];
+
+  const validateForm = (): boolean => {
+    const errors: string[] = [];
+
+    // Validate name
+    if (!formData.name.trim()) {
+      errors.push(t.errorNameRequired);
+    } else if (formData.name.trim().length < 2) {
+      errors.push(t.errorNameMinLength);
+    }
+
+    // Validate email
+    if (!formData.email.trim()) {
+      errors.push(t.errorEmailRequired);
+    } else {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email)) {
+        errors.push(t.errorEmailInvalid);
+      }
+    }
+
+    // Validate subject
+    if (!formData.subject.trim()) {
+      errors.push(t.errorSubjectRequired);
+    } else if (formData.subject.trim().length < 3) {
+      errors.push(t.errorSubjectMinLength);
+    }
+
+    // Validate message
+    if (!formData.message.trim()) {
+      errors.push(t.errorMessageRequired);
+    } else if (formData.message.trim().length < 10) {
+      errors.push(t.errorMessageMinLength);
+    }
+
+    // Validate reCAPTCHA
+    const token = recaptchaRef.current?.getValue();
+    if (!token) {
+      errors.push(t.errorCaptchaRequired);
+    }
+
+    if (errors.length > 0) {
+      setValidationErrors(errors);
+      setShowValidationModal(true);
+      return false;
+    }
+
+    return true;
+  };
 
   const handleFormChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -103,10 +177,8 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const token = recaptchaRef.current?.getValue();
-
-    if (!token) {
-      console.error("Por favor completa el reCAPTCHA");
+    // Validate form
+    if (!validateForm()) {
       return;
     }
 
@@ -297,7 +369,6 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
                     placeholder={t.namePlaceholder}
                     value={formData.name}
                     onChange={handleFormChange}
-                    required
                     className="bg-muted/50 border-secondary/30 focus:border-secondary/60"
                   />
                 </div>
@@ -312,7 +383,6 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
                     placeholder={t.emailPlaceholder}
                     value={formData.email}
                     onChange={handleFormChange}
-                    required
                     className="bg-muted/50 border-secondary/30 focus:border-secondary/60"
                   />
                 </div>
@@ -327,7 +397,6 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
                     placeholder={t.subjectPlaceholder}
                     value={formData.subject}
                     onChange={handleFormChange}
-                    required
                     className="bg-muted/50 border-secondary/30 focus:border-secondary/60"
                   />
                 </div>
@@ -341,7 +410,6 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
                     placeholder={t.messagePlaceholder}
                     value={formData.message}
                     onChange={handleFormChange}
-                    required
                     rows={5}
                     className="bg-muted/50 border-secondary/30 focus:border-secondary/60 resize-none"
                   />
@@ -368,6 +436,14 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
           </AnimatedSection>
         </div>
       </div>
+
+      {/* Validation Modal */}
+      <ValidationModal
+        isOpen={showValidationModal}
+        errors={validationErrors}
+        onClose={() => setShowValidationModal(false)}
+        title={t.validationTitle}
+      />
     </section>
   );
 };
