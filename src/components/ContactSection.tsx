@@ -104,6 +104,7 @@ const translations = {
 
 export const ContactSection = ({ language }: ContactSectionProps) => {
   const t = translations[language];
+  const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY || "";
   const recaptchaRef = useRef<ReCAPTCHA>(null);
   const [formData, setFormData] = useState({
     name: "",
@@ -151,10 +152,12 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
       errors.push(t.errorMessageMinLength);
     }
 
-    // Validate reCAPTCHA
-    const token = recaptchaRef.current?.getValue();
-    if (!token) {
-      errors.push(t.errorCaptchaRequired);
+    // Validate reCAPTCHA (only if configured)
+    if (siteKey) {
+      const token = recaptchaRef.current?.getValue();
+      if (!token) {
+        errors.push(t.errorCaptchaRequired);
+      }
     }
 
     if (errors.length > 0) {
@@ -431,12 +434,11 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
                   />
                 </div>
 
-                <div className="flex justify-center">
-                  <ReCAPTCHA
-                    ref={recaptchaRef}
-                    sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY || ""}
-                  />
-                </div>
+                {siteKey ? (
+                  <div className="flex justify-center">
+                    <ReCAPTCHA ref={recaptchaRef} sitekey={siteKey} />
+                  </div>
+                ) : null}
 
                 <Button
                   type="submit"
