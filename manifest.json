@@ -1,0 +1,28 @@
+{
+  "author": "Marcos Bustamante",
+  "name": "Marcos Bustamante",
+  "short_name": "MB",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "theme_color": "#00d9ff",
+  "description": "Website of Marcos Bustamante, Software Developer",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "logo.ico",
+      "type": "image/x-icon",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo.ico",
+      "type": "image/x-icon",
+      "sizes": "256x256"
+    },
+    {
+      "src": "logo.ico",
+      "type": "image/x-icon",
+      "sizes": "512x512"
+    }
+  ]
+}
