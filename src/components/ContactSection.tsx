@@ -13,7 +13,8 @@ import {
 } from "lucide-react";
 import { AnimatedSection } from "@/hooks/useScrollAnimation";
 import { trackContactClick } from "@/analytics/events";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 
 interface ContactSectionProps {
   language: "es" | "en";
@@ -78,6 +79,7 @@ const translations = {
 
 export const ContactSection = ({ language }: ContactSectionProps) => {
   const t = translations[language];
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -100,13 +102,21 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const token = recaptchaRef.current?.getValue();
+
+    if (!token) {
+      console.error("Por favor completa el reCAPTCHA");
+      return;
+    }
+
     setIsSubmitting(true);
 
-    const telegramToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
-    const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID;
-    const telegramMessage = `📧 Nuevo mensaje de contacto\n\n👤 Nombre: ${formData.name}\n📧 Email: ${formData.email}\n📌 Asunto: ${formData.subject}\n\n💬 Mensaje:\n${formData.message}`;
-
     try {
+      const telegramToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
+      const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID;
+      const telegramMessage = `📧 Nuevo mensaje de contacto\n\n👤 Nombre: ${formData.name}\n📧 Email: ${formData.email}\n📌 Asunto: ${formData.subject}\n\n💬 Mensaje:\n${formData.message}`;
+
       const response = await fetch(
         `https://api.telegram.org/bot${telegramToken}/sendMessage`,
         {
@@ -131,6 +141,7 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
           subject: "",
           message: "",
         });
+        recaptchaRef.current?.reset();
       } else {
         console.error("❌ Error al enviar a Telegram:", data);
       }
@@ -336,6 +347,13 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
                   />
                 </div>
 
+                <div className="flex justify-center">
+                  <ReCAPTCHA
+                    ref={recaptchaRef}
+                    sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY || ""}
+                  />
+                </div>
+
                 <Button
                   type="submit"
                   size="lg"
@@ -353,5 +371,3 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
     </section>
   );
 };
-
-export default ContactSection;
