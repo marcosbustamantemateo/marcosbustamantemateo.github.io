@@ -158,7 +158,7 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
                 >
                   <div className="group relative overflow-hidden rounded-xl glass border-2 border-primary/20 hover:border-primary/50 transition-all duration-500 hover:shadow-hover cursor-pointer h-full">
                     {/* Image */}
-                    <div className="relative h-48 overflow-hidden">
+                    <div className="relative h-64 md:h-72 lg:h-80 overflow-hidden">
                       <OptimizedImage
                         src={project.imageUrl}
                         alt={project.title}
@@ -178,8 +178,8 @@ export const ProjectsSection = ({ language }: ProjectsSectionProps) => {
                         </span>
                       </div>
 
-                      {/* Hover overlay line */}
-                      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-neon transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+                      {/* Hover overlay line - always visible */}
+                      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-neon transform scale-x-100 transition-transform duration-500" />
                     </div>
 
                     {/* Content */}
