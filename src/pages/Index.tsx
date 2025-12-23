@@ -8,6 +8,7 @@ import { ProgrammingLanguagesSection } from "@/components/ProgrammingLanguagesSe
 import { TechnologiesSection } from "@/components/TechnologiesSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { ContactSection } from "@/components/ContactSection";
+import Footer from "@/components/Footer";
 import { CodeBackground } from "@/components/CodeBackground";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { AnimatePresence } from "framer-motion";
@@ -70,6 +71,7 @@ const Index = () => {
             {/* <CVSection language={language} /> */}
             <ProjectsSection language={language} />
             <ContactSection language={language} />
+            <Footer />
           </main>
         </div>
       )}
