@@ -9,6 +9,7 @@ import EducationList from "@/components/EducationList";
 import TechnologyCategoryList from "@/components/TechnologyCategoryList";
 import TestimonialList from "@/components/TestimonialList";
 import ProgrammingLanguageList from "@/components/ProgrammingLanguageList";
+import { MessageList } from "@/components/MessageList";
 import { Button } from "@/components/ui/button";
 import { LogOut, Loader2, User, ArrowLeft } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -141,6 +142,11 @@ export default function Admin() {
 
       {/* Content */}
       <main className="container mx-auto px-4 py-8">
+        {/* Messages Section - Always visible on top */}
+        <div className="mb-12">
+          <MessageList />
+        </div>
+
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           {/* Mobile: Dropdown selector */}
           <div className="lg:hidden mb-8">

@@ -16,6 +16,8 @@ import { trackContactClick } from "@/analytics/events";
 import { useState, useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { ValidationModal } from "@/components/ValidationModal";
+import { db } from "@/config/firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 interface ContactSectionProps {
   language: "es" | "en";
@@ -185,6 +187,18 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
     setIsSubmitting(true);
 
     try {
+      // Guardar en Firestore
+      await addDoc(collection(db, "messages"), {
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        createdAt: serverTimestamp(),
+        read: false,
+      });
+      console.log("✅ Mensaje guardado en Firestore");
+
+      // Enviar a Telegram
       const telegramToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
       const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID;
       const telegramMessage = `📧 Nuevo mensaje de contacto\n\n👤 Nombre: ${formData.name}\n📧 Email: ${formData.email}\n📌 Asunto: ${formData.subject}\n\n💬 Mensaje:\n${formData.message}`;
@@ -207,18 +221,20 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
 
       if (response.ok) {
         console.log("✅ Mensaje enviado a Telegram exitosamente");
-        setFormData({
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-        });
-        recaptchaRef.current?.reset();
       } else {
         console.error("❌ Error al enviar a Telegram:", data);
       }
+
+      // Limpiar formulario
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+      recaptchaRef.current?.reset();
     } catch (error) {
-      console.error("❌ Error sending to Telegram:", error);
+      console.error("❌ Error:", error);
     } finally {
       setIsSubmitting(false);
     }
