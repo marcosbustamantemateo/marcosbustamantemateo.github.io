@@ -16,6 +16,7 @@ import { trackContactClick } from "@/analytics/events";
 import { useState, useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { ValidationModal } from "@/components/ValidationModal";
+import { SuccessModal } from "@/components/SuccessModal";
 import { db } from "@/config/firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
@@ -61,6 +62,8 @@ const translations = {
     errorMessageRequired: "El mensaje es obligatorio",
     errorMessageMinLength: "El mensaje debe tener al menos 10 caracteres",
     errorCaptchaRequired: "El reCAPTCHA es obligatorio",
+    successTitle: "Mensaje enviado",
+    successMessage: "Gracias por tu mensaje. Te responderé lo antes posible.",
   },
   en: {
     title: "Ready for Your Next Project?",
@@ -99,6 +102,9 @@ const translations = {
     errorMessageRequired: "Message is required",
     errorMessageMinLength: "Message must be at least 10 characters",
     errorCaptchaRequired: "Please complete the reCAPTCHA",
+    successTitle: "Message sent",
+    successMessage:
+      "Thanks for your message. I will reply as soon as possible.",
   },
 };
 
@@ -115,41 +121,65 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [validationErrors, setValidationErrors] = useState<string[]>([]);
   const [showValidationModal, setShowValidationModal] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [fieldErrors, setFieldErrors] = useState({
+    name: false,
+    email: false,
+    subject: false,
+    message: false,
+    captcha: false,
+  });
 
   const benefits = [t.benefit1, t.benefit2, t.benefit3, t.benefit4];
 
   const validateForm = (): boolean => {
     const errors: string[] = [];
 
+    const newFieldErrors = {
+      name: false,
+      email: false,
+      subject: false,
+      message: false,
+      captcha: false,
+    };
+
     // Validate name
     if (!formData.name.trim()) {
       errors.push(t.errorNameRequired);
+      newFieldErrors.name = true;
     } else if (formData.name.trim().length < 2) {
       errors.push(t.errorNameMinLength);
+      newFieldErrors.name = true;
     }
 
     // Validate email
     if (!formData.email.trim()) {
       errors.push(t.errorEmailRequired);
+      newFieldErrors.email = true;
     } else {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(formData.email)) {
         errors.push(t.errorEmailInvalid);
+        newFieldErrors.email = true;
       }
     }
 
     // Validate subject
     if (!formData.subject.trim()) {
       errors.push(t.errorSubjectRequired);
+      newFieldErrors.subject = true;
     } else if (formData.subject.trim().length < 3) {
       errors.push(t.errorSubjectMinLength);
+      newFieldErrors.subject = true;
     }
 
     // Validate message
     if (!formData.message.trim()) {
       errors.push(t.errorMessageRequired);
+      newFieldErrors.message = true;
     } else if (formData.message.trim().length < 10) {
       errors.push(t.errorMessageMinLength);
+      newFieldErrors.message = true;
     }
 
     // Validate reCAPTCHA (only if configured)
@@ -157,8 +187,11 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
       const token = recaptchaRef.current?.getValue();
       if (!token) {
         errors.push(t.errorCaptchaRequired);
+        newFieldErrors.captcha = true;
       }
     }
+
+    setFieldErrors(newFieldErrors);
 
     if (errors.length > 0) {
       setValidationErrors(errors);
@@ -177,6 +210,25 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
       ...prev,
       [name]: value,
     }));
+
+    // Update field-specific error state on change so invalid fields stay red until corrected
+    setFieldErrors((prev) => {
+      const next = { ...prev } as any;
+      if (name === "name") {
+        next.name = value.trim().length < 2;
+      }
+      if (name === "email") {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        next.email = !emailRegex.test(value);
+      }
+      if (name === "subject") {
+        next.subject = value.trim().length < 3;
+      }
+      if (name === "message") {
+        next.message = value.trim().length < 10;
+      }
+      return next;
+    });
   };
 
   const handleFormSubmit = async (e: React.FormEvent) => {
@@ -236,6 +288,14 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
         message: "",
       });
       recaptchaRef.current?.reset();
+      setFieldErrors({
+        name: false,
+        email: false,
+        subject: false,
+        message: false,
+        captcha: false,
+      });
+      setShowSuccessModal(true);
     } catch (error) {
       console.error("❌ Error:", error);
     } finally {
@@ -388,7 +448,11 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
                     placeholder={t.namePlaceholder}
                     value={formData.name}
                     onChange={handleFormChange}
-                    className="bg-muted/50 border-secondary/30 focus:border-secondary/60"
+                    className={`bg-muted/50 border-secondary/30 focus:border-secondary/60 ${
+                      fieldErrors.name
+                        ? "border-red-500 ring-1 ring-red-500"
+                        : ""
+                    }`}
                   />
                 </div>
 
@@ -402,7 +466,11 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
                     placeholder={t.emailPlaceholder}
                     value={formData.email}
                     onChange={handleFormChange}
-                    className="bg-muted/50 border-secondary/30 focus:border-secondary/60"
+                    className={`bg-muted/50 border-secondary/30 focus:border-secondary/60 ${
+                      fieldErrors.email
+                        ? "border-red-500 ring-1 ring-red-500"
+                        : ""
+                    }`}
                   />
                 </div>
 
@@ -416,7 +484,11 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
                     placeholder={t.subjectPlaceholder}
                     value={formData.subject}
                     onChange={handleFormChange}
-                    className="bg-muted/50 border-secondary/30 focus:border-secondary/60"
+                    className={`bg-muted/50 border-secondary/30 focus:border-secondary/60 ${
+                      fieldErrors.subject
+                        ? "border-red-500 ring-1 ring-red-500"
+                        : ""
+                    }`}
                   />
                 </div>
 
@@ -430,12 +502,23 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
                     value={formData.message}
                     onChange={handleFormChange}
                     rows={5}
-                    className="bg-muted/50 border-secondary/30 focus:border-secondary/60 resize-none"
+                    className={`bg-muted/50 border-secondary/30 focus:border-secondary/60 resize-none ${
+                      fieldErrors.message
+                        ? "border-red-500 ring-1 ring-red-500"
+                        : ""
+                    }`}
                   />
                 </div>
 
                 {siteKey ? (
-                  <div className="flex justify-center">
+                  <div
+                    className={`flex justify-center ${
+                      fieldErrors.captcha
+                        ? "ring-1 ring-red-500 rounded-md p-1"
+                        : ""
+                    }
+                  `}
+                  >
                     <ReCAPTCHA ref={recaptchaRef} sitekey={siteKey} />
                   </div>
                 ) : null}
@@ -461,6 +544,12 @@ export const ContactSection = ({ language }: ContactSectionProps) => {
         errors={validationErrors}
         onClose={() => setShowValidationModal(false)}
         title={t.validationTitle}
+      />
+      <SuccessModal
+        isOpen={showSuccessModal}
+        onClose={() => setShowSuccessModal(false)}
+        title={t.successTitle}
+        message={t.successMessage}
       />
     </section>
   );
