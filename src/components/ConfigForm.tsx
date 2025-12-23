@@ -2,7 +2,13 @@ import { useState, FormEvent, useEffect } from "react";
 import { useConfigCRUD, ProjectSettings } from "@/hooks/useConfigCRUD";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Save, Loader2, AlertCircle } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
@@ -84,12 +90,15 @@ export default function ConfigForm() {
 
   if (!config) {
     return (
-      <div className="max-w-2xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <Card>
           <CardHeader>
-            <CardTitle className="text-3xl">
-              Configuración del Proyecto
+            <CardTitle className="flex items-center gap-2 text-primary text-2xl">
+              ⚙️ Configuración del Proyecto
             </CardTitle>
+            <CardDescription>
+              Crea la configuración global para tu portfolio
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <Alert className="bg-yellow-50 text-yellow-800 border-yellow-200 mb-6">
@@ -104,7 +113,9 @@ export default function ConfigForm() {
             <form onSubmit={handleSubmit} className="space-y-8">
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-lg font-semibold mb-4">Estadísticas</h3>
+                  <h2 className="text-2xl font-bold text-primary mb-6">
+                    Estadísticas
+                  </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="yearsOfExperience">
@@ -154,9 +165,9 @@ export default function ConfigForm() {
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold mb-4">
+                  <h2 className="text-2xl font-bold text-primary mb-6">
                     Formato de Visualización
-                  </h3>
+                  </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="experienceFormat">
@@ -209,8 +220,12 @@ export default function ConfigForm() {
                 </div>
               </div>
 
-              <div className="flex gap-3 justify-end">
-                <Button type="submit" disabled={saving} className="gap-2">
+              <div className="flex gap-3 pt-4">
+                <Button
+                  type="submit"
+                  disabled={saving}
+                  className="flex-1 gap-2"
+                >
                   {saving ? (
                     <>
                       <Loader2 className="w-4 h-4 animate-spin" />
@@ -232,13 +247,15 @@ export default function ConfigForm() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="max-w-4xl mx-auto">
       <Card>
         <CardHeader>
-          <CardTitle className="text-3xl">Configuración del Proyecto</CardTitle>
-          <p className="text-muted-foreground mt-2">
+          <CardTitle className="flex items-center gap-2 text-primary text-2xl">
+            ⚙️ Configuración del Proyecto
+          </CardTitle>
+          <CardDescription>
             Actualiza las estadísticas y configuración global
-          </p>
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-8">
@@ -260,7 +277,9 @@ export default function ConfigForm() {
 
             <div className="space-y-6">
               <div>
-                <h3 className="text-lg font-semibold mb-4">Estadísticas</h3>
+                <h2 className="text-2xl font-bold text-primary mb-6">
+                  Estadísticas
+                </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="yearsOfExperience">
@@ -307,9 +326,9 @@ export default function ConfigForm() {
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold mb-4">
+                <h2 className="text-2xl font-bold text-primary mb-6">
                   Formato de Visualización
-                </h3>
+                </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="experienceFormat">
@@ -362,8 +381,8 @@ export default function ConfigForm() {
               </div>
             </div>
 
-            <div className="flex gap-3 justify-end">
-              <Button type="submit" disabled={saving} className="gap-2">
+            <div className="flex gap-3 pt-4">
+              <Button type="submit" disabled={saving} className="flex-1 gap-2">
                 {saving ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin" />
