@@ -24,6 +24,20 @@ Portfolio profesional desarrollado con React, TypeScript, Vite y Firebase. Siste
 - **Caché Inteligente**: Sistema de caché de 5 minutos para reducir lecturas de Firestore
 - **Sin Datos Hardcodeados**: Toda la información es dinámica y configurable
 
+### Pantalla de Carga
+
+- **Loading Screen Dinámico**: Se muestra mientras se cargan los datos de Firebase
+- **Logo Animado**: Con efecto de brillo y bordes animados
+- **Indicadores Visuales**: Puntos pulsantes que indican carga
+
+### Sistema de Contacto Avanzado
+
+- **Formulario de Contacto**: Con validaciones personalizadas en modal
+- **Validaciones en Modal**: Interfaz elegante con errores centrados en pantalla
+- **Integración Telegram**: Envío automático de mensajes a Telegram Bot
+- **Google reCAPTCHA v2**: Protección contra spam y bots con checkbox verificable
+- **Confirmación Visual**: Reseteo del formulario después de envío exitoso
+
 ### Colecciones Firebase
 
 1. **config/projectSettings** - Configuración global
@@ -71,6 +85,8 @@ Sistema completo de gestión con interfaz de administración que permite:
 - **Tailwind CSS** - Framework CSS utility-first
 - **shadcn/ui** - Componentes UI
 - **Lucide React** - Iconos
+- **Framer Motion** - Animaciones avanzadas
+- **react-google-recaptcha** - Integración con reCAPTCHA v2
 
 ### Backend & Storage
 
@@ -102,12 +118,14 @@ marcosbustamantemateo.github.io/
 │   ├── components/                  # Componentes React
 │   │   ├── ui/                      # Componentes shadcn/ui
 │   │   ├── AboutSection.tsx
-│   │   ├── ContactSection.tsx
+│   │   ├── ContactSection.tsx       # Formulario con validaciones y Telegram
 │   │   ├── Header.tsx
 │   │   ├── HeroSection.tsx
+│   │   ├── LoadingScreen.tsx        # Pantalla de carga con animaciones
 │   │   ├── ProfileSection.tsx
 │   │   ├── ProjectsSection.tsx
 │   │   ├── TechnologiesSection.tsx
+│   │   ├── ValidationModal.tsx      # Modal de validaciones del formulario
 │   │   ├── Timeline.tsx
 │   │   └── ...
 │   ├── config/                      # Configuración
@@ -181,7 +199,13 @@ bun install
 
 ### 3. Configurar Variables de Entorno
 
-Crea un archivo `.env.local` en la raíz del proyecto:
+Copia el archivo `.env.example` a `.env.local`:
+
+```bash
+cp .env.example .env.local
+```
+
+Luego edita `.env.local` y añade tus credenciales:
 
 ```env
 # Firebase Configuration
@@ -192,15 +216,39 @@ VITE_FIREBASE_STORAGE_BUCKET=tu_proyecto.appspot.com
 VITE_FIREBASE_MESSAGING_SENDER_ID=tu_sender_id
 VITE_FIREBASE_APP_ID=tu_app_id
 VITE_FIREBASE_MEASUREMENT_ID=tu_measurement_id
+
+# Telegram Bot Configuration (Opcional)
+VITE_TELEGRAM_BOT_TOKEN=tu_bot_token
+VITE_TELEGRAM_CHAT_ID=tu_chat_id
+
+# Google reCAPTCHA v2 Configuration (Opcional)
+VITE_RECAPTCHA_SITE_KEY=tu_site_key
 ```
 
 **Obtener credenciales:**
+
+#### Firebase:
 
 1. Ve a [Firebase Console](https://console.firebase.google.com/)
 2. Selecciona tu proyecto o crea uno nuevo
 3. Ve a **Project Settings** → **General**
 4. En **Your apps**, selecciona la app web
 5. Copia las credenciales del objeto `firebaseConfig`
+
+#### Telegram Bot (Opcional):
+
+1. Abre [BotFather](https://t.me/botfather) en Telegram
+2. Escribe `/newbot` y sigue las instrucciones
+3. Copia el **token** proporcionado
+4. Obtén tu `chat_id` abriendo una conversación con el bot y visitando `https://api.telegram.org/bot{TOKEN}/getUpdates`
+
+#### Google reCAPTCHA v2 (Opcional):
+
+1. Ve a [Google reCAPTCHA Admin Console](https://www.google.com/recaptcha/admin)
+2. Crea un nuevo sitio
+3. Elige **reCAPTCHA v2** → **"Estoy de acuerdo que no soy un robot"**
+4. Añade tus dominios (localhost, 127.0.0.1, tu dominio en producción)
+5. Copia la **Site Key**
 
 ---
 
