@@ -40,7 +40,7 @@ export default function WorkExperienceForm({
   });
 
   const [technologies, setTechnologies] = useState<string[]>(
-    experience?.technologies || []
+    experience?.technologies || [],
   );
   const [techInput, setTechInput] = useState("");
   const [saving, setSaving] = useState(false);
@@ -202,7 +202,7 @@ export default function WorkExperienceForm({
                     setFormData({ ...formData, periodEs: e.target.value })
                   }
                   required
-                  placeholder="Ej: 01/2020 – 12/20212 años"
+                  placeholder="Ej: 01/2020 – 12/2021 2 años"
                   className="text-base"
                 />
               </div>
@@ -215,7 +215,7 @@ export default function WorkExperienceForm({
                     setFormData({ ...formData, periodEn: e.target.value })
                   }
                   required
-                  placeholder="E.g: 01/2020 – 12/20212 years"
+                  placeholder="E.g: 01/2020 – 12/2021 2 years"
                   className="text-base"
                 />
               </div>

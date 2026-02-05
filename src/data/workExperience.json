@@ -7,8 +7,8 @@
       "en": "Senior Software Developer"
     },
     "period": {
-      "es": "10/2023 – Presente2 años y 2 meses",
-      "en": "10/2023 – Present2 years and 2 months"
+      "es": "10/2023 – Presente 2 años y 2 meses",
+      "en": "10/2023 – Present 2 years and 2 months"
     },
     "description": {
       "es": "Desarrollo, mantenimiento y soporte en .NET, Python y Javascript. Despliegues con Docker en ecosistema Azure (Key vault, App service, BBDD, Logic Apps, y Azure Functions entre otros) con exposición puntual a Kubernetes. Participación en toma de requisitos con clientes, estimaciones de horas y planificaciones de desarrollo.",
@@ -45,8 +45,8 @@
       "en": "Technical Manager MES Department"
     },
     "period": {
-      "es": "01/2023 – 10/20239 meses",
-      "en": "01/2023 – 10/20239 months"
+      "es": "01/2023 – 10/2023 9 meses",
+      "en": "01/2023 – 10/2023 9 months"
     },
     "description": {
       "es": "Supervisión de nuevos desarrollos, diseño de arquitecturas enfocadas a microservicios y organización de equipo a nivel técnico.",
@@ -77,8 +77,8 @@
       "en": "Senior Software Developer MES Department"
     },
     "period": {
-      "es": "01/2022 – 02/20231 año y 1 mes",
-      "en": "01/2022 – 02/20231 year and 1 month"
+      "es": "01/2022 – 02/2023 1 año y 1 mes",
+      "en": "01/2022 – 02/2023 1 year and 1 month"
     },
     "description": {
       "es": "Planificación y desarrollo de proyectos ad-hoc: desde recolección de requisitos, diseño y ejecución hasta despliegue y puesta en producción, así como integración continua y despliegue continuo.",
@@ -109,8 +109,8 @@
       "en": "Software Developer MES Department"
     },
     "period": {
-      "es": "09/2020 – 01/20221 año y 4 meses",
-      "en": "09/2020 – 01/20221 year and 4 months"
+      "es": "09/2020 – 01/2022 1 año y 4 meses",
+      "en": "09/2020 – 01/2022 1 year and 4 months"
     },
     "description": {
       "es": "Desarrollo de software enfocado a la transformación digital en el ámbito de la industria 4.0. Gestión de órdenes de Fabricación, integración con sistemas ERP, Gestión de Materiales, Trazabilidad y Genealogía, Autocontrol de Lotes, Gestión de consumos de Energía, Gestión de OEE/DTM, Indicadores de Métricas de productividad (KPI's), Gestión de Personal, Gestión de Calidad, Gestión Mantenimiento, Gestión de Recetas y Fórmulas Maestras BATCH.",
@@ -141,8 +141,8 @@
       "en": "Freelance Software Developer"
     },
     "period": {
-      "es": "11/2019 – 09/202010 meses",
-      "en": "11/2019 – 09/202010 months"
+      "es": "11/2019 – 09/2020 10 meses",
+      "en": "11/2019 – 09/2020 10 months"
     },
     "description": {
       "es": "Desarrollo y mantenimiento de cualquier solicitud de software (web, escritorio o móvil) por parte del cliente.",
@@ -184,8 +184,8 @@
       "en": "Software Developer"
     },
     "period": {
-      "es": "01/2019 – 06/20195 meses",
-      "en": "01/2019 – 06/20195 months"
+      "es": "01/2019 – 06/2019 5 meses",
+      "en": "01/2019 – 06/2019 5 months"
     },
     "description": {
       "es": "Programación web con tecnologías como Spring Boot, Spring Data, Spring Rest, JPA, Hibernate, QueryDSL y JUnit para backend y React, Redux, CSS3 y HTML5 para frontend.",
@@ -222,8 +222,8 @@
       "en": "Freelance Software Developer"
     },
     "period": {
-      "es": "09/2018 – 12/20183 meses",
-      "en": "09/2018 – 12/20183 months"
+      "es": "09/2018 – 12/2018 3 meses",
+      "en": "09/2018 – 12/2018 3 months"
     },
     "description": {
       "es": "Desarrollo y mantenimiento de cualquier solicitud de software (web, escritorio o móvil) por parte del cliente.",
@@ -265,8 +265,8 @@
       "en": "Java Software Developer"
     },
     "period": {
-      "es": "04/2018 – 06/20182 meses",
-      "en": "04/2018 – 06/20182 months"
+      "es": "04/2018 – 06/2018 2 meses",
+      "en": "04/2018 – 06/2018 2 months"
     },
     "description": {
       "es": "Trabajando en framework basado en Java con tecnologías como Java EE, Java SWT, Spring Boot, JUnit, Mockito, Docker e ImDB (db2).",

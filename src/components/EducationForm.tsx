@@ -40,7 +40,7 @@ export default function EducationForm({
   });
 
   const [technologies, setTechnologies] = useState<string[]>(
-    education?.technologies || []
+    education?.technologies || [],
   );
   const [techInput, setTechInput] = useState("");
   const [saving, setSaving] = useState(false);
@@ -157,7 +157,7 @@ export default function EducationForm({
                       setFormData({ ...formData, periodEs: e.target.value })
                     }
                     required
-                    placeholder="Ej: 09/2015 – 06/20194 años"
+                    placeholder="Ej: 09/2015 – 06/2019 4 años"
                     className="text-base"
                   />
                 </div>
@@ -206,7 +206,7 @@ export default function EducationForm({
                       setFormData({ ...formData, periodEn: e.target.value })
                     }
                     required
-                    placeholder="E.g: 09/2015 – 06/20194 years"
+                    placeholder="E.g: 09/2015 – 06/2019 4 years"
                     className="text-base"
                   />
                 </div>
