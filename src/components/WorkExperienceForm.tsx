@@ -1,4 +1,4 @@
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect } from "react";
 import {
   collection,
   addDoc,
@@ -16,6 +16,14 @@ import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { X, Plus, Save, Loader2, ArrowLeft } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { parsePeriod, buildPeriodString } from "@/lib/dateUtils";
 
 interface WorkExperienceFormProps {
   experience?: WorkExperience | null;
@@ -28,15 +36,42 @@ export default function WorkExperienceForm({
   onCancel,
   onSuccess,
 }: WorkExperienceFormProps) {
+  // Parse existing period if editing
+  const parsedPeriodEs = experience?.period.es
+    ? parsePeriod(experience.period.es)
+    : {
+        startMonth: "01",
+        startYear: new Date().getFullYear().toString(),
+        endMonth: "",
+        endYear: "",
+        isPresent: true,
+      };
+
+  const parsedPeriodEn = experience?.period.en
+    ? parsePeriod(experience.period.en)
+    : {
+        startMonth: "01",
+        startYear: new Date().getFullYear().toString(),
+        endMonth: "",
+        endYear: "",
+        isPresent: true,
+      };
+
   const [formData, setFormData] = useState({
     company: experience?.company || "",
     positionEs: experience?.position.es || "",
     positionEn: experience?.position.en || "",
-    periodEs: experience?.period.es || "",
-    periodEn: experience?.period.en || "",
     descriptionEs: experience?.description.es || "",
     descriptionEn: experience?.description.en || "",
     order: experience?.order || 0,
+  });
+
+  const [dateData, setDateData] = useState({
+    startMonth: parsedPeriodEs.startMonth,
+    startYear: parsedPeriodEs.startYear,
+    endMonth: parsedPeriodEs.endMonth,
+    endYear: parsedPeriodEs.endYear,
+    isPresent: parsedPeriodEs.isPresent,
   });
 
   const [technologies, setTechnologies] = useState<string[]>(
@@ -45,6 +80,25 @@ export default function WorkExperienceForm({
   const [techInput, setTechInput] = useState("");
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
+
+  // Calculate periods dynamically
+  const periodEs = buildPeriodString(
+    dateData.startMonth,
+    dateData.startYear,
+    dateData.endMonth,
+    dateData.endYear,
+    dateData.isPresent,
+    "es",
+  );
+
+  const periodEn = buildPeriodString(
+    dateData.startMonth,
+    dateData.startYear,
+    dateData.endMonth,
+    dateData.endYear,
+    dateData.isPresent,
+    "en",
+  );
 
   const addTechnology = () => {
     if (techInput.trim() && !technologies.includes(techInput.trim())) {
@@ -66,6 +120,17 @@ export default function WorkExperienceForm({
       return;
     }
 
+    // Validación de fechas
+    if (!dateData.startMonth || !dateData.startYear) {
+      setError("Debes especificar al menos la fecha de inicio");
+      return;
+    }
+
+    if (!dateData.isPresent && (!dateData.endMonth || !dateData.endYear)) {
+      setError("Debes especificar la fecha de fin o marcar como Presente");
+      return;
+    }
+
     setSaving(true);
 
     try {
@@ -76,8 +141,8 @@ export default function WorkExperienceForm({
           en: formData.positionEn,
         },
         period: {
-          es: formData.periodEs,
-          en: formData.periodEn,
+          es: periodEs,
+          en: periodEn,
         },
         description: {
           es: formData.descriptionEs,
@@ -191,33 +256,127 @@ export default function WorkExperienceForm({
               </div>
             </div>
 
-            {/* Período - Bilingüe */}
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <Label htmlFor="periodEs">Período (ES) *</Label>
-                <Input
-                  id="periodEs"
-                  value={formData.periodEs}
-                  onChange={(e) =>
-                    setFormData({ ...formData, periodEs: e.target.value })
-                  }
-                  required
-                  placeholder="Ej: 01/2020 – 12/2021 2 años"
-                  className="text-base"
-                />
+            {/* Período */}
+            <div className="space-y-4 p-4 bg-muted/30 rounded-lg border border-primary/10">
+              <Label className="text-lg font-semibold">Período *</Label>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                {/* Fecha de Inicio */}
+                <div className="space-y-2">
+                  <Label className="text-sm text-muted-foreground">
+                    Fecha de Inicio
+                  </Label>
+                  <div className="flex gap-2">
+                    <Select
+                      value={dateData.startMonth}
+                      onValueChange={(value) =>
+                        setDateData({ ...dateData, startMonth: value })
+                      }
+                    >
+                      <SelectTrigger className="flex-1">
+                        <SelectValue placeholder="Mes" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {Array.from({ length: 12 }, (_, i) => {
+                          const month = (i + 1).toString().padStart(2, "0");
+                          return (
+                            <SelectItem key={month} value={month}>
+                              {month}
+                            </SelectItem>
+                          );
+                        })}
+                      </SelectContent>
+                    </Select>
+                    <Input
+                      type="number"
+                      value={dateData.startYear}
+                      onChange={(e) =>
+                        setDateData({ ...dateData, startYear: e.target.value })
+                      }
+                      placeholder="Año"
+                      min="1900"
+                      max={new Date().getFullYear()}
+                      className="w-24"
+                      required
+                    />
+                  </div>
+                </div>
+
+                {/* Fecha de Fin */}
+                <div className="space-y-2">
+                  <Label className="text-sm text-muted-foreground">
+                    Fecha de Fin
+                  </Label>
+                  <div className="flex gap-2">
+                    <Select
+                      value={dateData.isPresent ? "present" : dateData.endMonth}
+                      onValueChange={(value) => {
+                        if (value === "present") {
+                          setDateData({
+                            ...dateData,
+                            isPresent: true,
+                            endMonth: "",
+                            endYear: "",
+                          });
+                        } else {
+                          setDateData({
+                            ...dateData,
+                            isPresent: false,
+                            endMonth: value,
+                          });
+                        }
+                      }}
+                    >
+                      <SelectTrigger className="flex-1">
+                        <SelectValue placeholder="Mes" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="present">Presente</SelectItem>
+                        {Array.from({ length: 12 }, (_, i) => {
+                          const month = (i + 1).toString().padStart(2, "0");
+                          return (
+                            <SelectItem key={month} value={month}>
+                              {month}
+                            </SelectItem>
+                          );
+                        })}
+                      </SelectContent>
+                    </Select>
+                    <Input
+                      type="number"
+                      value={dateData.endYear}
+                      onChange={(e) =>
+                        setDateData({ ...dateData, endYear: e.target.value })
+                      }
+                      placeholder="Año"
+                      min="1900"
+                      max={new Date().getFullYear() + 10}
+                      className="w-24"
+                      disabled={dateData.isPresent}
+                      required={!dateData.isPresent}
+                    />
+                  </div>
+                </div>
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="periodEn">Period (EN) *</Label>
-                <Input
-                  id="periodEn"
-                  value={formData.periodEn}
-                  onChange={(e) =>
-                    setFormData({ ...formData, periodEn: e.target.value })
-                  }
-                  required
-                  placeholder="E.g: 01/2020 – 12/2021 2 years"
-                  className="text-base"
-                />
+
+              {/* Preview */}
+              <div className="pt-3 border-t">
+                <div className="grid md:grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <span className="text-muted-foreground">
+                      🇪🇸 Vista previa:{" "}
+                    </span>
+                    <span className="font-semibold text-primary">
+                      {periodEs}
+                    </span>
+                  </div>
+                  <div>
+                    <span className="text-muted-foreground">🇬🇧 Preview: </span>
+                    <span className="font-semibold text-primary">
+                      {periodEn}
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
 
