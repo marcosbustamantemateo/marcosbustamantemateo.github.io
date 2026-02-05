@@ -11,7 +11,6 @@ import {
   Trash2,
   Plus,
   MessageSquare,
-  Star,
   ExternalLink,
 } from "lucide-react";
 import {
@@ -154,14 +153,6 @@ export default function TestimonialList() {
                           </a>
                         )}
                       </CardTitle>
-                      <div className="flex items-center gap-1">
-                        {Array.from({ length: test.rating }).map((_, i) => (
-                          <Star
-                            key={i}
-                            className="w-4 h-4 fill-yellow-500 text-yellow-500"
-                          />
-                        ))}
-                      </div>
                     </div>
                   </div>
                   <div className="flex gap-2">

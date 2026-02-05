@@ -29,7 +29,6 @@ export default function TestimonialForm({
     contentEs: testimonial?.content.es || "",
     contentEn: testimonial?.content.en || "",
     linkedin: testimonial?.linkedin || "",
-    rating: testimonial?.rating || 5,
     order: testimonial?.order || 0,
   });
 
@@ -48,7 +47,6 @@ export default function TestimonialForm({
         imageUrl: formData.imageUrl,
         content: { es: formData.contentEs, en: formData.contentEn },
         linkedin: formData.linkedin,
-        rating: formData.rating,
         order: formData.order,
         updatedAt: serverTimestamp(),
       };
@@ -250,43 +248,21 @@ export default function TestimonialForm({
               />
             </div>
 
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Label htmlFor="rating">Rating (1-5) *</Label>
-                <Input
-                  id="rating"
-                  type="number"
-                  min="1"
-                  max="5"
-                  value={formData.rating}
-                  onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      rating: parseInt(e.target.value) || 5,
-                    })
-                  }
-                  required
-                  placeholder="5"
-                  className="text-base"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="order">Orden</Label>
-                <Input
-                  id="order"
-                  type="number"
-                  value={formData.order}
-                  onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      order: parseInt(e.target.value) || 0,
-                    })
-                  }
-                  placeholder="0"
-                  className="text-base"
-                />
-              </div>
+            <div className="space-y-2">
+              <Label htmlFor="order">Orden</Label>
+              <Input
+                id="order"
+                type="number"
+                value={formData.order}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    order: parseInt(e.target.value) || 0,
+                  })
+                }
+                placeholder="0"
+                className="text-base"
+              />
             </div>
 
             <div className="flex gap-3 pt-4">

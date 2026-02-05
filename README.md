@@ -308,7 +308,6 @@ firestore/
 │   │   ├── imageUrl (opcional)     # URL de foto del testimonio
 │   │   ├── content{es,en}
 │   │   ├── linkedin (opcional)
-│   │   ├── rating
 │   │   └── order
 │   └── test2...
 ├── technologyCategories/           # Colección
@@ -666,7 +665,6 @@ npm run init-firebase
     "en": "Excellent professional with great technical skills"
   },
   "linkedin": "https://www.linkedin.com/in/usuario",
-  "rating": 5,
   "order": 6
 }
 ```

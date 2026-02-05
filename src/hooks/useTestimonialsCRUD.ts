@@ -12,7 +12,6 @@ export interface Testimonial {
     en: string;
   };
   linkedin?: string;
-  rating: number;
   order?: number;
 }
 
@@ -40,7 +39,7 @@ export const useTestimonialsCRUD = () => {
           console.error("Error fetching testimonials:", err);
           setError(err.message);
           setLoading(false);
-        }
+        },
       );
 
       return () => unsubscribe();

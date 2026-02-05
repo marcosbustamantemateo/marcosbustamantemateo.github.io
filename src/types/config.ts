@@ -166,7 +166,6 @@ export interface TestimonialConfig {
     en: string;
   };
   linkedin?: string;
-  rating: number;
   imageUrl?: string;
   order: number;
 }
